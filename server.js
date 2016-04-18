@@ -9,45 +9,59 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
-app.get("/ingredientlist", function(req, res){
+app.get("/ingredientlist", function(req, res) {
     console.log("I received a GET request")
-    db.ingredientlist.find(function (err, docs) {
+    db.ingredientlist.find(function(err, docs) {
         console.log(docs);
         res.json(docs);
     });
 });
 
-app.post("/ingredientlist", function(req, res){
+app.post("/ingredientlist", function(req, res) {
     console.log(req.body);
-    db.ingredientlist.insert(req.body, function(err, doc){
+    db.ingredientlist.insert(req.body, function(err, doc) {
         res.json(doc);
     })
 });
 
-app.delete("/ingredientlist/:id", function(req, res){
+app.delete("/ingredientlist/:id", function(req, res) {
     var id = req.params.id;
     console.log(id);
-    db.ingredientlist.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+    db.ingredientlist.remove({
+        _id: mongojs.ObjectId(id)
+    }, function(err, doc) {
         res.json(doc);
     });
 });
 
-app.get("/ingredientlist/:id", function(req, res){
+app.get("/ingredientlist/:id", function(req, res) {
     var id = req.params.id;
     console.log(id);
-    db.ingredientlist.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
+    db.ingredientlist.findOne({
+        _id: mongojs.ObjectId(id)
+    }, function(err, doc) {
         res.json(doc);
     });
 });
 
-app.put("/ingredientlist/:id", function(req, res){
+app.put("/ingredientlist/:id", function(req, res) {
     var id = req.params.id;
     console.log(req.body.name);
-    db.ingredientlist.findAndModify({query: {_id: mongojs.ObjectId(id)},
-        update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
-        new: true}, function(err, doc){
-            res.json(doc);
-        });
+    db.ingredientlist.findAndModify({
+        query: {
+            _id: mongojs.ObjectId(id)
+        },
+        update: {
+            $set: {
+                name: req.body.name,
+                email: req.body.email,
+                number: req.body.number
+            }
+        },
+        new: true
+    }, function(err, doc) {
+        res.json(doc);
+    });
 });
 
 app.listen(3000);

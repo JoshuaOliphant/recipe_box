@@ -14,7 +14,7 @@ myApp.controller('AppCtrl', ['$scope', '$http',
 
         refresh();
 
-        $scope.addingredient = function() {
+        $scope.addIngredient = function() {
             console.log($scope.ingredient);
             $http.post('/ingredientlist', $scope.ingredient).success(function(response){
                 console.log(response);

@@ -1,50 +1,66 @@
 <!DOCTYPE>
 <html ng-app="myApp">
-    <head>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-        <title>My Recipe Box</title>
-    </head>
-    <body>
-        <div class="container" ng_controller="AppCtrl">
-            <h1>My Recipe Box</h1>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Quantity</th>
-                        <th>Ingredient</th>
-                        <th>Colorie Count</th>
-                        <th>Action</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="form-control" ng-model="ingredient.quantity"></td>
-                        <td><input class="form-control" ng-model="ingredient.ingredient"></td>
-                        <td><input class="form-control" ng-model="ingredient.coloriecount"></td>
-                        <td><button class="btn btn-primary" ng-click="addingredient()">Add ingredient</td>
-                        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
-                            <button class="btn btn-info" ng-click="deselect()">Clear</button></td>
-                    </tr>
-                    <tr ng-repeat="ingredient in ingredientlist">
-                        <td>{{ingredient.quantity}}</td>
-                        <td>{{ingredient.ingredient}}</td>
-                        <td>{{ingredient.coloriecount}}</td>
-                        <td><button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button></td>
-                        <td><button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button></td>
-                    </tr>
-                </tbody>
-            </table>
+    <title>My Recipe Box</title>
+</head>
 
-        </div>
-        <!--having at bottom makes page load faster-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-        <script src="controllers/controller.js"></script>
-    </body>
+<body>
+    <div class="container" ng_controller="AppCtrl">
+        <h1>My Recipe Box</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Ingredient</th>
+                    <th>Colorie Count</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="ingredient.quantity">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="ingredient.ingredient">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="ingredient.coloriecount">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="addingredient()">Add ingredient</td>
+                    <td>
+                        <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" ng-click="deselect()">Clear</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="ingredient in ingredientlist">
+                    <td>{{ingredient.quantity}}</td>
+                    <td>{{ingredient.ingredient}}</td>
+                    <td>{{ingredient.coloriecount}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!--having at bottom makes page load faster-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+</body>
+
 </html>
