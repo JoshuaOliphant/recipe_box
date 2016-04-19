@@ -34,7 +34,7 @@
                         <input class="form-control" ng-model="ingredient.ingredient">
                     </td>
                     <td>
-                        <input class="form-control" ng-model="ingredient.coloriecount">
+                        <input class="form-control" ng-model="ingredient.caloriecount">
                     </td>
                     <td>
                         <button class="btn btn-primary" ng-click="addingredient()">Add ingredient</td>
@@ -46,7 +46,7 @@
                 <tr ng-repeat="ingredient in ingredientlist">
                     <td>{{ingredient.quantity}}</td>
                     <td>{{ingredient.ingredient}}</td>
-                    <td>{{ingredient.coloriecount}}</td>
+                    <td>{{ingredient.caloriecount}}</td>
                     <td>
                         <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
                     </td>

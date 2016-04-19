@@ -46,16 +46,16 @@ app.get("/ingredientlist/:id", function(req, res) {
 
 app.put("/ingredientlist/:id", function(req, res) {
     var id = req.params.id;
-    console.log(req.body.name);
+    console.log(req.body.ingredient);
     db.ingredientlist.findAndModify({
         query: {
             _id: mongojs.ObjectId(id)
         },
         update: {
             $set: {
-                name: req.body.name,
-                email: req.body.email,
-                number: req.body.number
+                quantity: req.body.quantity,
+                ingredient: req.body.ingredient,
+                caloriecount: req.body.caloriecount
             }
         },
         new: true
