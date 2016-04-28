@@ -3,7 +3,40 @@ var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('ingredientlist', ['ingredientlist']);
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+//mongoose schemas defined 
+//mongoose.connect();
+mongoose.connection.on('open', function() {
+	var Schema = mongoose.Schema;
+	var CategorySchema = new Schema(
+		{
+			categoryName: String
+			categoryID: Number 
+		},
+		{collection: 'categories'}
+	);
+	Categories = mongoose.model('Categories', CategorySchema);
+	
+	var RecipeSchema = new Schema(
+		{
+			recipeName: String,
+			categoryID: Number,
+			ingredientIDs: [{ingredientID: Number}]
+		},
+	);
+	Recipes = mongoose.model('Recipes', RecipeSchema);
+	
+	var IngredientSchema = new Schema(
+		{
+			ingredientName: String,
+			ingredientID: Number,
+			ingredientQuantity: Number,
+			calorieCount: Number
+		}
+	);
+	Ingredients = mongoose.model('Ingredients, IngredientSchema);
+});
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
