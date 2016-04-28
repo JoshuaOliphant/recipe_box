@@ -1,12 +1,22 @@
 var express = require('express');
 var app = express();
-var mongojs = require('mongojs');
-var db = mongojs('ingredientlist', ['ingredientlist']);
+/*var mongojs = require('mongojs');
+var db = mongojs('ingredientlist', ['ingredientlist']);*/
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+var jsonParser = bodyParser.json(); 
+
 //mongoose schemas defined 
-//mongoose.connect();
+
+var Recipes;
+var Categories;
+var Ingredients;
+
+var mongoDBConnection = require('db.config');
+console.log(mongoDBConnection.uri);
+ 
+mongoose.connect(mongoDBConnection.uri);
 mongoose.connection.on('open', function() {
 	var Schema = mongoose.Schema;
 	var CategorySchema = new Schema(
@@ -22,8 +32,10 @@ mongoose.connection.on('open', function() {
 		{
 			recipeName: String,
 			categoryID: Number,
+			recipeInstructions: String, 
 			ingredientIDs: [{ingredientID: Number}]
 		},
+		{collection: 'recipes'};
 	);
 	Recipes = mongoose.model('Recipes', RecipeSchema);
 	
@@ -33,10 +45,15 @@ mongoose.connection.on('open', function() {
 			ingredientID: Number,
 			ingredientQuantity: Number,
 			calorieCount: Number
-		}
+		},
+		{collection: 'ingredients'}
 	);
 	Ingredients = mongoose.model('Ingredients, IngredientSchema);
+	console.log('models have been created);
 });
+
+//Define functions with Mongoose queries that can then
+//be called by the Express routes 
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
