@@ -24,7 +24,7 @@ mongoose.connection.on('open', function() {
 			categoryName: String
 			categoryID: Number 
 		},
-		{collection: 'categories'}
+		{collection: 'categories'} //collection similar to table in RDBMS
 	);
 	Categories = mongoose.model('Categories', CategorySchema);
 	
@@ -54,6 +54,20 @@ mongoose.connection.on('open', function() {
 
 //Define functions with Mongoose queries that can then
 //be called by the Express routes 
+function retrieveAllCategories(res) {
+	var query = Categories.find({});
+	query.exec(function(err, categoryArray) {
+		res.json(categoryArray);
+	});
+}
+
+//is this the correct syntax for requesting all recipes with categoryID equal to an ID passed in as 'ID'?
+fucntion retrieveRecipesInCategory(res, ID) {
+	var query = Recipes.find({categoryID: ID});
+	query.exec(function(err, recipeArray) {
+		res.json(recipeArray);
+	});
+}
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
