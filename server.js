@@ -69,6 +69,10 @@ fucntion retrieveRecipesInCategory(res, ID) {
 	});
 }
 
+function retrieveIngredientsInRecipe(res, ID) {
+	var query = 
+}
+
 //static location of files
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
