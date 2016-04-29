@@ -23,7 +23,7 @@ mongoose.connection.on('open', function() {
 	var Schema = mongoose.Schema;
 	var CategorySchema = new Schema(
 		{
-			categoryName: String
+			categoryName: String,
 			categoryID: Number 
 		},
 		{collection: 'categories'} //collection similar to table in RDBMS
@@ -38,7 +38,7 @@ mongoose.connection.on('open', function() {
 			recipeInstructions: String,
 			ingredientIDs: [{ingredientID: Number}]
 		},
-		{collection: 'recipes'};
+		{collection: 'recipes'}
 	);
 	Recipes = mongoose.model('Recipes', RecipeSchema);
 	
@@ -51,8 +51,8 @@ mongoose.connection.on('open', function() {
 		},
 		{collection: 'ingredients'}
 	);
-	Ingredients = mongoose.model('Ingredients, IngredientSchema);
-	console.log('models have been created);
+	Ingredients = mongoose.model('Ingredients', IngredientSchema);
+	console.log('models have been created');
 });
 
 //Define functions with Mongoose queries that can then
