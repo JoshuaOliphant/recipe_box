@@ -114,7 +114,6 @@ app.post("/ingredientlist", function(req, res) {
 	});	
 	res.send(ingredientIDGenerator.toString());
 	ingredientIDGenerator++;
-    })
 });
 
 //save recipe (should include saving all ingredients in recipe into the document)
