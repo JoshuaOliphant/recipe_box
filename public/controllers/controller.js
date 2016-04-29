@@ -56,6 +56,12 @@ myApp.controller('AppCtrl', ['$scope', '$http',
 		
 		$scope.selectRecipe = function(id)
 		{
+			console.log("Getting recipe " + id);
+			$http.get("/recipeData/" + $scope.recipe._id))
+		}
+		
+		$scope.addRecipe = function(id)
+		{
 			
 		}
     }]);

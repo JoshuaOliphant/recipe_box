@@ -131,15 +131,18 @@ app.post("/recipeData", function(req, res) {
 	recipeIDGenerator++;
 });
 
-app.delete("/ingredientlist/:id", function(req, res) {
-    var id = req.params.id;
-    console.log(id);
-    db.ingredientlist.remove({
-        _id: mongojs.ObjectId(id)
-    }, function(err, doc) {
-        res.json(doc);
-    });
+/*
+//Update to remove an ingredient from a recipe
+//need to send both the ingredient and recipe id to this function
+//waiting up updat this until we have a better idea of the Angular used in the view 
+app.delete("/ingredientlist/:recipeid/:ingredientid", function(req, res) {
+    var recipeid = req.params.recipeid;
+	var ingredientid = req.params.ingredientid;
+    console.log("Removing: Recipe: " + recipeid + " Ingredient: " + ingredientid);
+    Recipes.update({recipeID: recipeid}, {$pullAll: {ingredientIDs: ingredientid});
+	res.send(ingredientID.toString());
 });
+*/
 
 
 /*
