@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var jsonParser = bodyParser.json(); 
+var ingredientIDGenerator = 100;
+var recipeIDGenerator = 100;
 
 //mongoose schemas defined 
 
@@ -30,9 +32,10 @@ mongoose.connection.on('open', function() {
 	
 	var RecipeSchema = new Schema(
 		{
+			recipeID: Number, 
 			recipeName: String,
 			categoryID: Number,
-			recipeInstructions: String, 
+			recipeInstructions: String,
 			ingredientIDs: [{ingredientID: Number}]
 		},
 		{collection: 'recipes'};
@@ -62,34 +65,70 @@ function retrieveAllCategories(res) {
 }
 
 //is this the correct syntax for requesting all recipes with categoryID equal to an ID passed in as 'ID'?
-fucntion retrieveRecipesInCategory(res, ID) {
-	var query = Recipes.find({categoryID: ID});
+function retrieveRecipesInCategory(res, query) {
+	var query = Recipes.find(query);
 	query.exec(function(err, recipeArray) {
 		res.json(recipeArray);
 	});
 }
 
-function retrieveIngredientsInRecipe(res, ID) {
-	var query = 
+function retrieveRecipeData(res, query) {
+	var query = Recipes.findOne(query);
+	query.exec(function(err, recipeData) {
+		res.json(recipeData);
+	});
 }
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //is this still necessary with var jsonParser defined above?
 
-app.get("/ingredientlist", function(req, res) {
-    console.log("I received a GET request")
-    db.ingredientlist.find(function(err, docs) {
-        console.log(docs);
-        res.json(docs);
-    });
+//retrieve all recipes in a category 
+//can use ng-repeate in a view to display in category tab 
+app.get("/category/:categoryID", function(req, res) {
+	var id = req.params.categoryID;
+	console.log("Query for category id: " + id);
+	retrieveRecipesInCategory(res, {categoryID: id});
 });
 
+//retrieve all data for a recipe
+//can use (nested?) ng-repeat in view to display on notecard
+//shouldn't need a separate get for ingredients as this will also return an ingredient array
+app.get("/recipeData/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
+    console.log("Query for recipe id: " + id);
+    retrieveRecipeData(res, {recipeID: id});
+});
+
+//add an ingredient to the DB
+//currently will create duplicates in the DB 
 app.post("/ingredientlist", function(req, res) {
     console.log(req.body);
-    db.ingredientlist.insert(req.body, function(err, doc) {
-        res.json(doc);
+	var jsonObj = req.body;
+	jsonObj.ingredientID = ingredientIDGenerator;
+	Ingredients.create([jsonOBJ], function(err) {
+		if (err)
+		{
+			console.log('Ingredient creation failed');
+		}
+	});	
+	res.send(ingredientIDGenerator.toString());
+	ingredientIDGenerator++;
     })
+});
+
+//save recipe (should include saving all ingredients in recipe into the document)
+app.post("/recipeData", function(req, res) {
+	console.log(req.body);
+	var jsonObj = req.body;
+	jsonObj.recipeID = recipeIDGenerator;
+	Recipes.create([jsonObj], function(err) {
+		if (err) {
+			console.log('recipe creation failed')
+		}
+	});
+	res.send(recipeIDGenerator.toString());
+	recipeIDGenerator++;
 });
 
 app.delete("/ingredientlist/:id", function(req, res) {
@@ -102,6 +141,9 @@ app.delete("/ingredientlist/:id", function(req, res) {
     });
 });
 
+
+/*
+//Not sure if these are necessary anymore 
 app.get("/ingredientlist/:id", function(req, res) {
     var id = req.params.id;
     console.log(id);
@@ -131,6 +173,7 @@ app.put("/ingredientlist/:id", function(req, res) {
         res.json(doc);
     });
 });
+*/
 
 app.listen(3000);
 console.log("Server running on port 3000");

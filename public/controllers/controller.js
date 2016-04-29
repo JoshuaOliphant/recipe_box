@@ -1,8 +1,9 @@
 var myApp = angular.module('myApp', []);
 myApp.controller('AppCtrl', ['$scope', '$http',
     function($scope, $http){
-        console.log("Hello world from controller");
-
+		
+		/*currently this is ONLY dealing with adding ingredients;
+		no recipe name, no image, no concept of multiple recipes*/
         var refresh = function() {
             $http.get('/ingredientlist').success(function(response){
                 console.log("I got the data I requested");
@@ -46,4 +47,15 @@ myApp.controller('AppCtrl', ['$scope', '$http',
         $scope.deselect = function() {
             $scope.ingredient = "";
         }
+		
+		/*
+		$scope.selectCategory = function(id)
+		{
+			
+		}
+		
+		$scope.selectRecipe = function(id)
+		{
+			
+		}
     }]);
