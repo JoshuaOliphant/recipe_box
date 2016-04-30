@@ -15,7 +15,7 @@ var Recipes;
 var Categories;
 var Ingredients;
 
-var mongoDBConnection = require('db.config');
+var mongoDBConnection = require('./db.recipe_box.config');
 console.log(mongoDBConnection.uri);
  
 mongoose.connect(mongoDBConnection.uri);
