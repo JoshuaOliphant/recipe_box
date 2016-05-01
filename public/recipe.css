@@ -1,0 +1,13 @@
+.recipeBoxHeader
+{
+	/*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/recipeBoxHeader4.jpg?raw=true");*/
+
+}
+
+.recipeBoxMain
+{
+	color: ffffff;
+	background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
