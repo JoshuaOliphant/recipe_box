@@ -16,7 +16,7 @@ var Categories;
 var Ingredients;
 
 var mongoDBConnection = require('./db.recipe_box.config');
-console.log(mongoDBConnection.uri);
+console.log("DB connection at: " + mongoDBConnection.uri);
  
 mongoose.connect(mongoDBConnection.uri);
 mongoose.connection.on('open', function() {
@@ -44,10 +44,10 @@ mongoose.connection.on('open', function() {
 	
 	var IngredientSchema = new Schema(
 		{
-			ingredientName: String,
 			ingredientID: Number,
-			ingredientQuantity: Number,
-			calorieCount: Number
+			quantity: Number,
+			ingredient: String,
+			caloriecount: Number
 		},
 		{collection: 'ingredients'}
 	);
@@ -79,9 +79,20 @@ function retrieveRecipeData(res, query) {
 	});
 }
 
+//testing
+function retrieveIngredientData(res, query) {
+	var query = Ingredients.find(query);
+	query.exec(function(err, ingredientData) {
+		res.json(ingredientData);
+	});
+}
+
 //static location of files
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json()); //is this still necessary with var jsonParser defined above?
+//app.use('/', express.static('./public/'));
+//app.use('/app/json/', express.static('./app/json'));
+
 
 //retrieve all recipes in a category 
 //can use ng-repeate in a view to display in category tab 
@@ -100,13 +111,21 @@ app.get("/recipeData/:recipeID", function(req, res) {
     retrieveRecipeData(res, {recipeID: id});
 });
 
+//for testing
+app.get("/ingredientlist", function(req, res) {
+	var id = req.params.ingredient;
+	console.log("Query for ingredient: " + id);
+	retrieveIngredientData(res, {});
+});
+
 //add an ingredient to the DB
 //currently will create duplicates in the DB 
 app.post("/ingredientlist", function(req, res) {
+	console.log("I made it to the server");
     console.log(req.body);
 	var jsonObj = req.body;
-	jsonObj.ingredientID = ingredientIDGenerator;
-	Ingredients.create([jsonOBJ], function(err) {
+	//jsonObj.ingredientID = ingredientIDGenerator;
+	Ingredients.create([req.body], function(err) {
 		if (err)
 		{
 			console.log('Ingredient creation failed');
@@ -117,7 +136,7 @@ app.post("/ingredientlist", function(req, res) {
 });
 
 //save recipe (should include saving all ingredients in recipe into the document)
-app.post("/recipeData", function(req, res) {
+app.post("/recipeData", jsonParser, function(req, res) {
 	console.log(req.body);
 	var jsonObj = req.body;
 	jsonObj.recipeID = recipeIDGenerator;

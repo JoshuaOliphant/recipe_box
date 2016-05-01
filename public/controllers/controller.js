@@ -16,6 +16,7 @@ myApp.controller('AppCtrl', ['$scope', '$http',
         refresh();
 
         $scope.addingredient = function() {
+			console.log("I made it to the controller");
             console.log($scope.ingredient);
             $http.post('/ingredientlist', $scope.ingredient).success(function(response){
                 console.log(response);
@@ -47,6 +48,7 @@ myApp.controller('AppCtrl', ['$scope', '$http',
         $scope.deselect = function() {
             $scope.ingredient = "";
         }
+	}]);
 		
 		/*
 		$scope.selectCategory = function(id)
@@ -64,4 +66,4 @@ myApp.controller('AppCtrl', ['$scope', '$http',
 		{
 			
 		}
-    }]);
+    }]);*/

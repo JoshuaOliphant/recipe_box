@@ -5,26 +5,26 @@ ingredientsCollection = db.getCollection('ingredients')
 ingredientsCollection.remove({})
 ingredientsCollection.insert(
 {
-	ingredientName: "Chicken Breast",
+	ingredient: "Chicken Breast",
 	ingredientID: 1,
-	ingredientQuantity: 2,
-	calorieCount: 100
+	quantity: 2,
+	caloriecount: 100
 }
 );
 ingredientsCollection.insert(
 {
-	ingredientName: "Olive Oil",
+	ingredient: "Olive Oil",
 	ingredientID: 2,
-	ingredientQuantity: 1,
-	calorieCount: 100
+	quantity: 1,
+	caloriecount: 100
 }
 );
 ingredientsCollection.insert(
 {
-	ingredientName: "Broccoli",
+	ingredient: "Broccoli",
 	ingredientID: 3,
-	ingredientQuantity: 2,
-	calorieCount: 20
+	quantity: 2,
+	caloriecount: 20
 }
 );
 
