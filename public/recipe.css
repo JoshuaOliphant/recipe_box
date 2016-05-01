@@ -4,6 +4,25 @@
 
 }
 
+.main
+{
+	padding: 15 0 0 300  ;
+}
+
+#username
+{
+	width: 50%;
+}
+
+#pwd
+{
+	width: 50%;
+}
+
+#login
+{
+	color: ffffff;
+}
 .recipeBoxMain
 {
 	color: ffffff;

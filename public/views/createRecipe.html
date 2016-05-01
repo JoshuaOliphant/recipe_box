@@ -1,0 +1,43 @@
+<div class="createRecipe"  class="container">
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Ingredient</th>
+                        <th>Calorie Count</th>
+                        <th>Action</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="form-control" ng-model="ingredient.quantity">
+                        </td>
+                        <td>
+                            <input class="form-control" ng-model="ingredient.ingredient">
+                        </td>
+                        <td>
+                            <input class="form-control" ng-model="ingredient.caloriecount">
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="addingredient()">Add ingredient</td>
+                        <td>
+                            <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
+                            <button class="btn btn-info" ng-click="deselect()">Clear</button>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="ingredient in ingredientlist">
+                        <td>{{ingredient.quantity}}</td>
+                        <td>{{ingredient.ingredient}}</td>
+                        <td>{{ingredient.caloriecount}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+    </table>
+</div>

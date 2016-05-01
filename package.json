@@ -1,0 +1,33 @@
+{
+  "name": "myrecipebox",
+  "version": "1.0.0",
+  "description": "myrecipebox",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "mongojs": "^2.3.0",
+    "mongoose": "^4.4.13"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaOliphant/recipe_box.git"
+  },
+  "author": "joshuaOliphant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaOliphant/recipe_box/issues"
+  },
+  "homepage": "https://github.com/JoshuaOliphant/recipe_box#readme"
+}
