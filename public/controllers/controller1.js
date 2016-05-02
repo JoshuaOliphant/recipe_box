@@ -13,7 +13,7 @@ myApp1.controller('AppCtrl1', ['$scope', '$http',
 		refresh();
 		
 		$scope.getdetails = function() {
-			window.location("#/index2.html");
+			window.location = "./index2.html";
 		}
 		
 }]);
