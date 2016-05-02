@@ -57,8 +57,8 @@ mongoose.connection.on('open', function() {
 
 //Define functions with Mongoose queries that can then
 //be called by the Express routes 
-function retrieveAllCategories(res) {
-	var query = Categories.find({});
+function retrieveCategories(res, query) {
+	var query = Categories.find(query);
 	query.exec(function(err, categoryArray) {
 		res.json(categoryArray);
 	});
@@ -93,10 +93,15 @@ app.use(bodyParser.json()); //is this still necessary with var jsonParser define
 //app.use('/', express.static('./public/'));
 //app.use('/app/json/', express.static('./app/json'));
 
+//retrieve all categories
+app.get("/categories", function(req, res) {
+	console.log("Query for all categories");
+	retrieveCategories(res, {});
+});
 
 //retrieve all recipes in a category 
 //can use ng-repeate in a view to display in category tab 
-app.get("/category/:categoryID", function(req, res) {
+app.get("/categories/:categoryID", function(req, res) {
 	var id = req.params.categoryID;
 	console.log("Query for category id: " + id);
 	retrieveRecipesInCategory(res, {categoryID: id});
