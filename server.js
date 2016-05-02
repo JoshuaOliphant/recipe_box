@@ -11,15 +11,16 @@ var ingredientIDGenerator = 100;
 var recipeIDGenerator = 100;
 
 //mongoose schemas defined 
-
 var Recipes;
 var Categories;
 var Ingredients;
 
+//connect to DB
 var mongoDBConnection = require('./db.recipe_box.config');
 console.log("DB connection at: " + mongoDBConnection.uri);
- 
 mongoose.connect(mongoDBConnection.uri);
+
+//define and model schemas 
 mongoose.connection.on('open', function() {
 	var Schema = mongoose.Schema;
 	var CategorySchema = new Schema(
@@ -56,8 +57,7 @@ mongoose.connection.on('open', function() {
 	console.log('models have been created');
 });
 
-//Define functions with Mongoose queries that can then
-//be called by the Express routes 
+//Define functions with Mongoose queries that can then be called by the Express routes 
 function retrieveCategories(res, query) {
 	var query = Categories.find(query);
 	query.exec(function(err, categoryArray) {
@@ -65,7 +65,6 @@ function retrieveCategories(res, query) {
 	});
 }
 
-//is this the correct syntax for requesting all recipes with categoryID equal to an ID passed in as 'ID'?
 function retrieveRecipesInCategory(res, query) {
 	var query = Recipes.find(query);
 	query.exec(function(err, recipeArray) {
@@ -80,7 +79,6 @@ function retrieveRecipeData(res, query) {
 	});
 }
 
-//testing
 function retrieveIngredientData(res, query) {
 	var query = Ingredients.find(query);
 	query.exec(function(err, ingredientData) {
@@ -90,9 +88,9 @@ function retrieveIngredientData(res, query) {
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.json()); //is this still necessary with var jsonParser defined above?
-//app.use('/', express.static('./public/'));
-//app.use('/app/json/', express.static('./app/json'));
+app.use(bodyParser.json());
+
+//REST API routes 
 
 //retrieve all categories
 app.get("/categories", function(req, res) {
@@ -121,16 +119,13 @@ app.get("/categories/:categoryID", function(req, res) {
 });
 
 //retrieve all data for a given recipe
-//can use (nested?) ng-repeat in view to display on notecard
-//shouldn't need a separate get for ingredients as this will also return an ingredient array
 app.get("/recipeData/:recipeID", function(req, res) {
 	var id = req.params.recipeID;
     console.log("Query for recipe id: " + id);
     retrieveRecipeData(res, {recipeID: id});
 });
 
-//add an ingredient to the DB
-//currently will create duplicates in the DB 
+//add an ingredient to the DB; currently will create duplicates in the DB 
 app.post("/ingredientlist", function(req, res) {
 	console.log("I made it to the server");
     console.log(req.body);
@@ -170,40 +165,6 @@ app.delete("/ingredientlist/:recipeid/:ingredientid", function(req, res) {
     console.log("Removing: Recipe: " + recipeid + " Ingredient: " + ingredientid);
     Recipes.update({recipeID: recipeid}, {$pullAll: {ingredientIDs: ingredientid});
 	res.send(ingredientID.toString());
-});
-*/
-
-
-/*
-//Not sure if these are necessary anymore 
-app.get("/ingredientlist/:id", function(req, res) {
-    var id = req.params.id;
-    console.log(id);
-    db.ingredientlist.findOne({
-        _id: mongojs.ObjectId(id)
-    }, function(err, doc) {
-        res.json(doc);
-    });
-});
-
-app.put("/ingredientlist/:id", function(req, res) {
-    var id = req.params.id;
-    console.log(req.body.ingredient);
-    db.ingredientlist.findAndModify({
-        query: {
-            _id: mongojs.ObjectId(id)
-        },
-        update: {
-            $set: {
-                quantity: req.body.quantity,
-                ingredient: req.body.ingredient,
-                caloriecount: req.body.caloriecount
-            }
-        },
-        new: true
-    }, function(err, doc) {
-        res.json(doc);
-    });
 });
 */
 
