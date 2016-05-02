@@ -3,6 +3,7 @@ var app = express();
 /*var mongojs = require('mongojs');
 var db = mongojs('ingredientlist', ['ingredientlist']);*/
 var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var jsonParser = bodyParser.json(); 
@@ -99,28 +100,33 @@ app.get("/categories", function(req, res) {
 	retrieveCategories(res, {});
 });
 
-//retrieve all recipes in a category 
-//can use ng-repeate in a view to display in category tab 
+//retrieve all recipes
+app.get("/recipes", function(req, res) {
+	console.log("Query for all recipes");
+	retrieveRecipesInCategory(res, {});
+});
+
+//retrieve all ingredients
+app.get("/ingredientlist", function(req, res) {
+	var id = req.params.ingredient;
+	console.log("Query for ingredient: " + id);
+	retrieveIngredientData(res, {});
+});
+
+//retrieve all recipes in a given category 
 app.get("/categories/:categoryID", function(req, res) {
 	var id = req.params.categoryID;
 	console.log("Query for category id: " + id);
 	retrieveRecipesInCategory(res, {categoryID: id});
 });
 
-//retrieve all data for a recipe
+//retrieve all data for a given recipe
 //can use (nested?) ng-repeat in view to display on notecard
 //shouldn't need a separate get for ingredients as this will also return an ingredient array
 app.get("/recipeData/:recipeID", function(req, res) {
 	var id = req.params.recipeID;
     console.log("Query for recipe id: " + id);
     retrieveRecipeData(res, {recipeID: id});
-});
-
-//for testing
-app.get("/ingredientlist", function(req, res) {
-	var id = req.params.ingredient;
-	console.log("Query for ingredient: " + id);
-	retrieveIngredientData(res, {});
 });
 
 //add an ingredient to the DB

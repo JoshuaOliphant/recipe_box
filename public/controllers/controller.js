@@ -11,4 +11,8 @@ myApp.controller('AppCtrl', ['$scope', '$http',
         };
 		
 		refresh();
+		
+		$scope.getrecipes = function(){
+			window.location = "./index1.html";
+		}
 }]);
