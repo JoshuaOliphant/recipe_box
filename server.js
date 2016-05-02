@@ -79,9 +79,9 @@ function retrieveRecipeData(res, query) {
 	});
 }
 
-function retrieveIngredientData(res, query) {
-	var query = Ingredients.find(query);
-	query.exec(function(err, ingredientData) {
+function retrieveIngredientData(res, queryArr) {
+	var query = Ingredients.find(queryArr);
+	query.where('ingredientID').in(queryArr).exec(function(err, ingredientData) {
 		res.json(ingredientData);
 	});
 }
@@ -104,11 +104,11 @@ app.get("/recipes", function(req, res) {
 	retrieveRecipesInCategory(res, {});
 });
 
-//retrieve all ingredients
+//retrieve all ingredients for given recipe 
 app.get("/ingredientlist", function(req, res) {
-	var id = req.params.ingredient;
-	console.log("Query for ingredient: " + id);
-	retrieveIngredientData(res, {});
+	var ids = req.body;
+	console.log("Query for ingredient: " + ids);
+	retrieveIngredientData(res, ids);
 });
 
 //retrieve all recipes in a given category 

@@ -3,12 +3,16 @@ myApp2.controller('AppCtrl2', ['$scope', '$http',
     function($scope, $http){
 	
         var refresh = function() {
-            $http.get('/ingredientlist').success(function(response){
-                console.log("I got the data I requested");
-                $scope.ingredientlist = response;
-                $scope.ingredient = "";
-
-            });
+			$http.get("/recipeData/" + 3).success(function(response) {
+				console.log("I got the data I requested");
+				$scope.recipe = response;
+				$scope.ingredientIDs = response.ingredientIDs;
+				console.log($scope.ingredientIDs);
+				$http.get("/ingredientlist", $scope.ingredientIDs).success(function(response) {
+					console.log(response);
+					$scope.ingredients = response;
+				});
+			});
         };
 		
         refresh();

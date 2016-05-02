@@ -2,15 +2,15 @@ var myApp1 = angular.module('myApp1', []);
 myApp1.controller('AppCtrl1', ['$scope', '$http',
     function($scope, $http){
 
-        var refreshNotecard = function() {
-            $http.get('/recipes').success(function(response){
+        var refresh = function() {
+            $http.get('/categories/' + 2).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
 				console.log(response);
             });
         };
 		
-		refreshNotecard();
+		refresh();
 		
 		$scope.getdetails = function() {
 			window.location = "./index2.html";

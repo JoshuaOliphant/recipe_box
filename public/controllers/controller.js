@@ -13,6 +13,6 @@ myApp.controller('AppCtrl', ['$scope', '$http',
 		refresh();
 		
 		$scope.getrecipes = function(){
-			$location.path("/index1.html")
+			window.location = "/index1.html";
 		}
 }]);
