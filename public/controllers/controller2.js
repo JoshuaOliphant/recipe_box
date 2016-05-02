@@ -1,11 +1,11 @@
-var myApp = angular.module('myApp', []);
-myApp.controller('AppCtrl2', ['$scope', '$http',
+var myApp2 = angular.module('myApp2', []);
+myApp2.controller('AppCtrl2', ['$scope', '$http',
     function($scope, $http){
 		
 		/*currently this is ONLY dealing with adding ingredients;
 		no recipe name, no image, no concept of multiple recipes*/
         var refresh = function() {
-            $http.get('/categories/:categoryID').success(function(response){
+            $http.get('/ingredientlist').success(function(response){
                 console.log("I got the data I requested");
                 $scope.ingredientlist = response;
                 $scope.ingredient = "";
@@ -49,21 +49,3 @@ myApp.controller('AppCtrl2', ['$scope', '$http',
             $scope.ingredient = "";
         }
 	}]);
-		
-		/*
-		$scope.selectCategory = function(id)
-		{
-			
-		}
-		
-		$scope.selectRecipe = function(id)
-		{
-			console.log("Getting recipe " + id);
-			$http.get("/recipeData/" + $scope.recipe._id))
-		}
-		
-		$scope.addRecipe = function(id)
-		{
-			
-		}
-    }]);*/
