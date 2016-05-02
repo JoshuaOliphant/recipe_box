@@ -130,29 +130,37 @@ app.post("/ingredientlist", function(req, res) {
 	console.log("I made it to the server");
     console.log(req.body);
 	var jsonObj = req.body;
-	//jsonObj.ingredientID = ingredientIDGenerator;
 	Ingredients.create([req.body], function(err) {
 		if (err)
 		{
 			console.log('Ingredient creation failed');
 		}
 	});	
-	res.send(ingredientIDGenerator.toString());
-	ingredientIDGenerator++;
+	res.send(jsonObj);
+});
+
+//add a new recipe entry
+app.post("/createrecipe", function(req, res) {
+	console.log(req.body);
+	var jsonObj = req.body;
+	Recipes.create([req.body], function(err) {
+		if (err)
+		{
+			console.log('Recipe initialization failed');
+		}
+	});
 });
 
 //save recipe (should include saving all ingredients in recipe into the document)
 app.post("/recipeData", jsonParser, function(req, res) {
 	console.log(req.body);
 	var jsonObj = req.body;
-	jsonObj.recipeID = recipeIDGenerator;
 	Recipes.create([jsonObj], function(err) {
 		if (err) {
 			console.log('recipe creation failed')
 		}
 	});
 	res.send(recipeIDGenerator.toString());
-	recipeIDGenerator++;
 });
 
 /*

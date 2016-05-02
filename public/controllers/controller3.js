@@ -1,25 +1,27 @@
-var myApp2 = angular.module('myApp2', []);
-myApp2.controller('AppCtrl2', ['$scope', '$http',
+var myApp3 = angular.module('myApp3', []);
+myApp3.controller('AppCtrl3', ['$scope', '$http',
     function($scope, $http){
-	
-        var refresh = function() {
-            $http.get('/ingredientlist').success(function(response){
-                console.log("I got the data I requested");
-                $scope.ingredientlist = response;
-                $scope.ingredient = "";
-
-            });
+		var refresh = function() {
+			$scope.recipe = "";
+            $scope.ingredient = "";
         };
 		
-        refresh();
-
+		$scope.createrecipe = function() {
+			console.log($scope.recipe);
+			$http.post("/createrecipe", $scope.recipe).success(function(response) {
+				console.log("Recipe initialized");
+				refresh();
+			});
+		};
+		
+		//need to make this add to BOTH the ingredient and recipe collections
         $scope.addingredient = function() {
-			console.log("I made it to the controller");
             console.log($scope.ingredient);
             $http.post('/ingredientlist', $scope.ingredient).success(function(response){
                 console.log(response);
-                refresh();
+				refresh();
             });
+			
         };
 
         $scope.remove = function(id) {
