@@ -3,11 +3,9 @@ myApp3.controller('AppCtrl3', ['$scope', '$http',
     function($scope, $http){
 		
 		var recipeID;
-		
+		var ingredientIDs;
 		var refresh = function() {
-			$scope.recipe = "";
-            $scope.ingredient = "";
-			
+			$scope.ingredient = "";
         };
 		
 		$scope.createrecipe = function() {
@@ -20,7 +18,6 @@ myApp3.controller('AppCtrl3', ['$scope', '$http',
 			});
 		};
 		
-		//need to make this add to BOTH the ingredient and recipe collections
         $scope.addingredient = function() {
             console.log($scope.ingredient);
 			console.log(recipeID);
