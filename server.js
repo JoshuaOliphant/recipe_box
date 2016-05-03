@@ -101,10 +101,11 @@ app.get("/categories", function(req, res) {
 
 //retrieve all recipes
 //for testing 
+/*
 app.get("/recipes", function(req, res) {
 	console.log("Query for all recipes");
 	retrieveRecipesInCategory(res, {});
-});
+});*/
 
 //retrieve a given ingredient 
 app.get("/ingredientlist/:ingredientID", function(req, res) {
