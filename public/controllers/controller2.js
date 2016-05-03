@@ -1,17 +1,24 @@
 var myApp2 = angular.module('myApp2', []);
 myApp2.controller('AppCtrl2', ['$scope', '$http',
     function($scope, $http){
-	
+		
+		var ingredientIDs;
+		var ingredientArray;
         var refresh = function() {
 			$http.get("/recipeData/" + 3).success(function(response) {
 				console.log("I got the data I requested");
 				$scope.recipe = response;
-				$scope.ingredientIDs = response.ingredientIDs;
-				console.log($scope.ingredientIDs);
-				$http.get("/ingredientlist", $scope.ingredientIDs).success(function(response) {
-					console.log(response);
-					$scope.ingredients = response;
-				});
+				ingredientIDs = response.ingredientIDs;
+				for (var i = 0; i < ingredientIDs.length; i++)
+				{
+					var id = ingredientIDs[i].ingredientID;
+					console.log(id);
+					$http.get("/ingredientlist/" + id).success(function(response) {
+						console.log(response);
+						ingredientArray = response;
+					});
+				}
+				$scope.ingredients = ingredientArray;
 			});
         };
 		

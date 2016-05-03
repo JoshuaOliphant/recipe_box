@@ -1,15 +1,21 @@
 var myApp3 = angular.module('myApp3', []);
 myApp3.controller('AppCtrl3', ['$scope', '$http',
     function($scope, $http){
+		
+		var recipeID;
+		
 		var refresh = function() {
 			$scope.recipe = "";
             $scope.ingredient = "";
+			
         };
 		
 		$scope.createrecipe = function() {
 			console.log($scope.recipe);
 			$http.post("/createrecipe", $scope.recipe).success(function(response) {
 				console.log("Recipe initialized");
+				recipeID = response;
+				console.log(recipeID);
 				refresh();
 			});
 		};
@@ -17,7 +23,8 @@ myApp3.controller('AppCtrl3', ['$scope', '$http',
 		//need to make this add to BOTH the ingredient and recipe collections
         $scope.addingredient = function() {
             console.log($scope.ingredient);
-            $http.post('/ingredientlist', $scope.ingredient).success(function(response){
+			console.log(recipeID);
+            $http.post('/ingredientlist/' + recipeID, $scope.ingredient).success(function(response){
                 console.log(response);
 				refresh();
             });

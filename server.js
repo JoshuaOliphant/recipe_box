@@ -79,9 +79,10 @@ function retrieveRecipeData(res, query) {
 	});
 }
 
-function retrieveIngredientData(res, queryArr) {
-	var query = Ingredients.find(queryArr);
-	query.where('ingredientID').in(queryArr).exec(function(err, ingredientData) {
+function retrieveIngredientData(res, query) {
+	console.log("In retrieveIngredientData");
+	var query = Ingredients.findOne(query);
+	query.exec(function(err, ingredientData) {
 		res.json(ingredientData);
 	});
 }
@@ -99,16 +100,17 @@ app.get("/categories", function(req, res) {
 });
 
 //retrieve all recipes
+//for testing 
 app.get("/recipes", function(req, res) {
 	console.log("Query for all recipes");
 	retrieveRecipesInCategory(res, {});
 });
 
-//retrieve all ingredients for given recipe 
-app.get("/ingredientlist", function(req, res) {
-	var ids = req.body;
-	console.log("Query for ingredient: " + ids);
-	retrieveIngredientData(res, ids);
+//retrieve a given ingredient 
+app.get("/ingredientlist/:ingredientID", function(req, res) {
+	var id = req.params.ingredientID;
+	console.log("Query for ingredient: " + id);
+	retrieveIngredientData(res, {ingredientID: id});
 });
 
 //retrieve all recipes in a given category 
@@ -125,43 +127,45 @@ app.get("/recipeData/:recipeID", function(req, res) {
     retrieveRecipeData(res, {recipeID: id});
 });
 
-//add an ingredient to the DB; currently will create duplicates in the DB 
-app.post("/ingredientlist", function(req, res) {
-	console.log("I made it to the server");
-    console.log(req.body);
+//create an ingredient in DB and add it to a recipe; currently allows duplicates 
+app.post("/ingredientlist/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
 	var jsonObj = req.body;
-	Ingredients.create([req.body], function(err) {
+	console.log(jsonObj);
+	console.log(id);
+	jsonObj.ingredientID = ingredientIDGenerator;
+	ingredientIDGenerator++;
+	Ingredients.create(jsonObj, function(err) {
 		if (err)
 		{
 			console.log('Ingredient creation failed');
 		}
-	});	
+	});
+	Recipes.findOneAndUpdate({recipeID: id}, {$push:{ingredientIDs: jsonObj.ingredientID}}, {new: true}, function(err, doc) {
+		console.log("inside find one and update" + id);
+		if(err) {
+			console.log("Unable to add ingredient to recipe");
+		}
+	});
 	res.send(jsonObj);
 });
 
-//add a new recipe entry
+//initialize a new recipe entry
 app.post("/createrecipe", function(req, res) {
 	console.log(req.body);
 	var jsonObj = req.body;
-	Recipes.create([req.body], function(err) {
+	jsonObj.recipeID = recipeIDGenerator;
+	recipeIDGenerator++;
+	Recipes.create(jsonObj, function(err) {
 		if (err)
 		{
 			console.log('Recipe initialization failed');
 		}
 	});
+	res.send(jsonObj.recipeID.toString());
+	console.log('Created: ' + jsonObj.recipeID);
 });
 
-//save recipe (should include saving all ingredients in recipe into the document)
-app.post("/recipeData", jsonParser, function(req, res) {
-	console.log(req.body);
-	var jsonObj = req.body;
-	Recipes.create([jsonObj], function(err) {
-		if (err) {
-			console.log('recipe creation failed')
-		}
-	});
-	res.send(recipeIDGenerator.toString());
-});
 
 /*
 //Update to remove an ingredient from a recipe
