@@ -3,6 +3,7 @@ var app = express();
 /*var mongojs = require('mongojs');
 var db = mongojs('ingredientlist', ['ingredientlist']);*/
 var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var jsonParser = bodyParser.json(); 
@@ -10,15 +11,16 @@ var ingredientIDGenerator = 100;
 var recipeIDGenerator = 100;
 
 //mongoose schemas defined 
-
 var Recipes;
 var Categories;
 var Ingredients;
 
+//connect to DB
 var mongoDBConnection = require('./db.recipe_box.config');
 console.log("DB connection at: " + mongoDBConnection.uri);
- 
 mongoose.connect(mongoDBConnection.uri);
+
+//define and model schemas 
 mongoose.connection.on('open', function() {
 	var Schema = mongoose.Schema;
 	var CategorySchema = new Schema(
@@ -55,16 +57,14 @@ mongoose.connection.on('open', function() {
 	console.log('models have been created');
 });
 
-//Define functions with Mongoose queries that can then
-//be called by the Express routes 
-function retrieveAllCategories(res) {
-	var query = Categories.find({});
+//Define functions with Mongoose queries that can then be called by the Express routes 
+function retrieveCategories(res, query) {
+	var query = Categories.find(query);
 	query.exec(function(err, categoryArray) {
 		res.json(categoryArray);
 	});
 }
 
-//is this the correct syntax for requesting all recipes with categoryID equal to an ID passed in as 'ID'?
 function retrieveRecipesInCategory(res, query) {
 	var query = Recipes.find(query);
 	query.exec(function(err, recipeArray) {
@@ -79,9 +79,9 @@ function retrieveRecipeData(res, query) {
 	});
 }
 
-//testing
 function retrieveIngredientData(res, query) {
-	var query = Ingredients.find(query);
+	console.log("In retrieveIngredientData");
+	var query = Ingredients.findOne(query);
 	query.exec(function(err, ingredientData) {
 		res.json(ingredientData);
 	});
@@ -89,65 +89,84 @@ function retrieveIngredientData(res, query) {
 
 //static location of files
 app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.json()); //is this still necessary with var jsonParser defined above?
-//app.use('/', express.static('./public/'));
-//app.use('/app/json/', express.static('./app/json'));
+app.use(bodyParser.json());
 
+//REST API routes 
 
-//retrieve all recipes in a category 
-//can use ng-repeate in a view to display in category tab 
-app.get("/category/:categoryID", function(req, res) {
+//retrieve all categories
+app.get("/categories", function(req, res) {
+	console.log("Query for all categories");
+	retrieveCategories(res, {});
+});
+
+//retrieve all recipes
+//for testing 
+/*
+app.get("/recipes", function(req, res) {
+	console.log("Query for all recipes");
+	retrieveRecipesInCategory(res, {});
+});*/
+
+//retrieve a given ingredient 
+app.get("/ingredientlist/:ingredientID", function(req, res) {
+	var id = req.params.ingredientID;
+	console.log("Query for ingredient: " + id);
+	retrieveIngredientData(res, {ingredientID: id});
+});
+
+//retrieve all recipes in a given category 
+app.get("/categories/:categoryID", function(req, res) {
 	var id = req.params.categoryID;
 	console.log("Query for category id: " + id);
 	retrieveRecipesInCategory(res, {categoryID: id});
 });
 
-//retrieve all data for a recipe
-//can use (nested?) ng-repeat in view to display on notecard
-//shouldn't need a separate get for ingredients as this will also return an ingredient array
+//retrieve all data for a given recipe
 app.get("/recipeData/:recipeID", function(req, res) {
 	var id = req.params.recipeID;
     console.log("Query for recipe id: " + id);
     retrieveRecipeData(res, {recipeID: id});
 });
 
-//for testing
-app.get("/ingredientlist", function(req, res) {
-	var id = req.params.ingredient;
-	console.log("Query for ingredient: " + id);
-	retrieveIngredientData(res, {});
-});
-
-//add an ingredient to the DB
-//currently will create duplicates in the DB 
-app.post("/ingredientlist", function(req, res) {
-	console.log("I made it to the server");
-    console.log(req.body);
+//create an ingredient in DB and add it to a recipe; currently allows duplicates 
+app.post("/ingredientlist/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
 	var jsonObj = req.body;
-	//jsonObj.ingredientID = ingredientIDGenerator;
-	Ingredients.create([req.body], function(err) {
+	console.log(jsonObj);
+	console.log(id);
+	jsonObj.ingredientID = ingredientIDGenerator;
+	ingredientIDGenerator++;
+	Ingredients.create(jsonObj, function(err) {
 		if (err)
 		{
 			console.log('Ingredient creation failed');
 		}
-	});	
-	res.send(ingredientIDGenerator.toString());
-	ingredientIDGenerator++;
+	});
+	Recipes.findOneAndUpdate({recipeID: id}, {$push:{ingredientIDs: jsonObj.ingredientID}}, {new: true}, function(err, doc) {
+		console.log("inside find one and update" + id);
+		if(err) {
+			console.log("Unable to add ingredient to recipe");
+		}
+	});
+	res.send(jsonObj);
 });
 
-//save recipe (should include saving all ingredients in recipe into the document)
-app.post("/recipeData", jsonParser, function(req, res) {
+//initialize a new recipe entry
+app.post("/createrecipe", function(req, res) {
 	console.log(req.body);
 	var jsonObj = req.body;
 	jsonObj.recipeID = recipeIDGenerator;
-	Recipes.create([jsonObj], function(err) {
-		if (err) {
-			console.log('recipe creation failed')
+	recipeIDGenerator++;
+	Recipes.create(jsonObj, function(err) {
+		if (err)
+		{
+			console.log('Recipe initialization failed');
 		}
 	});
-	res.send(recipeIDGenerator.toString());
-	recipeIDGenerator++;
+	res.send(jsonObj.recipeID.toString());
+	console.log('Created: ' + jsonObj.recipeID);
 });
+
 
 /*
 //Update to remove an ingredient from a recipe
@@ -159,40 +178,6 @@ app.delete("/ingredientlist/:recipeid/:ingredientid", function(req, res) {
     console.log("Removing: Recipe: " + recipeid + " Ingredient: " + ingredientid);
     Recipes.update({recipeID: recipeid}, {$pullAll: {ingredientIDs: ingredientid});
 	res.send(ingredientID.toString());
-});
-*/
-
-
-/*
-//Not sure if these are necessary anymore 
-app.get("/ingredientlist/:id", function(req, res) {
-    var id = req.params.id;
-    console.log(id);
-    db.ingredientlist.findOne({
-        _id: mongojs.ObjectId(id)
-    }, function(err, doc) {
-        res.json(doc);
-    });
-});
-
-app.put("/ingredientlist/:id", function(req, res) {
-    var id = req.params.id;
-    console.log(req.body.ingredient);
-    db.ingredientlist.findAndModify({
-        query: {
-            _id: mongojs.ObjectId(id)
-        },
-        update: {
-            $set: {
-                quantity: req.body.quantity,
-                ingredient: req.body.ingredient,
-                caloriecount: req.body.caloriecount
-            }
-        },
-        new: true
-    }, function(err, doc) {
-        res.json(doc);
-    });
 });
 */
 
