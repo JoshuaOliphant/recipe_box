@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html ng-app="myApp1">
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="recipe.css"/>   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <title>My Recipe Box: Recipes</title>
+</head>
+
+<body class="recipeBoxMain">
+
+    <div class="container" ng_controller="AppCtrl1">
+        <h1 class="recipeBoxHeader">My Recipe Box</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Recipes</th>
+                    <th>&nbsp;</th>
+					<th><button class="btn btn-primary" ng-click="createnew()">Create New</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="recipe in recipelist">
+                    <td>{{recipe.recipeName}}</td>
+					<td><button class="btn btn-primary" ng-click="getdetails()">Recipe Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!--having at bottom makes page load faster-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="controllers/controller1.js"></script>
+</body>
+
+</html>

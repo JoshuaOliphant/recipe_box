@@ -3,6 +3,7 @@
 
 <head>
     <!-- Latest compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="recipe.css"/>   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -11,48 +12,22 @@
     <title>My Recipe Box</title>
 </head>
 
-<body>
+<body class="recipeBoxMain">
+
     <div class="container" ng_controller="AppCtrl">
-        <h1>My Recipe Box</h1>
+        <h1 class="recipeBoxHeader">My Recipe Box</h1>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>Quantity</th>
-                    <th>Ingredient</th>
-                    <th>Calorie Count</th>
-                    <th>Action</th>
+                    <th>Categories</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" ng-model="ingredient.quantity">
-                    </td>
-                    <td>
-                        <input class="form-control" ng-model="ingredient.ingredient">
-                    </td>
-                    <td>
-                        <input class="form-control" ng-model="ingredient.caloriecount">
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" ng-click="addingredient()">Add ingredient</td>
-                    <td>
-                        <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
-                        <button class="btn btn-info" ng-click="deselect()">Clear</button>
-                    </td>
-                </tr>
-                <tr ng-repeat="ingredient in ingredientlist">
-                    <td>{{ingredient.quantity}}</td>
-                    <td>{{ingredient.ingredient}}</td>
-                    <td>{{ingredient.caloriecount}}</td>
-                    <td>
-                        <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
-                    </td>
+                <tr ng-repeat="category in categorylist">
+                    <td>{{category.categoryName}}</td>
+					<td><button class="btn btn-primary" ng-click="getrecipes()">View Recipes</button></td>
                 </tr>
             </tbody>
         </table>
@@ -61,6 +36,7 @@
     <!--having at bottom makes page load faster-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="controllers/controller.js"></script>
+	<script src="controllers/controller1.js"></script>
 </body>
 
 </html>

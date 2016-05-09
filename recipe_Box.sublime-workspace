@@ -1,0 +1,938 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"newl",
+				"newLineText"
+			],
+			[
+				"entit",
+				"entity-embed-container"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"preven",
+				"preventDefault"
+			],
+			[
+				"medium",
+				"mediumEditorActiveSelector"
+			],
+			[
+				"embed",
+				"embedLine"
+			],
+			[
+				"entity",
+				"entity-embed-new-line"
+			],
+			[
+				"embedLin",
+				"embedLineText"
+			],
+			[
+				"embedL",
+				"embedLineText"
+			],
+			[
+				"ent",
+				"entity-embed-new-line"
+			],
+			[
+				"entity-eme",
+				"entity-embed-new-line"
+			],
+			[
+				"entity-embed",
+				"entity-embed-new-line"
+			],
+			[
+				"entr",
+				"entity-embed-container"
+			],
+			[
+				"prevet",
+				"preventDefault"
+			],
+			[
+				"reset",
+				"resetForm"
+			],
+			[
+				"slide",
+				"slideshowEmbed"
+			],
+			[
+				"relat",
+				"relatedLinkEmbed"
+			],
+			[
+				"news",
+				"newsletterSubscribeEmbed"
+			],
+			[
+				"inst",
+				"instagramEmbed"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"glo",
+				"globalBuzzEmbed"
+			],
+			[
+				"exter",
+				"externalLinkEmbed"
+			],
+			[
+				"face",
+				"facebookEmbed"
+			],
+			[
+				"custom",
+				"customTextEmbed"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"twitter",
+				"twitterEmbed"
+			],
+			[
+				"validat",
+				"validationOptions"
+			],
+			[
+				"edit",
+				"editable-editor"
+			],
+			[
+				"first",
+				"first-child"
+			],
+			[
+				"active",
+				"activeEmbedClass"
+			],
+			[
+				"validate",
+				"validateReset"
+			],
+			[
+				"set",
+				"setTimeout"
+			],
+			[
+				"credi",
+				"creditLink"
+			],
+			[
+				"quot",
+				"quoteUrlText"
+			],
+			[
+				"current",
+				"currentEmbedType"
+			],
+			[
+				"emb",
+				"embed-modal-form-control"
+			],
+			[
+				"init",
+				"initModal"
+			],
+			[
+				"enti",
+				"entity-embed-left"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
+				"display",
+				"displayTitle"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"html",
+				"HTML"
+			],
+			[
+				"count",
+				"countRight"
+			],
+			[
+				"sock",
+				"socketNum"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"by",
+				"bytesReceived"
+			],
+			[
+				"Socket",
+				"socketVal"
+			],
+			[
+				"SECTION",
+				"Section_ID"
+			],
+			[
+				"OPP",
+				"Opp_ID"
+			],
+			[
+				"SEC",
+				"Section_ID"
+			],
+			[
+				"STU",
+				"Student_ID"
+			],
+			[
+				"C",
+				"COPILOT"
+			],
+			[
+				"CRE",
+				"CREW_JOB"
+			],
+			[
+				"O",
+				"OPP_DATE"
+			],
+			[
+				"S",
+				"Student_ID"
+			],
+			[
+				"N",
+				"NVARCHAR"
+			],
+			[
+				"T",
+				"Teacher_ID"
+			],
+			[
+				"tea",
+				"TEACHER"
+			],
+			[
+				"Sec",
+				"SECTION"
+			],
+			[
+				"stu",
+				"STUDENT"
+			],
+			[
+				"CL",
+				"Class_ID"
+			],
+			[
+				"TEAC",
+				"Teacher_ID"
+			],
+			[
+				"STUDN",
+				"Student_ID"
+			],
+			[
+				"Student",
+				"Student_ID"
+			],
+			[
+				"Studen",
+				"Student_ID"
+			],
+			[
+				"dele",
+				"deleteP"
+			],
+			[
+				"null",
+				"nullptr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/index.html",
+			"settings":
+			{
+				"buffer_size": 2660,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/controllers/controller.js",
+			"settings":
+			{
+				"buffer_size": 1503,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/controllers/otherIndex.html",
+			"settings":
+			{
+				"buffer_size": 123,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 1707,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/python3.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/LifeOnTheVine/Desktop/queryTrackingResults.json",
+		"/Users/LifeOnTheVine/Downloads/tutorial.json",
+		"/Users/LifeOnTheVine/embed-containers/src/html/index.php",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/facebookEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/newsletterSubscribeEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/instagramEmbed.js",
+		"/Users/LifeOnTheVine/Desktop/FF7.cht",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/imagesEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/iframeEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/globalBuzzEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_facebook.html",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/relatedLinkEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/slideshowEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/audioEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/externalLinkEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/videoEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/twitterEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embeds/customTextEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/entityEmbedAddon.js",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/entityEmbed.less",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_audio.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_customText.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_slideshow.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/uploadAudio.php",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/modal.less",
+		"/Users/LifeOnTheVine/embed-containers/src/js/genericEmbed.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/embedModalDefaults.js",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_twitter.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_newsletterSubscribe.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_externalLink.html",
+		"/Users/LifeOnTheVine/embed-containers/src/js/modal.js",
+		"/Users/LifeOnTheVine/embed-containers/src/js/demo.js",
+		"/Users/LifeOnTheVine/embed-containers/src/html/uploadImage.php",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_image.html",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/priEmbeds/globalBuzzEmbed.less",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_iframe.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_instagram.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_globalBuzz.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_relatedLink.html",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/priEmbeds/twitterEmbed.less",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_video.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_main.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_selectedExisting.html",
+		"/Users/LifeOnTheVine/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/LifeOnTheVine/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/priEmbeds/audioEmbed.less",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/priEmbeds/customTextEmbed.less",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modal/modal_main.php",
+		"/Users/LifeOnTheVine/embed-containers/src/contents/less/embeds.less",
+		"/Users/LifeOnTheVine/embed-containers/src/html/main.css",
+		"/Users/LifeOnTheVine/Desktop/CPSC 3200/submissions/doandan_6171150_62605838_P1-2.cs",
+		"/Users/LifeOnTheVine/embed-containers/src/js/storyParser.js",
+		"/Users/LifeOnTheVine/embed-containers/PRI.sublime-project",
+		"/Users/LifeOnTheVine/Desktop/test.html",
+		"/Users/LifeOnTheVine/embed-containers/src/html/modals/exampleModal.html",
+		"/Users/LifeOnTheVine/medium-editor-insert-plugin/src/js/templates/core-buttons.hbs",
+		"/Users/LifeOnTheVine/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min.js",
+		"/Users/LifeOnTheVine/Desktop/test.js",
+		"/Users/LifeOnTheVine/Library/Application Support/Sublime Text 2/Packages/User/python3.sublime-build",
+		"/TestData.py",
+		"/Users/LifeOnTheVine/Desktop/button.css",
+		"/Users/LifeOnTheVine/Desktop/bower.webarchive",
+		"/Users/LifeOnTheVine/Desktop/client.h",
+		"/Users/LifeOnTheVine/Desktop/server.cpp",
+		"/Users/LifeOnTheVine/Desktop/Desktop/Test.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"keydown",
+			"data.embeds",
+			"remove",
+			"isSaving",
+			"toolbar",
+			"populateFormWithModel",
+			"resetModalView",
+			"setModalView",
+			"setModal",
+			"clearForm",
+			"validate",
+			"linkList",
+			"resetModalView",
+			"loadStory",
+			"resetForm",
+			"medium-insert-button",
+			"addon",
+			"medium",
+			"entityEmbeds",
+			"addon",
+			"type your text",
+			"serialize",
+			"saveEmbed",
+			"validator",
+			"show",
+			"create",
+			"showCreateNewEmbedView",
+			"embedType",
+			"embed-modal",
+			"modal",
+			"resetModalview",
+			"contents",
+			"'\n",
+			"credit",
+			"validate",
+			"====",
+			"var EntityEmbed = EntityEmbed || {};\n\n;(function(){\n\n	// MODAL TYPE ENUM\n	EntityEmbed.embedModalTypes = {\n		add: 0,\n		edit: 1,\n		selectExisting: 2\n	};\n\n	// PRIVATE\n\n	// TODO : allow configuration of this object\n	var embedModalSelectors = {\n		buttons: {\n				saveEmbed: '#btn-save-modal', // saves the modal\n				abortModal: '#btn-abort-modal', // aborts (cancels) the modal\n				showSelectExisting: '#btn-show-select-existing', // shows the select-existing-embed view\n				selectExisting: '#btn-select-existing-embed', // confirms selection of existing embed\n				cancelSelectExisting: '#btn-cancel-select-existing' // cancels selection of existin embed\n			},\n			containers: {\n				createNewEmbed: '#embed-modal-create-new', // contains all the views for creating a new embed\n				selectExistingEmbed: '#embed-modal-select-existing', // contains views for selecting an existing embed\n				createButtons: '#embed-modal-buttons-create', // contains buttons shown in the create new embed view\n				selectButtons: '#embed-modal-buttons-select' // contains buttons shown in the select existing embed view\n			},\n			elements: {\n				selectExistingTableBody: '.embed-modal-select-existing tbody',\n				selectExistingTableRow: '.embed-modal-select-existing-item',\n				selectExistingActiveItem: 'embed-modal-active-row'\n			}\n		},\n		tableRowHtml = function(title, id){\n			return	'<tr class=\"embed-modal-select-existing-item\" id=\"' + id + '\">' + \n			'<td>' + title + '</tr>'+\n			'</td>';\n		},\n		toggleEditorTyping = function(scope, toggleCmd){\n			// enable/disable typing in the editor by finding the first class\n			var currentEditorClass = scope.$currentEditorLocation[0].parentNode.className;\n			currentEditorClass = currentEditorClass.split(\" \");\n			$(\".\" + currentEditorClass[0]).attr(\"contenteditable\", toggleCmd);\n		};\n\n		function embedModalDefaults() {};\n\n		embedModalDefaults.prototype.functions = {\n			init:{\n				before: function(scope){\n				/* \n				 * define necessary fields for scope\n				 *\n				 * assume that these are already defined:\n				 *		scope.modalCtrl			(default for all modals from modal.js)\n				 *		scope.$embedTypeSelect\n				 *		scope.$currentEditorLocation\n				 *		scope.$modalBody\n				 *		scope.embedTypes\n				 */\n				 scope.currentEmbedType = null;\n				 \n				 scope.setModalView = function(scope, embedType){\n				 	if (!embedType)\n				 	{\n				 		return;\n				 	}\n\n				 	if (!!scope.currentEmbedType)\n				 	{\n				 		scope.currentEmbedType.$view.hide();\n				 		scope.currentEmbedType.clearForm(scope.currentEmbedType.$view);\n				 	}\n\n				 	scope.currentEmbedType = $.grep(scope.embedTypes, function(et){\n				 		return et.options.object_type == embedType;\n				 	})[0];\n\n				 	scope.currentEmbedType.$view.show();\n				 	scope.$embedTypeSelect[0].selectedIndex = scope.currentEmbedType.optionIndex;\n				 };\n\n				 scope.resetModalView = function(scope){\n				 	var embedName = scope.embedTypes[0].options.object_type;\n				 	scope.setModalView(scope, embedName);\n				 };\n\n				 scope.saveEmbed = function(scope){\n				 	scope.currentEmbedType.getModelFromForm(scope.currentEmbedType.$view);\n					// TODO : put title on each embed type's form\n					if (!scope.currentEmbedType.model.title)\n					{\n						scope.currentEmbedType.model.title = '';\n					}\n\n					var $form = scope.currentEmbedType.$view.find('form');\n					$form.validate();\n\n					if(!$form.valid()){\n						return;\n					}\n\n					if (scope.modalType == EntityEmbed.embedModalTypes.edit)\n					{\n						scope.currentEmbedType.model.object_id = scope.currentEmbedType.model.id;\n\n						EntityEmbed.apiService.put(\n							scope.currentEmbedType.options.httpPaths.put, \n							scope.currentEmbedType.model,\n							// TODO : save spinner\n							function(data){\n								console.log('put succeeded');\n								scope.modalCtrl.$el.completeModal();\n							}, \n							function(data){\n								// TODO : UI failure message\n								console.log('put failed');\n							}\n							);\n					}\n					else if (scope.modalType == EntityEmbed.embedModalTypes.add){\n						// add the object_type onto the model\n						//		this code smells, do something better here...\n						scope.currentEmbedType.model.object_type = scope.currentEmbedType.options.object_type;\n\n						EntityEmbed.apiService.post(\n							scope.currentEmbedType.options.httpPaths.post, \n							scope.currentEmbedType.model,\n							// TODO : save spinner\n							function(data){\n								scope.currentEmbedType.model.object_id = data.response.object_id;\n								console.log('post succeeded');\n								scope.modalCtrl.$el.completeModal();\n							}, \n							function(data){\n								// TODO : UI failure message\n								console.log('post failed');\n							}\n							);\n					}						\n				};\n\n				scope.populateSelectExistingView = function(scope){\n					$(embedModalSelectors.elements.selectExistingTableRow).remove();\n\n					EntityEmbed.apiService.get(scope.currentEmbedType.options.httpPaths.get,\n						{object_id: scope.currentEmbedType.options.getAllObjectId},\n						function(data){\n							// this is how we expect things to be \n							if (!data.response.list){\n								return;\n							}\n							scope.selectExistingItems = data.response.list;\n							for (var i = 0; i < scope.selectExistingItems.length; i++)\n							{\n								var $row = $(tableRowHtml(scope.selectExistingItems[i].title, scope.selectExistingItems[i].id));\n								$(embedModalSelectors.elements.selectExistingTableBody).append($row);\n								\n								scope.modalCtrl.registerEvent($row, 'click',\n									function(e, scope){\n										// we do not need to add the class back if it is already on the item being clicked\n										var needToAddClass = !$(e.currentTarget).hasClass(embedModalSelectors.elements.selectExistingActiveItem);\n										\n										$(embedModalSelectors.elements.selectExistingTableBody)\n										.find('.' + embedModalSelectors.elements.selectExistingActiveItem)\n										.removeClass(embedModalSelectors.elements.selectExistingActiveItem);\n\n										if (needToAddClass){\n											$(e.currentTarget).addClass(embedModalSelectors.elements.selectExistingActiveItem);\n											$(embedModalSelectors.buttons.selectExisting).removeClass('disabled');\n										}\n										else // since we didnt add a class, that means nothing is selected, so disable the select button\n										{\n											$(embedModalSelectors.buttons.selectExisting).addClass('disabled');\n										}\n									}\n									);\n							}		\n						},\n						function(data){\n							console.log('Failed to get list of current embed types for the Select Existing page.');\n						}\n						);\n};\n\nscope.showCreateNewEmbedView = function(scope){\n	$(embedModalSelectors.buttons.showSelectExisting).show();\n	scope.$embedTypeSelect.show();\n\n	$(embedModalSelectors.containers.selectExistingEmbed).slideUp();\n	$(embedModalSelectors.containers.createNewEmbed).slideDown();\n\n	$(embedModalSelectors.containers.selectButtons).hide();\n	$(embedModalSelectors.containers.createButtons).show();\n};\n\nscope.showEditEmbedView = function(scope){\n	$(embedModalSelectors.buttons.showSelectExisting).hide();\n	scope.$embedTypeSelect.hide();\n\n	if ($(embedModalSelectors.containers.selectExistingEmbed).is(':visible'))\n	{\n		$(embedModalSelectors.containers.selectExistingEmbed).slideUp();\n		$(embedModalSelectors.containers.createNewEmbed).slideDown();\n	}\n\n	$(embedModalSelectors.containers.selectButtons).hide();\n	$(embedModalSelectors.containers.createButtons).show();\n\n	$(embedModalSelectors.buttons.showSelectExisting).hide();\n\n};\n\nscope.generateEmbedHtml = function(scope){\n	scope.$currentEditorLocation.addClass('entity-embed-center');\n	scope.$currentEditorLocation.addClass('entity-embed-editor-line');\n\n	var figureClass = 'entity-embed'\n\n	if (!!scope.currentEmbedType.defaultStyle)\n	{\n		figureClass += ' ' + scope.currentEmbedType.defaultStyle;\n	}\n\n	return '<div class=\"entity-embed-container\">' + \n	'<figure contenteditable=\"false\" class=\"' + figureClass + '\" ' + \n	'id=\"' + scope.currentEmbedType.model.object_id + '\" >' +\n	scope.currentEmbedType.parseForEditor() +\n	'</figure>' + \n	'</div>'\n							// ad a new paragraph after the embed so that user can continue typing\n							// TODO : make sure that no one can ever remove this\n							//			user could put self in bad editing state\n							'<p class=\"entity-embed-new-line\">' + \n							'<br />' + \n							'</p>';\n						};\n					},\n					after: function(scope){\n				// first load all dynamic content\n\n				// load the select existing view\n				scope.$modalBody.find(embedModalSelectors.containers.selectExistingEmbed)\n				.load('modal/modal_selectedExisting.html', function(responseText, textStatus, xhr){\n					console.log('modal_selectedExisting.html load completed with status: ' + textStatus);\n					if (textStatus === 'error')\n					{\n							// TODO : error view (so that user knows something went wrong)\n						}\n\n						$(embedModalSelectors.buttons.selectExisting).addClass('disabled');\n					});\n\n				// load the views for creating new embeds (one view for each embed type)\n				var optionIndex = 0;\n				for(var i = 0; i < scope.embedTypes.length; i++)\n				{\n					var embedObject = scope.embedTypes[i];\n					// create option in dropdown for this embed\n					scope.$embedTypeSelect.append('<option value=\"' + \n						embedObject.options.object_type + '\">' + embedObject.options.displayName +\n						'</option>');\n\n					// create the embed view container and load the view into it\n					scope.$modalBody\n					.find(embedModalSelectors.containers.createNewEmbed)\n					.append('<div id=\"' + embedObject.name + '\"></div>');\n					var $embedView = scope.$modalBody.find('#' + embedObject.name);\n					$embedView.load(embedObject.options.viewPath, function(responseText, textStatus, xhr){\n						console.log(embedObject.options.viewPath + ' load completed with status: ' + textStatus);\n						if (textStatus === 'error')\n						{\n							// TODO : error view (so that user knows something went wrong)\n						}\n					});\n					\n					// augment the embedObject for use with this modal\n					embedObject.$view = $embedView;\n					embedObject.optionIndex = optionIndex;\n					$embedView.hide();\n\n					// increment optionIndex to keep it valid\n					optionIndex++;\n				}\n\n				// TODO : find a better way to handle async load\n				setTimeout(function(){\n					for(var i = 0; i < scope.embedTypes.length; i++)\n					{\n						scope.embedTypes[i].initModal(scope.embedTypes[i].$view);\n					}\n				}, 200);\n\n				// now set up events for buttons etc.\n\n				// configure the select-embed-type dropdown to change the modal view\n				scope.modalCtrl.registerEvent(scope.$embedTypeSelect, 'change',\n					function(e, currentScope){\n						currentScope.currentEmbedType.clearForm(currentScope.currentEmbedType.$view);\n						var embedType = e.currentTarget.options[e.currentTarget.selectedIndex].value;\n						currentScope.setModalView(currentScope, embedType);\n\n						if (currentScope.modalType === EntityEmbed.embedModalTypes.selectExisting)\n						{\n							currentScope.populateSelectExistingView(currentScope);\n						}\n					});\n\n				// configure save button to call save method\n				scope.modalCtrl.registerEvent(embedModalSelectors.buttons.saveEmbed, 'click',\n					function(e, currentScope){\n						currentScope.saveEmbed(currentScope);\n					});\n\n				// configure show-select-existing button to show the select-existing view\n				scope.modalCtrl.registerEvent(embedModalSelectors.buttons.showSelectExisting, 'click',\n					function(e, currentScope){\n						currentScope.modalType = EntityEmbed.embedModalTypes.selectExisting;\n						currentScope.populateSelectExistingView(currentScope);\n\n						$(embedModalSelectors.containers.createNewEmbed).slideUp();\n						$(embedModalSelectors.containers.selectExistingEmbed).slideDown();\n\n						$(embedModalSelectors.containers.createButtons).hide();\n						$(embedModalSelectors.containers.selectButtons).show();\n					});\n\n				// configure cancel-select-existing button to show the create-new-embed view\n				scope.modalCtrl.registerEvent(embedModalSelectors.buttons.cancelSelectExisting, 'click',\n					function(e, currentScope){\n						currentScope.modalType = EntityEmbed.embedModalTypes.add;\n						currentScope.showCreateNewEmbedView(currentScope);\n					});\n\n				scope.modalCtrl.registerEvent(embedModalSelectors.buttons.selectExisting, 'click',\n					function(e, currentScope){\n						if ($(embedModalSelectors.buttons.selectExisting).hasClass('disabled'))\n						{\n							return;\n						}\n\n						EntityEmbed.apiService.get(\n							currentScope.currentEmbedType.options.httpPaths.get,\n							{ object_id: $('.' + embedModalSelectors.elements.selectExistingActiveItem).attr('id') },\n							function(data){\n								currentScope.currentEmbedType.model = data.response;\n								currentScope.modalCtrl.$el.completeModal();\n							},\n							function(data){\n								// TODO: show error UI\n								console.log('failed to get embed type!');\n							}\n							);\n					});\n			}\n		},\n		open: {\n			before: function(scope){},\n			after: function(scope){\n				$('#embed-modal-save-warning').hide();\n\n				toggleEditorTyping(scope, \"false\");	\n\n				if (scope.modalType == EntityEmbed.embedModalTypes.edit)\n				{\n					scope.showEditEmbedView(scope);\n					\n					EntityEmbed.apiService.get(\n						scope.currentEmbedType.options.httpPaths.get,\n						{ object_id: scope.embedId },\n						function(data){\n							scope.setModalView(scope, data.response.object_type); // todo : this does not work for everything (some name have dashes now)\n							scope.currentEmbedType.model = data.response;\n							scope.currentEmbedType.populateFormWithModel(scope.currentEmbedType.$view);\n						},\n						function(data){\n							console.log('failed to get embed type!');\n						}\n						);\n\n				}\n				else if (scope.modalType == EntityEmbed.embedModalTypes.add)\n				{\n					scope.showCreateNewEmbedView(scope);\n					scope.resetModalView(scope);\n				}\n			},\n		},\n		abort: {\n			before: function(scope){},\n			after: function(scope){\n				scope.showCreateNewEmbedView(scope);\n				toggleEditorTyping(scope, \"true\");	\n			}\n		},\n		complete: {\n			before: function(scope){\n				return true;\n			},\n			after: function(scope){\n				toggleEditorTyping(scope, \"true\");	\n				scope.$currentEditorLocation.html(scope.generateEmbedHtml(scope));\n			}\n		}\n	};\n\n	EntityEmbed.embedModalDefaults = embedModalDefaults;\n}());\n",
+			"parse",
+			"parseForEditor",
+			"modal",
+			"parse",
+			"parseforEditor",
+			"getModalFromForm",
+			"embed-modal-input",
+			"resetModal",
+			"getModelFromForm",
+			"view",
+			"save",
+			"initModal",
+			"init",
+			"initmodal",
+			"btn-save",
+			"save",
+			"init",
+			"modal",
+			"open",
+			"openModal",
+			"video",
+			"entity embed undefined",
+			"static",
+			"button",
+			"embedModel",
+			"parse",
+			"row-em row",
+			"twitter",
+			"addonAction",
+			"This is",
+			"Lede Embed",
+			"lede Embed"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/index.html",
+					"settings":
+					{
+						"buffer_size": 2660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/controllers/controller.js",
+					"settings":
+					{
+						"buffer_size": 1503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/controllers/otherIndex.html",
+					"settings":
+					{
+						"buffer_size": 123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server.js",
+					"settings":
+					{
+						"buffer_size": 1707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"entity",
+				"js/entityEmbedAddon.js"
+			],
+			[
+				"face",
+				"js/embeds/facebookEmbed.js"
+			],
+			[
+				"index",
+				"html/index.php"
+			],
+			[
+				"faceb",
+				"js/embeds/facebookEmbed.js"
+			],
+			[
+				"audio",
+				"js/embeds/audioEmbed.js"
+			],
+			[
+				"image",
+				"js/embeds/imagesEmbed.js"
+			],
+			[
+				"twitter",
+				"js/embeds/twitterEmbed.js"
+			],
+			[
+				"customtext",
+				"js/embeds/customTextEmbed.js"
+			],
+			[
+				"embe",
+				"js/genericEmbed.js"
+			],
+			[
+				"relate",
+				"js/embeds/relatedLinkEmbed.js"
+			],
+			[
+				"twi",
+				"js/embeds/twitterEmbed.js"
+			],
+			[
+				".php",
+				"html/index.php"
+			],
+			[
+				"images",
+				"js/embeds/imagesEmbed.js"
+			],
+			[
+				"modal.less",
+				"contents/less/modal.less"
+			],
+			[
+				"generic",
+				"js/genericEmbed.js"
+			],
+			[
+				"embed",
+				"js/embedModalDefaults.js"
+			],
+			[
+				"custom",
+				"html/modal/modal_customText.html"
+			],
+			[
+				"t",
+				"html/modal/modal_twitter.html"
+			],
+			[
+				"fa",
+				"js/embeds/facebookEmbed.js"
+			],
+			[
+				"global",
+				"js/embeds/globalBuzzEmbed.js"
+			],
+			[
+				"news",
+				"html/modal/modal_newsletterSubscribe.html"
+			],
+			[
+				"new",
+				"js/embeds/newsletterSubscribeEmbed.js"
+			],
+			[
+				"rel",
+				"js/embeds/relatedLinkEmbed.js"
+			],
+			[
+				"external",
+				"html/modal/modal_externalLink.html"
+			],
+			[
+				"extern",
+				"js/embeds/externalLinkEmbed.js"
+			],
+			[
+				"audo",
+				"js/embeds/audioEmbed.js"
+			],
+			[
+				"slide",
+				"html/modal/modal_slideshow.html"
+			],
+			[
+				"entityem",
+				"js/entityEmbedAddon.js"
+			],
+			[
+				"modal",
+				"js/modal.js"
+			],
+			[
+				"demo.js",
+				"js/demo.js"
+			],
+			[
+				"glo",
+				"js/embeds/globalBuzzEmbed.js"
+			],
+			[
+				"uploadimage",
+				"html/uploadImage.php"
+			],
+			[
+				"",
+				"js/genericEmbed.js"
+			],
+			[
+				"gener",
+				"js/genericEmbed.js"
+			],
+			[
+				"slidesho",
+				"html/modal/modal_slideshow.html"
+			],
+			[
+				"twitt",
+				"js/embeds/twitterEmbed.js"
+			],
+			[
+				"relatedlink",
+				"html/modal/modal_relatedLink.html"
+			],
+			[
+				"relatedlinke",
+				"js/embeds/relatedLinkEmbed.js"
+			],
+			[
+				"related",
+				"html/modal/modal_relatedLink.html"
+			],
+			[
+				"video",
+				"js/embeds/videoEmbed.js"
+			],
+			[
+				"vid",
+				"html/modal/modal_video.html"
+			],
+			[
+				"entit",
+				"contents/less/entityEmbed.less"
+			],
+			[
+				"less",
+				"contents/less/priEmbeds/audioEmbed.less"
+			],
+			[
+				"embedmodal",
+				"js/embedModalDefaults.js"
+			],
+			[
+				"rela",
+				"js/embeds/relatedLinkEmbed.js"
+			],
+			[
+				"vido",
+				"html/modal/modal_video.html"
+			],
+			[
+				"mo",
+				"js/demo.js"
+			],
+			[
+				"moda",
+				"js/modal.js"
+			],
+			[
+				"modal_vid",
+				"html/modal/modal_video.html"
+			],
+			[
+				"vide",
+				"js/embeds/videoEmbed.js"
+			],
+			[
+				"modal_",
+				"html/modal/modal_newsletterSubscribe.html"
+			],
+			[
+				"modal_video",
+				"html/modal/modal_video.html"
+			],
+			[
+				"fac",
+				"js/embeds/facebookEmbed.js"
+			],
+			[
+				"modal_au",
+				"html/modal/modal_audio.html"
+			],
+			[
+				"insta",
+				"js/embeds/instagramEmbed.js"
+			],
+			[
+				"tw",
+				"js/embeds/twitterEmbed.js"
+			],
+			[
+				"eembed",
+				"js/embeds/externalLinkEmbed.js"
+			],
+			[
+				"ima",
+				"js/embeds/imagesEmbed.js"
+			],
+			[
+				"dem",
+				"js/demo.js"
+			],
+			[
+				"mod",
+				"js/modal.js"
+			],
+			[
+				"imag",
+				"js/embeds/imagesEmbed.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true
+}
