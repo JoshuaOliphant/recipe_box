@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html ng-app="myApp2">
+<html ng-app="myApp1">
 
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -9,43 +9,26 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-    <title>My Recipe Box: Notecard</title>
+    <title>My Recipe Box: Recipes</title>
 </head>
 
 <body class="recipeBoxMain">
 
-    <div class="container" ng_controller="AppCtrl2">
+    <div class="container" ng_controller="AppCtrl1">
         <h1 class="recipeBoxHeader">My Recipe Box</h1>
-		<h2 class="notecardHeader">Recipe Notecard</h2>
 
         <table class="table">
             <thead>
-				<tr>
-					<th>{{recipe.recipeName}}</th>
-				</tr>
-				<tr>
-					<th>Instructions:</th>
-					<th>{{recipe.recipeInstructions}}</th>
-				</tr>
                 <tr>
-                    <th>Quantity</th>
-                    <th>Ingredient</th>
-                    <th>Calorie Count</th>
-                    <th>Action</th>
+                    <th>Recipes</th>
                     <th>&nbsp;</th>
+					<th><button class="btn btn-primary" ng-click="createnew()">Create New</button></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="ingredient in ingredients">
-                    <td>{{ingredient.quantity}}</td>
-					<td>{{ingredient.ingredient}}</td>
-					<td>{{ingredient.caloriecount}}</td>
-                    <td>
-                        <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
-                    </td>
+                <tr ng-repeat="recipe in recipelist">
+                    <td>{{recipe.recipeName}}</td>
+					<td><button class="btn btn-primary" ng-click="getdetails()">Recipe Details</button></td>
                 </tr>
             </tbody>
         </table>
@@ -53,7 +36,7 @@
     </div>
     <!--having at bottom makes page load faster-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="controllers/controller2.js"></script>
+    <script src="controllers/controller1.js"></script>
 </body>
 
 </html>
