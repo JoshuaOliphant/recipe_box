@@ -27,6 +27,14 @@
 					<th>
                         <input class="form-control" ng-model="recipe.recipeInstructions" placeholder="Enter Instructions" ng-model="recipe.recipeInstructions">
                     </th>
+					<th class="dropdown">
+						<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						Select Category <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="dropdown-item" ng-repeat="category in categories">{{category.categoryName}}</li>
+						</ul>
+					</th>
 				</tr>
                 <tr>
                     <th>Quantity</th>
@@ -73,6 +81,9 @@
     </div>
     <!--having at bottom makes page load faster-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.js"></script>
     <script src="controllers/controller.js"></script>
 </body>
 

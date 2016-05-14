@@ -107,8 +107,14 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
 		var ingredientIDs = [];
 		var refresh = function() {
 			$scope.ingredient = "";
+			console.log("categories: ");
+			$http.get('/categories').success(function(response){
+                console.log("I got the data I requested");
+                $scope.categories = response;
+				console.log(response);
+            });
         };
-		
+		refresh();
 		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
 			$scope.recipe.ingredientIDs = ingredientIDs;
