@@ -73,7 +73,7 @@ myApp.controller('AppCtrl2', ['$scope', '$http',
             });
         };
 
-        $scope.remove = function(id) {
+/*         $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
                 refresh();
@@ -96,7 +96,7 @@ myApp.controller('AppCtrl2', ['$scope', '$http',
 
         $scope.deselect = function() {
             $scope.ingredient = "";
-        }
+        } */
 	}]);
 	
 myApp.controller('AppCtrl3', ['$scope', '$http',
@@ -115,6 +115,7 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
             });
         };
 		refresh();
+		
 		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
 			$scope.recipe.ingredientIDs = ingredientIDs;
@@ -131,22 +132,34 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
 		//adds ingredients to the DB and stores the ID in array ingredientIDs
 		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
+			var id;
+            $http.post('/ingredientlist/', $scope.ingredient).success(function(response){
+				id = response.ingredientID;
+				console.log(id);
+				ingredientIDs.push(id);
+				$scope.ingredient.ingredientID = id;
+				refresh();
+            });
+			
 			ingredientListForDisplay.push($scope.ingredient);
 			$scope.ingredients = ingredientListForDisplay;
             console.log($scope.ingredient);
-            $http.post('/ingredientlist/', $scope.ingredient).success(function(response){
-				ingredientIDs.push(response);
-				refresh();
-            });
         };
 
-/*      $scope.remove = function(id) {
+	 //currently removes from DB and from notecard
+	 //if DB is prepopulated with ingredients, may not want this
+        $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
-                refresh();
             });
+			var i = ingredientIDs.indexOf(id);
+			if(i != -1) {
+				ingredientIDs.splice(i, 1);
+				$scope.ingredients = ingredientIDs;
+			}
+			refresh();
         };
-
+/*
         $scope.edit = function(id) {
             console.log(id);
             $http.get('/ingredientlist/' + id).success(function(response){

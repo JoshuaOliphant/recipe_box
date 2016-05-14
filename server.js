@@ -153,20 +153,17 @@ app.post("/createrecipe", function (req, res) {
     console.log('Created: ' + jsonObj.recipeID);
 });
 
-
-
-/*
- //Update to remove an ingredient from a recipe
- //need to send both the ingredient and recipe id to this function
- //waiting up updat this until we have a better idea of the Angular used in the view
- app.delete("/ingredientlist/:recipeid/:ingredientid", function(req, res) {
- var recipeid = req.params.recipeid;
- var ingredientid = req.params.ingredientid;
- console.log("Removing: Recipe: " + recipeid + " Ingredient: " + ingredientid);
- Recipes.update({recipeID: recipeid}, {$pullAll: {ingredientIDs: ingredientid});
- res.send(ingredientID.toString());
- });
- */
+//remove ingredient from DB
+app.delete("/ingredientlist/:ingredientid", function(req, res) {
+	var id = req.params.ingredientid;
+	console.log("Removing ingredient: " + id);
+	Ingredients.remove({ingredientId: id}, function(err) {
+		if (err) 
+		{
+			console.log("Unable to remove ingredient");
+		}
+	});
+});
 
 app.listen(3000);
 console.log("Server running on port 3000");

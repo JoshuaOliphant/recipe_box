@@ -49,8 +49,9 @@
                     <td>{{ingredient.quantity}}</td>
                     <td>{{ingredient.ingredient}}</td>
                     <td>{{ingredient.caloriecount}}</td>
+					<td>{{ingredient.ingredientID}}</td>
                     <td>
-                        <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
+                        <button class="btn btn-danger" ng-click="remove(ingredient.ingredientID)">Remove</button>
                     </td>
                     <td>
                         <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
