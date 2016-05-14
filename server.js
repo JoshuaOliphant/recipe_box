@@ -124,12 +124,10 @@ app.get("/recipeData/:recipeID", function (req, res) {
     retrieveRecipeData(res, {recipeID: id});
 });
 
-//create an ingredient in DB and add it to a recipe; currently allows duplicates 
-app.post("/ingredientlist/:recipeID", function (req, res) {
-    var id = req.params.recipeID;
+//create an ingredient in DB; currently allows duplicates 
+app.post("/ingredientlist", function (req, res) {
     var jsonObj = req.body;
     console.log(jsonObj);
-    console.log(id);
     jsonObj.ingredientID = ingredientIDGenerator;
     ingredientIDGenerator++;
     Ingredients.create(jsonObj, function (err) {
@@ -137,16 +135,10 @@ app.post("/ingredientlist/:recipeID", function (req, res) {
             console.log('Ingredient creation failed');
         }
     });
-    Recipes.findOneAndUpdate({recipeID: id}, {$push: {ingredientIDs: jsonObj.ingredientID}}, {new: true}, function (err, doc) {
-        console.log("inside find one and update" + id);
-        if (err) {
-            console.log("Unable to add ingredient to recipe");
-        }
-    });
     res.send(jsonObj);
 });
 
-//initialize a new recipe entry
+//creates a new recipe 
 app.post("/createrecipe", function (req, res) {
     console.log(req.body);
     var jsonObj = req.body;
@@ -160,6 +152,7 @@ app.post("/createrecipe", function (req, res) {
     res.send(jsonObj.recipeID.toString());
     console.log('Created: ' + jsonObj.recipeID);
 });
+
 
 
 /*

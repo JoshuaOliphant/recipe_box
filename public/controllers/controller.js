@@ -103,12 +103,15 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
     function($scope, $http){
 		
 		var recipeID;
-		var ingredientIDs;
+		var ingredientListForDisplay = [];
+		var ingredientIDs = [];
 		var refresh = function() {
 			$scope.ingredient = "";
         };
 		
+		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
+			$scope.recipe.ingredientIDs = ingredientIDs;
 			console.log($scope.recipe);
 			$http.post("/createrecipe", $scope.recipe).success(function(response) {
 				console.log("Recipe initialized");
@@ -116,19 +119,22 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
 				console.log(recipeID);
 				refresh();
 			});
+			
 		};
 		
+		//adds ingredients to the DB and stores the ID in array ingredientIDs
+		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
+			ingredientListForDisplay.push($scope.ingredient);
+			$scope.ingredients = ingredientListForDisplay;
             console.log($scope.ingredient);
-			console.log(recipeID);
-            $http.post('/ingredientlist/' + recipeID, $scope.ingredient).success(function(response){
-                console.log(response);
+            $http.post('/ingredientlist/', $scope.ingredient).success(function(response){
+				ingredientIDs.push(response);
 				refresh();
             });
-			
         };
 
-        $scope.remove = function(id) {
+/*      $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
                 refresh();
@@ -151,5 +157,5 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
 
         $scope.deselect = function() {
             $scope.ingredient = "";
-        }
+        } */
 	}]);
