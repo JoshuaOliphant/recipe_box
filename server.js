@@ -144,6 +144,7 @@ app.post("/createrecipe", function (req, res) {
     var jsonObj = req.body;
     jsonObj.recipeID = recipeIDGenerator;
     recipeIDGenerator++;
+	console.log(jsonObj);
     Recipes.create(jsonObj, function (err) {
         if (err) {
             console.log('Recipe initialization failed');

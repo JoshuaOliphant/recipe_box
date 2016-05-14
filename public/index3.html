@@ -28,12 +28,7 @@
                         <input class="form-control" ng-model="recipe.recipeInstructions" placeholder="Enter Instructions" ng-model="recipe.recipeInstructions">
                     </th>
 					<th class="dropdown">
-						<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						Select Category <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li class="dropdown-item" ng-repeat="category in categories">{{category.categoryName}}</li>
-						</ul>
+						 <select ng-model="recipe.categoryID" ng-options="category.categoryID as category.categoryName for category in categories track by category.categoryID">Select Category</select>
 					</th>
 				</tr>
                 <tr>
@@ -49,7 +44,6 @@
                     <td>{{ingredient.quantity}}</td>
                     <td>{{ingredient.ingredient}}</td>
                     <td>{{ingredient.caloriecount}}</td>
-					<td>{{ingredient.ingredientID}}</td>
                     <td>
                         <button class="btn btn-danger" ng-click="remove(ingredient.ingredientID)">Remove</button>
                     </td>
