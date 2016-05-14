@@ -146,8 +146,7 @@ myApp.controller('AppCtrl3', ['$scope', '$http',
             console.log($scope.ingredient);
         };
 
-	 //currently removes from DB and from notecard
-	 //if DB is prepopulated with ingredients, may not want this
+	 //IN PROGRESS
         $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
