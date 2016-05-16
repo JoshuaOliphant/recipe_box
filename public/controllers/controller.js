@@ -4,7 +4,6 @@ var recipeApp = angular.module('recipeApp', [
 ]);
 
 
-
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
     function($scope, $http){
 
@@ -22,7 +21,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
             window.location = "./#/recipes";
         }
         $scope.createnew = function() {
-            window.location = "./#/createNotecard.html";
+            window.location = "./#/create";
         };
 }]);
 
@@ -40,7 +39,7 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
         refresh();
         
         $scope.getdetails = function() {
-            window.location = "./#/viewRecipeDetails.html";
+            window.location = "./#/recipeDetails";
         }
         
 }]);
@@ -110,6 +109,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
 recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
     function($scope, $http){
 		
+        document.getElementById("newNoteCardButton").style.visibility = "hidden";
 		var ingredientListForDisplay = [];
 		var ingredientIDs = [];
 		var refresh = function() {
@@ -202,7 +202,7 @@ recipeApp.config(function($routeProvider){
         templateUrl: '/viewRecipeDetails.html',
         controller: 'recipeDetailCtrl'
     })
-    .when('/createNotecard',{
+    .when('/create',{
         templateUrl: '/createNotecard.html',
         controller: 'createNotecardCtrl'
     })
