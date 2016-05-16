@@ -15,9 +15,10 @@
 
 <body ng-app="recipeApp" class="recipeBoxMain">
 
-    
+
     <div class="container">
         <div ng-view></div>
+        <th><button class="btn btn-primary" ng-click="createnew()">Create New</button></th>
     </div>
     <!--having at bottom makes page load faster-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -25,7 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="controllers/controller.js"></script>
-    <!--<script src="controllers/app.js"></script>-->
+
 </body>
 
 </html>

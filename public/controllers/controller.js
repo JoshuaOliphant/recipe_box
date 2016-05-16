@@ -19,7 +19,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         $scope.getrecipes = function(){
             window.location = "./#/recipes";
         }
-}])
+}]);
 
 recipeApp.controller('recipesCtrl', ['$scope', '$http',
     function($scope, $http){
@@ -35,11 +35,11 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
         refresh();
         
         $scope.getdetails = function() {
-            window.location = "./#/recipes.html";
+            window.location = "./#/viewRecipeDetails.html";
         }
         
         $scope.createnew = function() {
-            window.location = "./#/viewRecipeDetails.html";
+            window.location = "./#/createNotecard.html";
         }
 }]);
 
@@ -76,8 +76,9 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
                 refresh();
             });
         };
-
-        $scope.remove = function(id) {
+		
+		refresh();
+	/*         $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
                 refresh();
@@ -100,45 +101,70 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
 
         $scope.deselect = function() {
             $scope.ingredient = "";
-        }
-    }]);
-    
+        }*/	
+}]);
+
+
 recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
     function($scope, $http){
-        
-        var recipeID;
-        var ingredientIDs;
-        var refresh = function() {
-            $scope.ingredient = "";
-        };
-        
-        $scope.createrecipe = function() {
-            console.log($scope.recipe);
-            $http.post("/createrecipe", $scope.recipe).success(function(response) {
-                console.log("Recipe initialized");
-                recipeID = response;
-                console.log(recipeID);
-                refresh();
+		
+		var ingredientListForDisplay = [];
+		var ingredientIDs = [];
+		var refresh = function() {
+			$scope.ingredient = "";
+			console.log("categories: ");
+			$http.get('/categories').success(function(response){
+                //console.log("I got the data I requested");
+                $scope.categories = response;
+				//console.log(response);
             });
         };
-        
+		refresh();
+		
+		//Creates a recipe and adds the ingredient ids
+		$scope.createrecipe = function() {
+			console.log(ingredientIDs);
+			$scope.recipe.ingredientIDs = ingredientIDs;
+			console.log($scope.recipe.ingredientIDs);
+			console.log($scope.recipe);
+			$http.post("/createrecipe", $scope.recipe).success(function(response) {
+				console.log("Recipe initialized");
+				console.log(response);
+				refresh();
+			});
+			
+		};
+		
+		//adds ingredients to the DB and stores the ID in array ingredientIDs
+		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
-            console.log($scope.ingredient);
-            console.log(recipeID);
-            $http.post('/ingredientlist/' + recipeID, $scope.ingredient).success(function(response){
-                console.log(response);
-                refresh();
+			var id;
+            $http.post('/ingredientlist/', $scope.ingredient).success(function(response){
+				id = response.ingredientID;
+				console.log(id);
+				ingredientIDs.push(id);
+				$scope.ingredient.ingredientID = id;
+				refresh();
             });
-            
+			
+			ingredientListForDisplay.push($scope.ingredient);
+			$scope.ingredients = ingredientListForDisplay;
+            console.log($scope.ingredient);
         };
 
+	 //IN PROGRESS
         $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
-                refresh();
             });
+			var i = ingredientIDs.indexOf(id);
+			if(i != -1) {
+				ingredientIDs.splice(i, 1);
+				$scope.ingredients = ingredientIDs;
+			}
+			refresh();
         };
-
+/*
         $scope.edit = function(id) {
             console.log(id);
             $http.get('/ingredientlist/' + id).success(function(response){
@@ -155,7 +181,9 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
 
         $scope.deselect = function() {
             $scope.ingredient = "";
+
         }
+        */
 }]);
 
 recipeApp.config(function($routeProvider){
@@ -179,6 +207,6 @@ recipeApp.config(function($routeProvider){
     .otherwise({
         redirectTo: '/'
     });
-
-
 });
+
+
