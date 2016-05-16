@@ -1,0 +1,36 @@
+<div class="container" ng_controller="recipeDetailCtrl">
+    <h1 class="recipeBoxHeader">My Recipe Box</h1>
+	<h2 class="notecardHeader">Recipe Notecard</h2>
+
+    <table class="table">
+        <thead>
+			<tr>
+				<th>{{recipe.recipeName}}</th>
+			</tr>
+			<tr>
+				<th>Instructions:</th>
+				<th>{{recipe.recipeInstructions}}</th>
+			</tr>
+            <tr>
+                <th>Quantity</th>
+                <th>Ingredient</th>
+                <th>Calorie Count</th>
+                <th>Action</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ingredient in ingredients">
+                <td>{{ingredient.quantity}}</td>
+				<td>{{ingredient.ingredient}}</td>
+				<td>{{ingredient.caloriecount}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
+                </td>
+                <td>
+                    <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

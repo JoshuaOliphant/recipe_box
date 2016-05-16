@@ -291,7 +291,15 @@
 			"file": "public/index.html",
 			"settings":
 			{
-				"buffer_size": 2660,
+				"buffer_size": 1339,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/recipeBox.html",
+			"settings":
+			{
+				"buffer_size": 583,
 				"line_ending": "Unix"
 			}
 		},
@@ -299,15 +307,7 @@
 			"file": "public/controllers/controller.js",
 			"settings":
 			{
-				"buffer_size": 1503,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/controllers/otherIndex.html",
-			"settings":
-			{
-				"buffer_size": 123,
+				"buffer_size": 5073,
 				"line_ending": "Unix"
 			}
 		},
@@ -315,7 +315,7 @@
 			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 1707,
+				"buffer_size": 5106,
 				"line_ending": "Unix"
 			}
 		}
@@ -344,6 +344,9 @@
 	},
 	"file_history":
 	[
+		"/Users/LifeOnTheVine/recipe_box/public/controllers/controller1.js",
+		"/Users/LifeOnTheVine/recipe_box/public/controllers/otherIndex.html",
+		"/Users/LifeOnTheVine/recipe_box/public/controllers/app.js",
 		"/Users/LifeOnTheVine/Desktop/queryTrackingResults.json",
 		"/Users/LifeOnTheVine/Downloads/tutorial.json",
 		"/Users/LifeOnTheVine/embed-containers/src/html/index.php",
@@ -513,7 +516,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -521,15 +524,15 @@
 					"file": "public/index.html",
 					"settings":
 					{
-						"buffer_size": 2660,
+						"buffer_size": 1339,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								748,
+								748
 							]
 						],
 						"settings":
@@ -546,23 +549,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "public/controllers/controller.js",
+					"file": "public/recipeBox.html",
 					"settings":
 					{
-						"buffer_size": 1503,
+						"buffer_size": 583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								355,
+								367
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -574,23 +577,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "public/controllers/otherIndex.html",
+					"file": "public/controllers/controller.js",
 					"settings":
 					{
-						"buffer_size": 123,
+						"buffer_size": 5073,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								77,
+								77
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -603,7 +608,7 @@
 					"file": "server.js",
 					"settings":
 					{
-						"buffer_size": 1707,
+						"buffer_size": 5106,
 						"regions":
 						{
 						},
@@ -618,7 +623,7 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -635,7 +640,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"layout":
 	{

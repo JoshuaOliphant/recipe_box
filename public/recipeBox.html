@@ -1,0 +1,17 @@
+<div class="container" ng-controller="recipeBoxCtrl">
+	<h1 class="recipeBoxHeader">My Recipe Box</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Categories</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="category in categorylist">
+                    <td>{{category.categoryName}}</td>
+					<td><button class="btn btn-primary" ng-click="getrecipes()">View Recipes</button></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
