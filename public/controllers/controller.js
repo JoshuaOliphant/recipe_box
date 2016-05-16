@@ -3,6 +3,8 @@ var recipeApp = angular.module('recipeApp', [
     'ngResource'
 ]);
 
+
+
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
     function($scope, $http){
 
@@ -19,6 +21,9 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         $scope.getrecipes = function(){
             window.location = "./#/recipes";
         }
+        $scope.createnew = function() {
+            window.location = "./#/createNotecard.html";
+        };
 }]);
 
 recipeApp.controller('recipesCtrl', ['$scope', '$http',
@@ -38,9 +43,6 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
             window.location = "./#/viewRecipeDetails.html";
         }
         
-        $scope.createnew = function() {
-            window.location = "./#/createNotecard.html";
-        }
 }]);
 
 recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
@@ -134,7 +136,7 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
 			});
 			
 		};
-		
+
 		//adds ingredients to the DB and stores the ID in array ingredientIDs
 		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
