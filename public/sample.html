@@ -1,30 +1,23 @@
-<!DOCTYPE>
-<html ng-app="myApp">
 
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- Latest compiled and minified CSS -->
-    <link type="text/css" rel="stylesheet" href="application.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"-->
-    <!--integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Recipe Box</title>
+    <title>Daily Scrum Board</title>
+    <link rel="stylesheet" media="all" href="/assets/application-bc7b7492b6d156609c0cdc0d14c52526f2970650c2c3c5a3d74d205fdcc2bd8f.css" data-turbolinks-track="true" />
+    <script src="/assets/application-925dad6eaff63824908dc5d8bb9c1092927f652cc6a4c212823bd945168f69b0.js" data-turbolinks-track="true"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="wbJbSwr1HYpeYz3N34vz/CwdTzj7mnhyu6OJ0lZ4c0l1wlfqkPK3DZfgqIjN8eInd49sESGvxeu2v80MiEpTzQ==" />
 </head>
-
-<body class="recipeBoxMain">
+<body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/">My Recipe Box</a>
+        <a class="navbar-brand" href="/">Daily Scrum</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="/">View All Categories</a></li>
+            <li><a href="/">View All Boards</a></li>
             <li><a href="/notecards">View All Notecards</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -34,13 +27,12 @@
     </div>
 </nav>
 
-<div class="container-fluid" ng_controller="AppCtrl2">
-    <!--<h1 class="recipeBoxHeader">My Recipe Box</h1>-->
-
+<!-- Main Content -->
+<div id="main-container" class="container">
     <div class="row">
         <div class="col-md-12">
         </div>
-    </div >
+    </div>
     <div id="content" class="col-md-12">
         <div class="page_title">
             <h1>All Notecards</h1>
@@ -49,42 +41,30 @@
         <!-- Show all notecards -->
         <div class="notecard col-md-6">
             <div class="well well-lg">
-
-                <ul >
-
+                <ul>
                     <!-- Notecard Title -->
-                    <li class="notecard_title"><a href="/boards/2/notecards/1">{{recipe.recipeName}}</a></li>
+                    <li class="notecard_title"><a href="/boards/2/notecards/1">Update Views</a></li>
 
+                    <!-- Notecard Date -->
+                    <li><p class="notecard_column">Date: 2016-10-16</p></li>
 
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th><p class="notecard_column">Quantity</th>
-                            <th><p class="notecard_column">Ingredient</th>
-                            <th><p class="notecard_column">Calorie Count</th>
-                            <th><p class="notecard_column">Action</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="ingredient in ingredients">
-                            <td><p class="notecard_column">{{ingredient.quantity}}</td>
-                            <td><p class="notecard_column">{{ingredient.ingredient}}</td>
-                            <td><p class="notecard_column">{{ingredient.caloriecount}}</td>
-                            <td>
-                                <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <!-- Notecard Status -->
+                    <li><p class="notecard_column">Task Status: Complete</p></li>
 
+                    <!-- Notecard Accomplish? -->
                     <li>
-                        <p class="notecard_column"><i>Instructions</i></br>{{recipe.recipeInstructions}}</p>
+                        <p class="notecard_column"><i>What did you accomplish yesterday?</i></br>Updated the home view with revisions to functionality allowing users to login.</p>
                     </li>
 
+                    <!-- Notecard To Do? -->
+                    <li>
+                        <p class="notecard_column"><i>What are you doing today?</i></br>Update CSS to match look and feel of page to design comp</p>
+                    </li>
+
+                    <!-- Notecard Roadblocks? -->
+                    <li>
+                        <p class="notecard_column"><i>What are the roadblocks (if any)?</i></br>None</p>
+                    </li>
                 </ul>
 
                 <!-- Notecard Edit -->
@@ -220,12 +200,30 @@
 
 <footer></footer>
 
-<!--having at bottom makes page load faster-->
-<!--<script src="script.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.js"></script>
-<script src="controllers/controller.js"></script>
 </body>
-
 </html>
+
+
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Categories</th>
+        <th>&nbsp;</th>
+        <th>
+            <button class="btn btn-primary" ng-click="createnew()">Create New</button>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="category in categorylist">
+        <td>{{category.categoryName}}</td>
+        <td>
+            <button class="btn btn-primary" ng-click="getrecipes()">View Recipes</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
