@@ -102,28 +102,28 @@ myApp.controller('AppCtrl2', ['$scope', '$http',
 myApp.controller('AppCtrl3', ['$scope', '$http',
     function($scope, $http){
 		
-		var recipeID;
 		var ingredientListForDisplay = [];
 		var ingredientIDs = [];
 		var refresh = function() {
 			$scope.ingredient = "";
 			console.log("categories: ");
 			$http.get('/categories').success(function(response){
-                console.log("I got the data I requested");
+                //console.log("I got the data I requested");
                 $scope.categories = response;
-				console.log(response);
+				//console.log(response);
             });
         };
 		refresh();
 		
 		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
+			console.log(ingredientIDs);
 			$scope.recipe.ingredientIDs = ingredientIDs;
+			console.log($scope.recipe.ingredientIDs);
 			console.log($scope.recipe);
 			$http.post("/createrecipe", $scope.recipe).success(function(response) {
 				console.log("Recipe initialized");
-				recipeID = response;
-				console.log(recipeID);
+				console.log(response);
 				refresh();
 			});
 			

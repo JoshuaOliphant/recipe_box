@@ -142,14 +142,18 @@ app.post("/ingredientlist", function (req, res) {
 app.post("/createrecipe", function (req, res) {
     console.log(req.body);
     var jsonObj = req.body;
+	var ids = req.body.ingredientIDs;
+	var arr = JSON.parse("[" + ids + "]");
+	jsonObj.ingredientIDs = arr; 
     jsonObj.recipeID = recipeIDGenerator;
     recipeIDGenerator++;
-	console.log(jsonObj);
     Recipes.create(jsonObj, function (err) {
         if (err) {
             console.log('Recipe initialization failed');
+			console.log(err);
         }
     });
+
     res.send(jsonObj.recipeID.toString());
     console.log('Created: ' + jsonObj.recipeID);
 });
