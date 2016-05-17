@@ -1,18 +1,16 @@
 <div class="container" ng-controller="recipesCtrl">
-    <h1 class="recipeBoxHeader">My Recipe Box</h1>
-
     <table class="table">
         <thead>
-            <tr>
-                <th>Recipes</th>
-                <th>&nbsp;</th>
-            </tr>
+        <tr>
+            <th>Recipes</th>
+            <th>&nbsp;</th>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="recipe in recipelist">
-                <td>{{recipe.recipeName}}</td>
-				<td><button class="btn btn-primary" ng-click="getdetails()">Recipe Details</button></td>
-            </tr>
+        <tr ng-repeat="recipe in recipelist">
+            <td>{{recipe.recipeName}}</td>
+            <td><button class="btn btn-primary" ng-click="getdetails()">Recipe Details</button></td>
+        </tr>
         </tbody>
     </table>
 

@@ -4,21 +4,37 @@
 <head>
     <base href="/"></base>
     <!-- Latest compiled and minified CSS -->
-    <link type="text/css" rel="stylesheet" href="recipe.css"/>   
+    <link type="text/css" rel="stylesheet" href="recipe.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My Recipe Box</title>
 </head>
 
 <body ng-app="recipeApp" class="recipeBoxMain">
-
+<!-- Navigation -->
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">My Recipe Box</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">View All Categories</a></li>
+            <li><a href="/notecards">View All Notecards</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/users/sign_up">Sign Up</a></li>
+            <li><a href="/users/sign_in">Sign In</a></li>
+        </ul>
+    </div>
+</nav>
 
     <div class="container">
+        <!--<h1 class="recipeBoxHeader">My Recipe Box</h1>-->
         <div ng-view></div>
-        <th><button class="btn btn-primary" ng-click="createnew()">Create New</button></th>
+        <th><button id="newNoteCardButton" class="btn btn-primary" ng-click="createnew()">Create New</button></th>
     </div>
     <!--having at bottom makes page load faster-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
