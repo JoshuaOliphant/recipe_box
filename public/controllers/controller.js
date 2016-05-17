@@ -29,16 +29,13 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
 
 recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
-
-        var refresh = function() {
+        $scope.loadRecipes = function() {
             $http.get('/categories/' + $rootScope.categoryID).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
                 console.log(response);
             });
         };
-        
-        refresh();
         
         $scope.getdetails = function(id) {
 			$rootScope.recipeID = id;
@@ -79,7 +76,6 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
 	  $scope.removeRecipe = function(id) {
             console.log(id);
             $http.delete('/recipe/' + id).success(function(response){
-                refresh();
             });
         };
 /*
