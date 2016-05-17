@@ -9,7 +9,7 @@
             <tbody>
                 <tr ng-repeat="category in categorylist">
                     <td>{{category.categoryName}}</td>
-					<td><button class="btn btn-primary" ng-click="getrecipes()">View Recipes</button></td>
+					<td><button class="btn btn-primary" ng-click="getrecipes(category.categoryID)">View Recipes</button></td>
                 </tr>
             </tbody>
         </table>

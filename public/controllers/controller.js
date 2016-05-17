@@ -4,8 +4,8 @@ var recipeApp = angular.module('recipeApp', [
 ]);
 
 
-recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
-    function($scope, $http){
+recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
+    function($scope, $rootScope, $http){
 
         var refresh = function() {
             $http.get('/categories').success(function(response){
@@ -17,7 +17,9 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         
         refresh();
         
-        $scope.getrecipes = function(){
+        $scope.getrecipes = function(id){
+			$rootScope.categoryID = id;
+			console.log($rootScope.categoryID);
             window.location = "./#/recipes";
         }
         $scope.createnew = function() {
@@ -25,11 +27,11 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         };
 }]);
 
-recipeApp.controller('recipesCtrl', ['$scope', '$http',
-    function($scope, $http){
+recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
+    function($scope, $rootScope, $http){
 
         var refresh = function() {
-            $http.get('/categories/' + 2).success(function(response){
+            $http.get('/categories/' + $rootScope.categoryID).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
                 console.log(response);
@@ -38,23 +40,25 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
         
         refresh();
         
-        $scope.getdetails = function() {
+        $scope.getdetails = function(id) {
+			$rootScope.recipeID = id;
+			console.log($rootScope.recipeID);
             window.location = "./#/recipeDetails";
         }
         
 }]);
 
-recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
-    function($scope, $http){
+recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
+    function($scope, $rootScope, $http){
         
         var ingredientIDs;
         var refresh = function() {
-            $http.get("/recipeData/" + 3).success(function(response) {
+            $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
                 ingredientIDs = response.ingredientIDs;
                 console.log(ingredientIDs);
-				console.log(ingredientIDs.legnth);
+				console.log(ingredientIDs.length);
                 $scope.ingredients = [];
                 for (var i = 0; i < ingredientIDs.length; i++)
                 {
@@ -94,8 +98,8 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
 }]);
 
 
-recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
-    function($scope, $http){
+recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
+    function($scope, $rootScope, $http){
 		
         document.getElementById("newNoteCardButton").style.visibility = "hidden";
 		var ingredientListForDisplay = [];
@@ -178,7 +182,7 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
 
 recipeApp.config(function($routeProvider){
     $routeProvider
-    .when('/',{
+    .when('/#',{
         templateUrl: 'recipeBox.html',
         controller: 'recipeBoxCtrl'
     })
@@ -195,7 +199,7 @@ recipeApp.config(function($routeProvider){
         controller: 'createNotecardCtrl'
     })
     .otherwise({
-        redirectTo: '/'
+        redirectTo: '/#'
     });
 });
 
