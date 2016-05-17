@@ -7,15 +7,13 @@ var recipeApp = angular.module('recipeApp', [
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
 
-        var refresh = function() {
+        $scope.loadBox = function() {
             $http.get('/categories').success(function(response){
                 console.log("I got the data I requested");
                 $scope.categorylist = response;
                 console.log(response);
             });
         };
-        
-        refresh();
         
         $scope.getrecipes = function(id){
 			$rootScope.categoryID = id;
@@ -51,7 +49,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         
         var ingredientIDs;
-        var refresh = function() {
+        $scope.loadNotecard = function() {
             $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
@@ -71,12 +69,14 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
             });
 			console.log($scope.ingredients);
         };
-		refresh();
 		
 	  $scope.removeRecipe = function(id) {
             console.log(id);
             $http.delete('/recipe/' + id).success(function(response){
+				console.log("Deleted recipe " + response);
+				window.location = "./#/recipes";
             });
+			
         };
 /*
         $scope.edit = function(id) {

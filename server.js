@@ -180,6 +180,7 @@ app.delete("/recipe/:recipeID", function(req, res) {
 			console.log("Unable to remove recipe");
 		}
 	});
+	res.send(id);
 });
 
 app.listen(3000);
