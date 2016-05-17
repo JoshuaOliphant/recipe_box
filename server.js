@@ -44,6 +44,7 @@ mongoose.connection.on('open', function () {
         {
             ingredientID: Number,
             quantity: Number,
+			units: String,
             ingredient: String,
             caloriecount: Number
         },
@@ -135,6 +136,7 @@ app.post("/ingredientlist", function (req, res) {
             console.log('Ingredient creation failed');
         }
     });
+	console.log(jsonObj);
     res.send(jsonObj);
 });
 
@@ -186,21 +188,22 @@ app.delete("/recipe/:recipeID", function(req, res) {
 //update existing recipe
 app.post("/updaterecipe", function(req, res) {
 	var id = req.body.recipeID;
+	console.log("Updating recipe " + id);
 	var recipeName = req.body.recipeName;
 	var categoryID = req.body.categoryID;
 	var recipeInstructions = req.body.recipeInstructions;
 	var ingredientIDs = req.body.ingredientIDs;
-	var update = {recipeName: {recipeName}, categoryID:{categoryID}, 
-	recipeInstructions: {recipeInstructions}, ingredientIDs: {ingredientIDs}};
+	var options = {new: false};
+	var update = {recipeName, categoryID, recipeInstructions, ingredientIDs};
 	console.log(update);
-	Recipes.findOneAndUpdate(id, update, function(err) {
+	Recipes.findOneAndUpdate({recipeID: id}, update, options, function(err) {
 		if (err)
 		{
 			console.log("Unable to update");
 			console.log(err);
 		}
 	});
-	res.send(id);
+	res.send(update);
 });
 
 app.listen(3000);

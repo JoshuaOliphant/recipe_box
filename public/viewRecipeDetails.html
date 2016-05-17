@@ -26,15 +26,16 @@
                         <thead>
                         <tr>
                             <th><p class="notecard_column">Quantity</th>
+							<th><p class="notecard_column">Units</th>
                             <th><p class="notecard_column">Ingredient</th>
                             <th><p class="notecard_column">Calorie Count</th>
-                            <th><p class="notecard_column">Action</th>
                             <th>&nbsp;</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="ingredient in ingredients">
                             <td><p class="notecard_column">{{ingredient.quantity}}</td>
+							<td><p class="notecard_column">{{ingredient.units}}</td>
                             <td><p class="notecard_column">{{ingredient.ingredient}}</td>
                             <td><p class="notecard_column">{{ingredient.caloriecount}}</td>
                         </tr>

@@ -7,7 +7,8 @@ ingredientsCollection.insert(
 {
 	ingredient: "Chicken Breast",
 	ingredientID: 1,
-	quantity: 2,
+	quantity: 1,
+	units: "lbs",
 	caloriecount: 100
 }
 );
@@ -16,6 +17,7 @@ ingredientsCollection.insert(
 	ingredient: "Olive Oil",
 	ingredientID: 2,
 	quantity: 1,
+	units: "tbsp",
 	caloriecount: 100
 }
 );
@@ -24,6 +26,7 @@ ingredientsCollection.insert(
 	ingredient: "Broccoli",
 	ingredientID: 3,
 	quantity: 2,
+	units: "cups",
 	caloriecount: 20
 }
 );

@@ -163,18 +163,6 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
                 $scope.ingredient = response;
             })
         }
-
-        $scope.update = function() {
-            console.log($scope.ingredient._id);
-            $http.put('/ingredientlist/' + $scope.ingredient._id, $scope.ingredient).success(function(response){
-                refresh();
-            })
-        }
-
-        $scope.deselect = function() {
-            $scope.ingredient = "";
-
-        }
         */
 }]);
 
@@ -225,12 +213,24 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 			console.log(ingredientIDs);
 		};
 		
+		$scope.addingredient = function() {
+			var id;
+            $http.post('/ingredientlist/', $scope.newingredient).success(function(response){
+				id = response;
+				console.log(id);
+				$scope.newingredient.ingredientID = id;
+				ingredientIDs.push(id);
+				$scope.ingredients.push(response);
+            });
+			$scope.newingredient = "";
+        };
+		
 		$scope.updaterecipe = function() {
 			$scope.recipe.ingredientIDs = ingredientIDs;
 			$http.post("/updaterecipe", $scope.recipe).success(function(response){
 				console.log(response);
 				$rootScope.recipeID = $scope.recipe.recipeID;
-				window.location = "/recipeDetails";
+				window.location = "/#/recipeDetails";
 			});
 		};
 }]);
