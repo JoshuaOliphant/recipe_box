@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"cre",
+				"createNotecard"
+			],
+			[
+				"createNo",
+				"createNotecardCtrl"
+			],
+			[
 				"newl",
 				"newLineText"
 			],
@@ -291,7 +299,7 @@
 			"file": "public/index.html",
 			"settings":
 			{
-				"buffer_size": 1339,
+				"buffer_size": 1401,
 				"line_ending": "Unix"
 			}
 		},
@@ -307,15 +315,31 @@
 			"file": "public/controllers/controller.js",
 			"settings":
 			{
-				"buffer_size": 5073,
+				"buffer_size": 6206,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "server.js",
+			"file": "public/recipes.html",
 			"settings":
 			{
-				"buffer_size": 5106,
+				"buffer_size": 526,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/viewRecipeDetails.html",
+			"settings":
+			{
+				"buffer_size": 1104,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/createNotecard.html",
+			"settings":
+			{
+				"buffer_size": 2623,
 				"line_ending": "Unix"
 			}
 		}
@@ -344,9 +368,16 @@
 	},
 	"file_history":
 	[
+		"/Users/LifeOnTheVine/recipe_box/public/index1.html",
+		"/Users/LifeOnTheVine/recipe_box/db.recipe_box.config",
+		"/Users/LifeOnTheVine/recipe_box/public/.gitignore",
+		"/Users/LifeOnTheVine/recipe_box/public/index3.html",
+		"/Users/LifeOnTheVine/recipe_box/public/index2.html",
+		"/Users/LifeOnTheVine/recipe_box/server.js",
+		"/Users/LifeOnTheVine/recipe_box/public/controllers/appController.js",
+		"/Users/LifeOnTheVine/recipe_box/public/controllers/app.js",
 		"/Users/LifeOnTheVine/recipe_box/public/controllers/controller1.js",
 		"/Users/LifeOnTheVine/recipe_box/public/controllers/otherIndex.html",
-		"/Users/LifeOnTheVine/recipe_box/public/controllers/app.js",
 		"/Users/LifeOnTheVine/Desktop/queryTrackingResults.json",
 		"/Users/LifeOnTheVine/Downloads/tutorial.json",
 		"/Users/LifeOnTheVine/embed-containers/src/html/index.php",
@@ -430,6 +461,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"index1.html",
+			"createnew()",
+			"createnew",
 			"keydown",
 			"data.embeds",
 			"remove",
@@ -516,7 +550,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -524,15 +558,15 @@
 					"file": "public/index.html",
 					"settings":
 					{
-						"buffer_size": 1339,
+						"buffer_size": 1401,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								748,
-								748
+								841,
+								841
 							]
 						],
 						"settings":
@@ -559,8 +593,8 @@
 						"selection":
 						[
 							[
-								355,
-								367
+								311,
+								311
 							]
 						],
 						"settings":
@@ -580,20 +614,48 @@
 					"file": "public/controllers/controller.js",
 					"settings":
 					{
-						"buffer_size": 5073,
+						"buffer_size": 6206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								77,
-								77
+								5578,
+								5578
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/recipes.html",
+					"settings":
+					{
+						"buffer_size": 526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								45
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -604,26 +666,54 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "server.js",
+					"buffer": 4,
+					"file": "public/viewRecipeDetails.html",
 					"settings":
 					{
-						"buffer_size": 5106,
+						"buffer_size": 1104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								56,
+								56
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/createNotecard.html",
+					"settings":
+					{
+						"buffer_size": 2623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

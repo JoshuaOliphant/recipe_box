@@ -19,6 +19,9 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         $scope.getrecipes = function(){
             window.location = "./#/recipes";
         }
+         $scope.createnew = function() {
+            window.location = "./#/create";
+        };
 }]);
 
 recipeApp.controller('recipesCtrl', ['$scope', '$http',
@@ -35,12 +38,11 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
         refresh();
         
         $scope.getdetails = function() {
-            window.location = "./#/viewRecipeDetails.html";
+            window.location = "./#/recipeDetails";
         }
-        
         $scope.createnew = function() {
-            window.location = "./#/createNotecard.html";
-        }
+            window.location = "./#/create";
+        };
 }]);
 
 recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
@@ -108,6 +110,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
 recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
     function($scope, $http){
 		
+        document.getElementById("newNoteCardButton").style.visibility = "hidden";
 		var ingredientListForDisplay = [];
 		var ingredientIDs = [];
 		var refresh = function() {
@@ -134,7 +137,7 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$http',
 			});
 			
 		};
-		
+
 		//adds ingredients to the DB and stores the ID in array ingredientIDs
 		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
@@ -200,7 +203,7 @@ recipeApp.config(function($routeProvider){
         templateUrl: '/viewRecipeDetails.html',
         controller: 'recipeDetailCtrl'
     })
-    .when('/createNotecard',{
+    .when('/create',{
         templateUrl: '/createNotecard.html',
         controller: 'createNotecardCtrl'
     })
