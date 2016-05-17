@@ -22,7 +22,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
 			console.log($rootScope.categoryID);
             window.location = "./#/recipes";
         }
-        $scope.createnew = function() {
+         $scope.createnew = function() {
             window.location = "./#/create";
         };
 }]);
@@ -45,7 +45,9 @@ recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
 			console.log($rootScope.recipeID);
             window.location = "./#/recipeDetails";
         }
-        
+        $scope.createnew = function() {
+            window.location = "./#/create";
+        };
 }]);
 
 recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
