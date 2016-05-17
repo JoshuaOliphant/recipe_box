@@ -1,5 +1,5 @@
 
-<div class="container" ng_controller="createNotecardCtrl">
+<div class="container" ng_controller="createNotecardCtrl" ng-init="loadCreate()">
         <h1 class="recipeBoxHeader">My Recipe Box</h1>
         <h2 class="createNotecard">Create Notecard</h2>
 
@@ -32,24 +32,24 @@
                     <td>{{ingredient.ingredient}}</td>
                     <td>{{ingredient.caloriecount}}</td>
                     <td>
-                        <button class="btn btn-danger" ng-click="remove(ingredient.ingredientID)">Remove</button>
+                        <button class="btn btn-default" ng-click="remove(ingredient.ingredientID)">Remove</button>
                     </td>
                     <td>
-                        <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
+                        <button class="btn btn-default" ng-click="edit(ingredient._id)">Edit</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input class="form-control" ng-model="ingredient.quantity">
+                        <input class="form-control" ng-model="newingredient.quantity">
                     </td>
 					<td>
-                        <input class="form-control" ng-model="ingredient.units">
+                        <input class="form-control" ng-model="newingredient.units">
                     </td>
                     <td>
-                        <input class="form-control" ng-model="ingredient.ingredient">
+                        <input class="form-control" ng-model="newingredient.ingredient">
                     </td>
                     <td>
-                        <input class="form-control" ng-model="ingredient.caloriecount">
+                        <input class="form-control" ng-model="newingredient.caloriecount">
                     </td>
                     <td>
                         <button class="btn btn-default" ng-click="addingredient()">Add ingredient

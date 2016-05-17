@@ -3,7 +3,7 @@ var recipeApp = angular.module('recipeApp', [
     'ngResource'
 ]);
 
-
+//controller for viewing a recipe box
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
 
@@ -25,6 +25,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
         };
 }]);
 
+//controller for viewing recipes in a category
 recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         $scope.loadRecipes = function() {
@@ -45,6 +46,7 @@ recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
         };
 }]);
 
+//controller for viewing a notecard
 recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         
@@ -53,6 +55,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
             $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
+				console.log(ingredientIDs);
                 ingredientIDs = response.ingredientIDs;
                 console.log(ingredientIDs);
 				console.log(ingredientIDs.length);
@@ -83,57 +86,49 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
 			$rootScope.recipeID = id;
             window.location = "./#/edit";
             }
-        
-
 }]);
 
-
+//controller for creating a notecard 
 recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
 		
-        document.getElementById("newNoteCardButton").style.visibility = "hidden";
-		var ingredientListForDisplay = [];
+        //document.getElementById("newNoteCardButton").style.visibility = "hidden";
 		var ingredientIDs = [];
-		var refresh = function() {
-			$scope.ingredient = "";
+		$scope.loadCreate = function() {
+			$scope.newingredient = "";
 			console.log("categories: ");
 			$http.get('/categories').success(function(response){
-                //console.log("I got the data I requested");
                 $scope.categories = response;
-				//console.log(response);
             });
+			$scope.ingredients=[];
         };
-		refresh();
 		
 		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
 			console.log(ingredientIDs);
 			$scope.recipe.ingredientIDs = ingredientIDs;
-			console.log($scope.recipe.ingredientIDs);
 			console.log($scope.recipe);
 			$http.post("/createrecipe", $scope.recipe).success(function(response) {
 				console.log("Recipe initialized");
 				console.log(response);
-				refresh();
+				$rootScope.recipeID = response;
+				console.log("Sending recipe id " + $rootScope.recipeID);
+				window.location = "/#/recipeDetails";
 			});
-			
 		};
 
 		//adds ingredients to the DB and stores the ID in array ingredientIDs
 		//adds ingredients to ingredientListForDisplay to be displayed in scope
         $scope.addingredient = function() {
 			var id;
-            $http.post('/ingredientlist/', $scope.ingredient).success(function(response){
-				id = response.ingredientID;
+            $http.post('/ingredientlist/', $scope.newingredient).success(function(response){
+				id = response;
 				console.log(id);
+				$scope.newingredient.ingredientID = id;
 				ingredientIDs.push(id);
-				$scope.ingredient.ingredientID = id;
-				refresh();
+				$scope.ingredients.push(response);
             });
-			
-			ingredientListForDisplay.push($scope.ingredient);
-			$scope.ingredients = ingredientListForDisplay;
-            console.log($scope.ingredient);
+			$scope.newingredient = "";
         };
 
 	 //IN PROGRESS
@@ -154,7 +149,6 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 				$scope.ingredients.splice(j, 1);
 				ingredientIDs.splice(j, 1);
 			}
-			refresh();
         };
 /*
         $scope.edit = function(id) {
@@ -166,6 +160,7 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
         */
 }]);
 
+//controler for editing recipes 
 recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         var ingredientIDs;
