@@ -78,21 +78,13 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
             });
 			
         };
-/*
-        $scope.edit = function(id) {
-            console.log(id);
-            $http.get('/ingredientlist/' + id).success(function(response){
-                $scope.ingredient = response;
-            })
-        }
 
-        $scope.update = function() {
-            console.log($scope.ingredient._id);
-            $http.put('/ingredientlist/' + $scope.ingredient._id, $scope.ingredient).success(function(response){
-                refresh();
-            })
-        }
-*/	
+        $scope.edit = function(id) {
+			$rootScope.recipeID = id;
+            window.location = "./#/edit";
+            }
+        
+
 }]);
 
 
@@ -178,6 +170,59 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
         */
 }]);
 
+recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
+    function($scope, $rootScope, $http){
+        var ingredientIDs;
+        $scope.loadEdit = function() {
+            $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
+                console.log("I got the data I requested");
+                $scope.recipe = response;
+                ingredientIDs = response.ingredientIDs;
+                console.log(ingredientIDs);
+				console.log(ingredientIDs.length);
+                $scope.ingredients = [];
+                for (var i = 0; i < ingredientIDs.length; i++)
+                {
+                    var id = ingredientIDs[i].ingredientID;
+                    console.log(id);
+                    $http.get("/ingredientlist/" + id).success(function(response) {
+                        console.log(response);
+                        $scope.ingredients.push(response);
+                    });
+                }
+            });
+			
+			$http.get('/categories').success(function(response){
+                $scope.categories = response;
+            });
+			console.log($scope.ingredients);
+        };
+        
+		$scope.deleteingredient = function(id) {
+			console.log(id);
+			var j;
+			for (var i = 0; i < ingredientIDs.length; i++)
+			{
+				if (ingredientIDs[i].ingredientID = id)
+				{
+					j = i;
+					break;
+				}
+			}
+			if(j != -1) {
+				$scope.ingredients.splice(j, 1);
+				ingredientIDs.splice(j, 1);
+			}
+			console.log($scope.ingredients);
+			console.log(ingredientIDs);
+		};
+		
+		$scope.updaterecipe = function() {
+			
+		};
+}]);
+
+
 recipeApp.config(function($routeProvider){
     $routeProvider
     .when('/#',{
@@ -196,6 +241,10 @@ recipeApp.config(function($routeProvider){
         templateUrl: '/createNotecard.html',
         controller: 'createNotecardCtrl'
     })
+	.when('/edit',{
+		templateUrl: '/editRecipeDetails.html',
+		controller: 'editRecipeCtrl'
+	})
     .otherwise({
         redirectTo: '/#'
     });

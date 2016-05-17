@@ -1,0 +1,56 @@
+
+
+<div class="container-fluid" ng-controller="editRecipeCtrl" ng-init="loadEdit()">
+	<h2 class="notecardHeader">Notecard</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div >
+    <div id="content" class="col-md-12">
+        <div class="notecard col-md-6">
+            <div class="well well-lg">
+
+                <table class="table">
+					<thead>
+						<tr>
+							<th>
+								<input class="form-control" ng-model="recipe.recipeName" placeholder="Recipe Name">
+							</th>
+							<th>
+								<input class="form-control" ng-model="recipe.recipeInstructions" placeholder="Instructions">
+							</th>
+							<th class="dropdown">
+								 <select ng-model="recipe.categoryID" ng-options="category.categoryID as category.categoryName for category in categories track by category.categoryID">Select Category</select>
+							</th>
+						</tr>
+						<tr>
+							<th>Quantity</th>
+							<th>Ingredient</th>
+							<th>Calorie Count</th>
+							<th>Action</th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+                        <tbody>
+                        <tr ng-repeat="ingredient in ingredients">
+                            <td><input class="form-control" ng-model="ingredient.quantity" placeholder="Quantity"></td>
+                            <td><input class="form-control" ng-model="ingredient.ingredient" placeholder="Ingredient"></td>
+                            <td><input class="form-control" ng-model="ingredient.caloriecount" placeholder="Calories"></td>
+							<td><button class="btn btn-default btn-sm" ng-click="deleteingredient(ingredient.ingredientID)">Delete Ingredient</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+				<ul>
+					<li>
+						<button class="btn btn-default" ng-click="updaterecipe()">Update Recipe</button>
+					</li>
+				</ul>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<footer></footer>
