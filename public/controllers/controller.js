@@ -54,7 +54,8 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
                 console.log("I got the data I requested");
                 $scope.recipe = response;
                 ingredientIDs = response.ingredientIDs;
-                
+                console.log(ingredientIDs);
+				console.log(ingredientIDs.legnth);
                 $scope.ingredients = [];
                 for (var i = 0; i < ingredientIDs.length; i++)
                 {
@@ -66,27 +67,17 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
                     });
                 }
             });
+			console.log($scope.ingredients);
         };
-        
-        refresh();
-
-        $scope.addingredient = function() {
-            console.log("I made it to the controller");
-            console.log($scope.ingredient);
-            $http.post('/ingredientlist', $scope.ingredient).success(function(response){
-                console.log(response);
-                refresh();
-            });
-        };
-		
 		refresh();
-	/*         $scope.remove = function(id) {
+		
+	  $scope.removeRecipe = function(id) {
             console.log(id);
-            $http.delete('/ingredientlist/' + id).success(function(response){
+            $http.delete('/recipe/' + id).success(function(response){
                 refresh();
             });
         };
-
+/*
         $scope.edit = function(id) {
             console.log(id);
             $http.get('/ingredientlist/' + id).success(function(response){
@@ -100,10 +91,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
                 refresh();
             })
         }
-
-        $scope.deselect = function() {
-            $scope.ingredient = "";
-        }*/	
+*/	
 }]);
 
 

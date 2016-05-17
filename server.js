@@ -170,5 +170,17 @@ app.delete("/ingredientlist/:ingredientid", function(req, res) {
 	});
 });
 
+//remove recipe from DB                  
+app.delete("/recipe/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
+	console.log("Removing recipe: " + id);
+	Recipes.remove({recipeID: id}, function(err) {
+		if (err) 
+		{
+			console.log("Unable to remove recipe");
+		}
+	});
+});
+
 app.listen(3000);
 console.log("Server running on port 3000");
