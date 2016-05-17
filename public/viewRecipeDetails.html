@@ -1,16 +1,16 @@
 
 
 <div class="container-fluid" ng-controller="recipeDetailCtrl">
-	<h2 class="notecardHeader">Recipe Notecard</h2>
+	<h2 class="notecardHeader">Notecard</h2>
 
     <div class="row">
         <div class="col-md-12">
         </div>
     </div >
     <div id="content" class="col-md-12">
-        <div class="page_title">
+        <!-- <div class="page_title">
             <h1>All Notecards</h1>
-        </div>
+        </div> -->
 
         <!-- Show all notecards -->
         <div class="notecard col-md-6">
@@ -37,12 +37,6 @@
                             <td><p class="notecard_column">{{ingredient.quantity}}</td>
                             <td><p class="notecard_column">{{ingredient.ingredient}}</td>
                             <td><p class="notecard_column">{{ingredient.caloriecount}}</td>
-                            <td>
-                                <button class="btn btn-danger" ng-click="remove(ingredient._id)">Remove</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-warning" ng-click="edit(ingredient._id)">Edit</button>
-                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -50,6 +44,12 @@
                     <li>
                         <p class="notecard_column"><i>Instructions</i></br>{{recipe.recipeInstructions}}</p>
                     </li>
+					<li>
+						<button class="btn btn-default" ng-click="edit(ingredient._id)">Edit Recipe</button>
+					</li>
+					<li>
+						<button class="btn btn-default" ng-click="removeRecipe(recipe.recipeID)">Delete Recipe</button>
+					</li>
 
                 </ul>
 
