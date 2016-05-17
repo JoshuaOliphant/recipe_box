@@ -183,5 +183,25 @@ app.delete("/recipe/:recipeID", function(req, res) {
 	res.send(id);
 });
 
+//update existing recipe
+app.post("/updaterecipe", function(req, res) {
+	var id = req.body.recipeID;
+	var recipeName = req.body.recipeName;
+	var categoryID = req.body.categoryID;
+	var recipeInstructions = req.body.recipeInstructions;
+	var ingredientIDs = req.body.ingredientIDs;
+	var update = {recipeName: {recipeName}, categoryID:{categoryID}, 
+	recipeInstructions: {recipeInstructions}, ingredientIDs: {ingredientIDs}};
+	console.log(update);
+	Recipes.findOneAndUpdate(id, update, function(err) {
+		if (err)
+		{
+			console.log("Unable to update");
+			console.log(err);
+		}
+	});
+	res.send(id);
+});
+
 app.listen(3000);
 console.log("Server running on port 3000");

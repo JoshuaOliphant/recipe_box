@@ -141,10 +141,18 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
             });
-			var i = ingredientIDs.indexOf(id);
-			if(i != -1) {
-				ingredientIDs.splice(i, 1);
-				$scope.ingredients = ingredientIDs;
+			var j;
+			for (var i = 0; i < ingredientIDs.length; i++)
+			{
+				if (ingredientIDs[i].ingredientID = id)
+				{
+					j = i;
+					break;
+				}
+			}
+			if(j != -1) {
+				$scope.ingredients.splice(j, 1);
+				ingredientIDs.splice(j, 1);
 			}
 			refresh();
         };
@@ -218,7 +226,12 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 		};
 		
 		$scope.updaterecipe = function() {
-			
+			$scope.recipe.ingredientIDs = ingredientIDs;
+			$http.post("/updaterecipe", $scope.recipe).success(function(response){
+				console.log(response);
+				$rootScope.recipeID = $scope.recipe.recipeID;
+				window.location = "/recipeDetails";
+			});
 		};
 }]);
 
