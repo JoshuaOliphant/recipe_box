@@ -3,7 +3,6 @@ var recipeApp = angular.module('recipeApp', [
     'ngResource'
 ]);
 
-
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
     function($scope, $http){
 
@@ -20,7 +19,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$http',
         $scope.getrecipes = function(){
             window.location = "./#/recipes";
         }
-        $scope.createnew = function() {
+         $scope.createnew = function() {
             window.location = "./#/create";
         };
 }]);
@@ -41,7 +40,9 @@ recipeApp.controller('recipesCtrl', ['$scope', '$http',
         $scope.getdetails = function() {
             window.location = "./#/recipeDetails";
         }
-        
+        $scope.createnew = function() {
+            window.location = "./#/create";
+        };
 }]);
 
 recipeApp.controller('recipeDetailCtrl', ['$scope', '$http',
