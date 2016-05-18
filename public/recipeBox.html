@@ -5,7 +5,7 @@
     </div>
 
     <div id="recipeBoxTabs" class="nav nav-tabs">
-        <button class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">
+        <button id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">
             {{category.categoryName}}
         </button>
     </div>
