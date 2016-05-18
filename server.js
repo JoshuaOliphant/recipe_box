@@ -184,7 +184,7 @@ app.post("/updaterecipe", function(req, res) {
 	var recipeInstructions = req.body.recipeInstructions;
 	var ingredientIDs = req.body.ingredientIDs;
 	var options = {new: false};
-	var update = {recipeName, categoryID, recipeInstructions, ingredientIDs};
+	var update = (recipeName, categoryID, recipeInstructions, ingredientIDs);
 	console.log(update);
 	Recipes.findOneAndUpdate({recipeID: id}, update, options, function(err) {
 		if (err)
