@@ -49,10 +49,16 @@
 
 /* Navigation Customization */
 .navbar {
-	background-color: #444;
+	background-color: #428bca;
 	border-radius: 0px;
 	padding-left: 10px;
 	padding-right: 20px;
+}
+
+
+#recipeBoxButtons{
+	border-color: black;
+	border-bottom: none;
 }
 
 .navbar-brand {
@@ -67,6 +73,18 @@
 
 .navbar-credentials {
 	font-size: 2em;
+}
+
+#myRecipeBoxButton{
+	color: FFFFFF;
+}
+
+#signin{
+	color:FFFFFF;
+}
+
+#signup{
+	color:FFFFFF;
 }
 
 /* Global */
