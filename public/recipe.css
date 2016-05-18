@@ -56,7 +56,9 @@
 	border-color: 000000;
 }
 
-
+#recipeBoxTabs{
+	margin-left: 50px;
+}
 /* Navigation Customization */
 .navbar {
 	background-color: #428bca;
@@ -69,6 +71,11 @@
 #recipeBoxButtons{
 	border-color: black;
 	border-bottom: none;
+}
+
+#recipeBox{
+	vertical-align: center;
+	float: right;
 }
 
 .navbar-brand {

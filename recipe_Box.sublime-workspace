@@ -299,7 +299,7 @@
 			"file": "public/index.html",
 			"settings":
 			{
-				"buffer_size": 1401,
+				"buffer_size": 1364,
 				"line_ending": "Unix"
 			}
 		},
@@ -307,7 +307,7 @@
 			"file": "public/recipeBox.html",
 			"settings":
 			{
-				"buffer_size": 583,
+				"buffer_size": 654,
 				"line_ending": "Unix"
 			}
 		},
@@ -315,7 +315,7 @@
 			"file": "public/controllers/controller.js",
 			"settings":
 			{
-				"buffer_size": 6206,
+				"buffer_size": 6343,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,7 +323,7 @@
 			"file": "public/recipes.html",
 			"settings":
 			{
-				"buffer_size": 526,
+				"buffer_size": 589,
 				"line_ending": "Unix"
 			}
 		},
@@ -331,7 +331,7 @@
 			"file": "public/viewRecipeDetails.html",
 			"settings":
 			{
-				"buffer_size": 1104,
+				"buffer_size": 1053,
 				"line_ending": "Unix"
 			}
 		},
@@ -339,7 +339,15 @@
 			"file": "public/createNotecard.html",
 			"settings":
 			{
-				"buffer_size": 2623,
+				"buffer_size": 2569,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/recipe.css",
+			"settings":
+			{
+				"buffer_size": 388,
 				"line_ending": "Unix"
 			}
 		}
@@ -550,7 +558,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -558,15 +566,15 @@
 					"file": "public/index.html",
 					"settings":
 					{
-						"buffer_size": 1401,
+						"buffer_size": 1364,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								841,
-								841
+								833,
+								833
 							]
 						],
 						"settings":
@@ -586,15 +594,15 @@
 					"file": "public/recipeBox.html",
 					"settings":
 					{
-						"buffer_size": 583,
+						"buffer_size": 654,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								311,
-								311
+								630,
+								630
 							]
 						],
 						"settings":
@@ -614,15 +622,15 @@
 					"file": "public/controllers/controller.js",
 					"settings":
 					{
-						"buffer_size": 6206,
+						"buffer_size": 6343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5578,
-								5578
+								82,
+								82
 							]
 						],
 						"settings":
@@ -632,7 +640,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 285.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -642,15 +650,15 @@
 					"file": "public/recipes.html",
 					"settings":
 					{
-						"buffer_size": 526,
+						"buffer_size": 589,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								45,
-								45
+								566,
+								566
 							]
 						],
 						"settings":
@@ -670,7 +678,7 @@
 					"file": "public/viewRecipeDetails.html",
 					"settings":
 					{
-						"buffer_size": 1104,
+						"buffer_size": 1053,
 						"regions":
 						{
 						},
@@ -698,15 +706,15 @@
 					"file": "public/createNotecard.html",
 					"settings":
 					{
-						"buffer_size": 2623,
+						"buffer_size": 2569,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								200,
-								200
+								59,
+								59
 							]
 						],
 						"settings":
@@ -714,6 +722,32 @@
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 415.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/recipe.css",
+					"settings":
+					{
+						"buffer_size": 388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

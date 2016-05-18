@@ -5,7 +5,7 @@
 			<button id="newNoteCardButton" class="btn btn-default" ng-click="createnew()">Create New Notecard</button>
 		</div>
 
-		<div class="nav nav-tabs">
+		<div id="recipeBoxTabs" class="nav nav-tabs">
 			<button id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">{{category.categoryName}}</button>
 		</div>
 		<div class="jumbotron"></div>
