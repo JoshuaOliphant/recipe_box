@@ -96,14 +96,6 @@ app.get("/categories", function (req, res) {
     retrieveCategories(res, {});
 });
 
-//retrieve all recipes
-//for testing 
-/*
- app.get("/recipes", function(req, res) {
- console.log("Query for all recipes");
- retrieveRecipesInCategory(res, {});
- });*/
-
 //retrieve a given ingredient 
 app.get("/ingredientlist/:ingredientID", function (req, res) {
     var id = req.params.ingredientID;
@@ -161,12 +153,13 @@ app.post("/createrecipe", function (req, res) {
 app.delete("/ingredientlist/:ingredientid", function(req, res) {
 	var id = req.params.ingredientid;
 	console.log("Removing ingredient: " + id);
-	Ingredients.remove({ingredientId: id}, function(err) {
+	Ingredients.remove({ingredientID: id}, function(err) {
 		if (err) 
 		{
 			console.log("Unable to remove ingredient");
 		}
 	});
+	res.send(id);
 });
 
 //remove recipe from DB                  

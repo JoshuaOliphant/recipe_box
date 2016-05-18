@@ -131,10 +131,11 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 			$scope.newingredient = "";
         };
 
-	 //IN PROGRESS
+		//removes new ingredient from both card and DB
         $scope.remove = function(id) {
             console.log(id);
             $http.delete('/ingredientlist/' + id).success(function(response){
+				console.log("Deleted ingredient " + id);
             });
 			var j;
 			for (var i = 0; i < ingredientIDs.length; i++)
@@ -150,14 +151,6 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 				ingredientIDs.splice(j, 1);
 			}
         };
-/*
-        $scope.edit = function(id) {
-            console.log(id);
-            $http.get('/ingredientlist/' + id).success(function(response){
-                $scope.ingredient = response;
-            })
-        }
-        */
 }]);
 
 //controler for editing recipes 
@@ -188,7 +181,7 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
             });
 			console.log($scope.ingredients);
         };
-        
+        //removes ingredient from card only
 		$scope.deleteingredient = function(id) {
 			console.log(id);
 			var j;
