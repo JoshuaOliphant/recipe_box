@@ -7,7 +7,7 @@ var recipeApp = angular.module('recipeApp', [
 //controller for viewing a recipe box
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
-
+		//ng-init, loads categories
         $scope.loadBox = function() {
             $http.get('/categories').success(function(response){
                 console.log("I got the data I requested");
@@ -16,11 +16,14 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
             });
         };
         
+		//stores the category ID in rootScope and redirects recipe list view
         $scope.getrecipes = function(id){
 			$rootScope.category = id;
 			console.log($rootScope.category);
             window.location = "./#/recipes";
         }
+		
+		//redirects to the create recipe view
          $scope.createnew = function() {
             window.location = "./#/create";
         };
@@ -29,6 +32,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
 //controller for viewing recipes in a category
 recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
+		//ng-init, loads recipes 
         $scope.loadRecipes = function() {
             $http.get('/categories/' + $rootScope.category.categoryID).success(function(response){
                 console.log("I got the data I requested");
@@ -37,11 +41,14 @@ recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
             });
         };
         
+		//stores the recipe id in rootScope and redirects to the recipe details view
         $scope.getdetails = function(id) {
 			$rootScope.recipeID = id;
 			console.log($rootScope.recipeID);
             window.location = "./#/recipeDetails";
         }
+		
+		//redirects to the create recipe view
         $scope.createnew = function() {
             window.location = "./#/create";
         };
@@ -52,6 +59,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         
         var ingredientIDs;
+		//ng-init, loads recipe details, including ingredients 
         $scope.loadNotecard = function() {
 			$scope.categoryName = $rootScope.category.categoryName;
             $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
@@ -75,7 +83,8 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
 			console.log($scope.ingredients);
         };
 		
-	  $scope.removeRecipe = function(id) {
+		//deletes a recipe from the db and redirects to the recipe list 
+	    $scope.removeRecipe = function(id) {
             console.log(id);
             $http.delete('/recipe/' + id).success(function(response){
 				console.log("Deleted recipe " + response);
@@ -84,11 +93,13 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
 			
         };
 
+		//stores recipeID in the root scope and redirects to the edit page
         $scope.edit = function(id) {
 			$rootScope.recipeID = id;
             window.location = "./#/edit";
         };
 		
+		//returns to the previous recipe list view
 		$scope.returnToList = function() 
 		{
 			window.location = "./#recipes";
@@ -99,8 +110,8 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
 recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
 		
-        //document.getElementById("newNoteCardButton").style.visibility = "hidden";
 		var ingredientIDs = [];
+		//ng-init, loads categories into dropdown menu 
 		$scope.loadCreate = function() {
 			$scope.newingredient = "";
 			console.log("categories: ");
@@ -169,6 +180,7 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         var ingredientIDs;
+		//ng-init, loads all recipe data similar to the recipe details view 
         $scope.loadEdit = function() {
             $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
@@ -188,12 +200,15 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
                 }
             });
 			
+			//loads categories into dropdown 
 			$http.get('/categories').success(function(response){
                 $scope.categories = response;
             });
 			console.log($scope.ingredients);
         };
-        //removes ingredient from card only
+		
+        //removes ingredient from card only, not the DB 
+		//assumption that an existing recipe may be using ingredients from another recipe 
 		$scope.deleteingredient = function(id) {
 			console.log(id);
 			var j;
@@ -213,6 +228,8 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 			console.log(ingredientIDs);
 		};
 		
+		//adds a new ingredient to the DB and the recipe
+		//allows duplicates in DB
 		$scope.addingredient = function() {
 			var id;
             $http.post('/ingredientlist/', $scope.newingredient).success(function(response){
@@ -225,6 +242,7 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 			$scope.newingredient = "";
         };
 		
+		//saves the updated recipe in the DB
 		$scope.updaterecipe = function() {
 			$scope.recipe.ingredientIDs = ingredientIDs;
 			$http.post("/updaterecipe", $scope.recipe).success(function(response){
