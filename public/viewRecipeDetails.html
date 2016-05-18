@@ -1,5 +1,7 @@
 <div class="container-fluid" ng-controller="recipeDetailCtrl" ng-init="loadNotecard()">
-
+	<div class="sidebar-left">
+		<button id="returnToList" class="btn btn-default" ng-click="returnToList()">Return To {{category.categoryName}}</button>
+	</div>
     <div class="row">
         <div class="col-md-12">
         </div>
@@ -7,43 +9,47 @@
     <div id="content" class="col-md-12">
         <div class="notecard col-md-12">
             <div class="well well-lg">
-                <ul>
 
-                    <li class="notecard_title">{{recipe.recipeName}}</li>
+            <ul>
 
-
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th><p class="notecard_column">Quantity</th>
-                            <th><p class="notecard_column">Units</th>
-                            <th><p class="notecard_column">Ingredient</th>
-                            <th><p class="notecard_column">Calorie Count</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <li>
-                            <tr ng-repeat="ingredient in ingredients">
-                                <td><p class="notecard_column">{{ingredient.quantity}}</td>
-                                <td><p class="notecard_column">{{ingredient.units}}</td>
-                                <td><p class="notecard_column">{{ingredient.ingredient}}</td>
-                                <td><p class="notecard_column">{{ingredient.caloriecount}}</td>
-                            </tr>
-                        </li>
-                        </tbody>
-                    </table>
+                <li class="notecard_title handwritten">{{recipe.recipeName}}</li>
 
 
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><p class="notecard_column">Quantity</th>
+                        <th><p class="notecard_column">Units</th>
+                        <th><p class="notecard_column">Ingredient</th>
+                        <th><p class="notecard_column">Calorie Count</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <li>
-                        <p class="notecard_column"><i>Instructions</i></br>{{recipe.recipeInstructions}}</p>
+                    <tr class="handwritten" ng-repeat="ingredient in ingredients">
+                        <td><p class="notecard_column">{{ingredient.quantity}}</td>
+                        <td><p class="notecard_column">{{ingredient.units}}</td>
+                        <td><p class="notecard_column">{{ingredient.ingredient}}</td>
+                        <td><p class="notecard_column">{{ingredient.caloriecount}}</td>
+                    </tr>
                     </li>
-                    <li>
-                        <button class="btn btn-default" ng-click="edit(recipe.recipeID)">Edit Recipe</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-default" ng-click="removeRecipe(recipe.recipeID)">Delete Recipe</button>
-                    </li>
+                    </tbody>
+                </table>
+
+
+
+
+                <li>
+                    <p class="notecard_column">Instructions</p>
+					<p class="notecard_column handwritten">{{recipe.recipeInstructions}}</p>
+                </li>
+                <li>
+                    <button class="btn btn-default" ng-click="edit(recipe.recipeID)">Edit Recipe</button>
+                </li>
+                <li>
+                    <button class="btn btn-default" ng-click="removeRecipe(recipe.recipeID)">Delete Recipe</button>
+                </li>
 
                 </ul>
             </div>

@@ -26,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="ingredient in ingredients">
+                <tr class="ingredientlist handwritten" ng-repeat="ingredient in ingredients">
                     <td>{{ingredient.quantity}}</td>
 					<td>{{ingredient.units}}</td>
                     <td>{{ingredient.ingredient}}</td>
@@ -55,6 +55,9 @@
                 <tr>
                     <td>
                         <button class="btn btn-default" ng-click="createrecipe()">Create Recipe</button>
+                    </td>
+					<td>
+                        <button class="btn btn-default" ng-click="returnToHome()">Cancel</button>
                     </td>
                 </tr>
             </tbody>

@@ -23,6 +23,16 @@
     vertical-align: top;
 }
 
+.sidebar-left {
+	float: left;
+	vertical-align:top;
+}
+
+.handwritten {
+	color: 000000;
+	font-family: cursive;
+}
+
 .btn-tab {
     color: firebrick;
     background-color: #f0f0f0;
