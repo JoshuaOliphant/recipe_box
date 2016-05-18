@@ -5,15 +5,15 @@
 }
 .recipeBoxMain
 {
-	color: ffffff;
-	background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");
+	color: firebrick;
+	/*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");*/
 	background-repeat: no-repeat;
-	background-size: 100%; 
+	background-size: 100%;
 }
 
 .dropdown
 {
-	color: 000000;
+	color: #0f0f0f;
 }
 
 .nav.nav-tabs{
@@ -27,7 +27,7 @@
 }
 
 .btn-tab {
-	background-color: FFFFCC;	
+	background-color: FFFFCC;
 	color: 000000;
 	font-family: cursive;
 }
@@ -87,7 +87,7 @@ ul {
 .well {
 	text-align: center;
 	margin: 20px;
-	background-color: #A7CD9B;
+	background-color: #0f0f0f;
 	box-shadow: 5px 5px 5px #777;
 }
 
@@ -119,7 +119,7 @@ footer {
 .notecard_title {
 	font-size: 1.4em;
 	padding: 5px;
-	color: 000000;
+	color: #0f0f0f;
 }
 
 .notecard_title >a,
