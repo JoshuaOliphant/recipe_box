@@ -1,5 +1,7 @@
 <div class="container-fluid" ng-controller="recipeDetailCtrl" ng-init="loadNotecard()">
-
+	<div class="sidebar-left">
+		<button id="returnToList" class="btn btn-default" ng-click="returnToList()">Return To {{category.categoryName}}</button>
+	</div>
     <div class="row">
         <div class="col-md-12">
         </div>
@@ -9,7 +11,7 @@
             <div class="well well-lg">
             <ul>
 
-                <li class="notecard_title">{{recipe.recipeName}}</li>
+                <li class="notecard_title handwritten">{{recipe.recipeName}}</li>
 
 
                 <table class="table">
@@ -24,7 +26,7 @@
                     </thead>
                     <tbody>
                     <li>
-                    <tr ng-repeat="ingredient in ingredients">
+                    <tr class="handwritten" ng-repeat="ingredient in ingredients">
                         <td><p class="notecard_column">{{ingredient.quantity}}</td>
                         <td><p class="notecard_column">{{ingredient.units}}</td>
                         <td><p class="notecard_column">{{ingredient.ingredient}}</td>
@@ -38,7 +40,8 @@
 
 
                 <li>
-                    <p class="notecard_column"><i>Instructions</i></br>{{recipe.recipeInstructions}}</p>
+                    <p class="notecard_column">Instructions</p>
+					<p class="notecard_column handwritten">{{recipe.recipeInstructions}}</p>
                 </li>
                 <li>
                     <button class="btn btn-default" ng-click="edit(recipe.recipeID)">Edit Recipe</button>
