@@ -53,6 +53,7 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
         
         var ingredientIDs;
         $scope.loadNotecard = function() {
+			$scope.categoryName = $rootScope.category.categoryName;
             $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
@@ -86,7 +87,12 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
         $scope.edit = function(id) {
 			$rootScope.recipeID = id;
             window.location = "./#/edit";
-            }
+        };
+		
+		$scope.returnToList = function() 
+		{
+			window.location = "./#recipes";
+		}
 }]);
 
 //controller for creating a notecard 
@@ -152,6 +158,11 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 				ingredientIDs.splice(j, 1);
 			}
         };
+		
+		//returns to homepage
+		$scope.returnToHome = function() {
+			window.location = "/#";
+		}
 }]);
 
 //controler for editing recipes 
