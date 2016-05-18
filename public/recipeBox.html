@@ -1,17 +1,11 @@
 <div class="container" ng-controller="recipeBoxCtrl" ng-init="loadBox()">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Categories</th>
-                    <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="category in categorylist">
-                    <td>{{category.categoryName}}</td>
-					<td><button class="btn btn-primary" ng-click="getrecipes(category.categoryID)">View Recipes</button></td>
-                </tr>
-            </tbody>
-            <th><button id="newNoteCardButton" class="btn btn-primary" ng-click="createnew()">Create New</button></th>
-        </table>
+	
+		<div class="nav nav-tabs">
+			<button class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category.categoryID)">{{category.categoryName}}</button>
+		</div>
+		
+		<div class="jumbotron">
+		</div>
+		<button id="newNoteCardButton" class="btn btn-default" ng-click="createnew()">Create New Notecard</button>
+	
 </div>

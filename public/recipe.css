@@ -16,6 +16,27 @@
 	color: 000000;
 }
 
+.nav.nav-tabs{
+	border: none;
+}
+
+.btn-tab {
+	background-color: FFFFCC;	
+	color: 000000;
+	font-family: cursive;
+}
+
+.jumbotron{
+	width: 500px;
+	height: 300px;
+	max-width: 500px;
+	max-height: 1000px;
+	background-color: A0793D !important;
+	border: 1px;
+	border-style: solid;
+	border-color: 000000;
+}
+
 
 /* Navigation Customization */
 .navbar {
