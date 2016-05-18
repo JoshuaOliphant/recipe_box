@@ -27,9 +27,12 @@
 }
 
 .btn-tab {
-	background-color: FFFFCC;
-	color: 000000;
+	color: firebrick;
+	background-color: F8F8F8;
 	font-family: cursive;
+	outline: 1px;
+	border-style: solid;
+	border-color: 000000;
 }
 
 .jumbotron{
@@ -37,7 +40,7 @@
 	height: 300px;
 	max-width: 500px;
 	max-height: 1000px;
-	background-color: A0793D !important;
+	background-color: F8F8F8 !important;
 	border: 1px;
 	border-style: solid;
 	border-color: 000000;

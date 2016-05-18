@@ -3,6 +3,7 @@ var recipeApp = angular.module('recipeApp', [
     'ngResource',
 ]);
 
+
 //controller for viewing a recipe box
 recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
