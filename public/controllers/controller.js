@@ -16,8 +16,8 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
         };
         
         $scope.getrecipes = function(id){
-			$rootScope.categoryID = id;
-			console.log($rootScope.categoryID);
+			$rootScope.category = id;
+			console.log($rootScope.category);
             window.location = "./#/recipes";
         }
          $scope.createnew = function() {
@@ -29,7 +29,7 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
 recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
         $scope.loadRecipes = function() {
-            $http.get('/categories/' + $rootScope.categoryID).success(function(response){
+            $http.get('/categories/' + $rootScope.category.categoryID).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
                 console.log(response);

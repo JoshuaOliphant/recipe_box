@@ -8,7 +8,7 @@
 	color: ffffff;
 	background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100%; 
 }
 
 .dropdown
@@ -18,6 +18,12 @@
 
 .nav.nav-tabs{
 	border: none;
+}
+
+
+.sidebar {
+	float: right;
+	vertical-align:top;
 }
 
 .btn-tab {
