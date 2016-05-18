@@ -1,6 +1,6 @@
 var recipeApp = angular.module('recipeApp', [
     'ngRoute',
-    'ngResource'
+    'ngResource',
 ]);
 
 //controller for viewing a recipe box
