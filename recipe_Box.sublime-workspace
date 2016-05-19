@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ali",
+				"vertical-align"
+			],
+			[
 				"cre",
 				"createNotecard"
 			],
@@ -299,15 +303,7 @@
 			"file": "public/index.html",
 			"settings":
 			{
-				"buffer_size": 1364,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/recipeBox.html",
-			"settings":
-			{
-				"buffer_size": 654,
+				"buffer_size": 1976,
 				"line_ending": "Unix"
 			}
 		},
@@ -315,7 +311,15 @@
 			"file": "public/controllers/controller.js",
 			"settings":
 			{
-				"buffer_size": 6343,
+				"buffer_size": 9238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/recipeBox.html",
+			"settings":
+			{
+				"buffer_size": 552,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,7 +327,7 @@
 			"file": "public/recipes.html",
 			"settings":
 			{
-				"buffer_size": 589,
+				"buffer_size": 491,
 				"line_ending": "Unix"
 			}
 		},
@@ -331,7 +335,7 @@
 			"file": "public/viewRecipeDetails.html",
 			"settings":
 			{
-				"buffer_size": 1053,
+				"buffer_size": 2191,
 				"line_ending": "Unix"
 			}
 		},
@@ -339,7 +343,7 @@
 			"file": "public/createNotecard.html",
 			"settings":
 			{
-				"buffer_size": 2569,
+				"buffer_size": 2782,
 				"line_ending": "Unix"
 			}
 		},
@@ -347,7 +351,23 @@
 			"file": "public/recipe.css",
 			"settings":
 			{
-				"buffer_size": 388,
+				"buffer_size": 3080,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/npm-debug.log",
+			"settings":
+			{
+				"buffer_size": 1045,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 5535,
 				"line_ending": "Unix"
 			}
 		}
@@ -558,7 +578,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -566,15 +586,15 @@
 					"file": "public/index.html",
 					"settings":
 					{
-						"buffer_size": 1364,
+						"buffer_size": 1976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								833,
-								833
+								10,
+								10
 							]
 						],
 						"settings":
@@ -584,53 +604,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 206.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public/recipeBox.html",
-					"settings":
-					{
-						"buffer_size": 654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								630,
-								630
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "public/controllers/controller.js",
 					"settings":
 					{
-						"buffer_size": 6343,
+						"buffer_size": 9238,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								82,
-								82
+								84,
+								84
 							]
 						],
 						"settings":
@@ -638,6 +630,34 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1695.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/recipeBox.html",
+					"settings":
+					{
+						"buffer_size": 552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -650,22 +670,22 @@
 					"file": "public/recipes.html",
 					"settings":
 					{
-						"buffer_size": 589,
+						"buffer_size": 491,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								566,
-								566
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -678,15 +698,15 @@
 					"file": "public/viewRecipeDetails.html",
 					"settings":
 					{
-						"buffer_size": 1053,
+						"buffer_size": 2191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								56,
-								56
+								0,
+								0
 							]
 						],
 						"settings":
@@ -706,15 +726,15 @@
 					"file": "public/createNotecard.html",
 					"settings":
 					{
-						"buffer_size": 2569,
+						"buffer_size": 2782,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								59,
-								59
+								0,
+								0
 							]
 						],
 						"settings":
@@ -724,7 +744,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 415.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -734,23 +754,78 @@
 					"file": "public/recipe.css",
 					"settings":
 					{
-						"buffer_size": 388,
+						"buffer_size": 3080,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								147
+								1112,
+								1112
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/npm-debug.log",
+					"settings":
+					{
+						"buffer_size": 1045,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "server.js",
+					"settings":
+					{
+						"buffer_size": 5535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5474,
+								5474
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3356.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
