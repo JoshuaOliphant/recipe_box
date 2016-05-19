@@ -198,6 +198,8 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
                         $scope.ingredients.push(response);
                     });
                 }
+				console.log("Initial load ");
+				console.log($scope.recipe);
             });
 			
 			//loads categories into dropdown 
@@ -244,7 +246,11 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 		
 		//saves the updated recipe in the DB
 		$scope.updaterecipe = function() {
+			console.log("I am in update recipe");
+			console.log($scope.recipe);
 			$scope.recipe.ingredientIDs = ingredientIDs;
+			console.log("I have added the ingredients");
+			console.log($scope.recipe);
 			$http.post("/updaterecipe", $scope.recipe).success(function(response){
 				console.log(response);
 				$rootScope.recipeID = $scope.recipe.recipeID;
