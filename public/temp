@@ -1,0 +1,67 @@
+<div class="page_title">
+  <h1><%= @board.title %></h1>
+  <h3>Status: <%= @board.status %></h3>
+</div>
+
+<div class="new_card_button">
+  <% if current_user %>
+    <%= link_to new_board_notecard_path(@board, @notecard), class: "btn btn-success" do  %>
+      <i class="glyphicon glyphicon-plus"> Add Notecard</i>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- Show Notecards For This Board -->
+<% @board.notecards.each do |notecard| %>
+<div class="notecard col-md-6">
+  <div class="well well-lg">
+    <ul>
+      <!-- Notecard Title -->
+      <li class="notecard_title"><%= link_to notecard.task, board_notecard_path(@board, notecard) %></li>
+
+      <!-- Notecard Date -->
+      <li><p class="notecard_column">Date: <%= notecard.date %></p></li>
+
+      <!-- Notecard Status -->
+      <li><p class="notecard_column">Task Status: <%= notecard.status  %></p></li>
+
+      <!-- Notecard Accomplish? -->
+      <li>
+        <p class="notecard_column"><i>What did you accomplish yesterday?</i></br><%= notecard.accomplished  %></p>
+      </li>
+
+      <!-- Notecard To Do? -->
+      <li>
+        <p class="notecard_column"><i>What are you doing today?</i></br><%= notecard.to_do  %></p>
+      </li>
+
+      <!-- Notecard Roadblocks? -->
+      <li>
+        <p class="notecard_column"><i>What are the roadblocks (if any)?</i></br><%= notecard.roadblock  %></p>
+      </li>
+    </ul>
+
+    <!-- Notecard Owner Can Edit Or Delete Card -->
+    <% if current_user && notecard.user == current_user %>
+    <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg" %>
+    <%= link_to "Delete Notecard", [@board, notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+<!-- Any Current User Can Edit or Delete the Board if Logged In -->
+<div class="board_actions col-md-12">
+  <% if current_user %>
+  <%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-info btn-lg" %>
+  <%= link_to "Delete Board", @board, class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>
+
+
+<table>
+    <tr><td><button class="editbtn">edit</button></td></tr>
+    <tr><td><button class="editbtn">edit</button></td></tr>
+    <tr><td><button class="editbtn">edit</button></td></tr>
+    <tr><td><button class="editbtn">edit</button></td></tr>
+</table>

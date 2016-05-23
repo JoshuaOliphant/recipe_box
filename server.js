@@ -44,6 +44,7 @@ mongoose.connection.on('open', function () {
         {
             ingredientID: Number,
             quantity: Number,
+			units: String,
             ingredient: String,
             caloriecount: Number
         },
@@ -95,14 +96,6 @@ app.get("/categories", function (req, res) {
     retrieveCategories(res, {});
 });
 
-//retrieve all recipes
-//for testing 
-/*
- app.get("/recipes", function(req, res) {
- console.log("Query for all recipes");
- retrieveRecipesInCategory(res, {});
- });*/
-
 //retrieve a given ingredient 
 app.get("/ingredientlist/:ingredientID", function (req, res) {
     var id = req.params.ingredientID;
@@ -124,12 +117,10 @@ app.get("/recipeData/:recipeID", function (req, res) {
     retrieveRecipeData(res, {recipeID: id});
 });
 
-//create an ingredient in DB and add it to a recipe; currently allows duplicates 
-app.post("/ingredientlist/:recipeID", function (req, res) {
-    var id = req.params.recipeID;
+//create an ingredient in DB; currently allows duplicates 
+app.post("/ingredientlist", function (req, res) {
     var jsonObj = req.body;
     console.log(jsonObj);
-    console.log(id);
     jsonObj.ingredientID = ingredientIDGenerator;
     ingredientIDGenerator++;
     Ingredients.create(jsonObj, function (err) {
@@ -137,16 +128,11 @@ app.post("/ingredientlist/:recipeID", function (req, res) {
             console.log('Ingredient creation failed');
         }
     });
-    Recipes.findOneAndUpdate({recipeID: id}, {$push: {ingredientIDs: jsonObj.ingredientID}}, {new: true}, function (err, doc) {
-        console.log("inside find one and update" + id);
-        if (err) {
-            console.log("Unable to add ingredient to recipe");
-        }
-    });
+	console.log(jsonObj);
     res.send(jsonObj);
 });
 
-//initialize a new recipe entry
+//creates a new recipe 
 app.post("/createrecipe", function (req, res) {
     console.log(req.body);
     var jsonObj = req.body;
@@ -155,25 +141,60 @@ app.post("/createrecipe", function (req, res) {
     Recipes.create(jsonObj, function (err) {
         if (err) {
             console.log('Recipe initialization failed');
+			console.log(err);
         }
     });
+
     res.send(jsonObj.recipeID.toString());
     console.log('Created: ' + jsonObj.recipeID);
 });
 
+//remove ingredient from DB
+app.delete("/ingredientlist/:ingredientid", function(req, res) {
+	var id = req.params.ingredientid;
+	console.log("Removing ingredient: " + id);
+	Ingredients.remove({ingredientID: id}, function(err) {
+		if (err) 
+		{
+			console.log("Unable to remove ingredient");
+		}
+	});
+	res.send(id);
+});
 
-/*
- //Update to remove an ingredient from a recipe
- //need to send both the ingredient and recipe id to this function
- //waiting up updat this until we have a better idea of the Angular used in the view
- app.delete("/ingredientlist/:recipeid/:ingredientid", function(req, res) {
- var recipeid = req.params.recipeid;
- var ingredientid = req.params.ingredientid;
- console.log("Removing: Recipe: " + recipeid + " Ingredient: " + ingredientid);
- Recipes.update({recipeID: recipeid}, {$pullAll: {ingredientIDs: ingredientid});
- res.send(ingredientID.toString());
- });
- */
+//remove recipe from DB                  
+app.delete("/recipe/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
+	console.log("Removing recipe: " + id);
+	Recipes.remove({recipeID: id}, function(err) {
+		if (err) 
+		{
+			console.log("Unable to remove recipe");
+		}
+	});
+	res.send(id);
+});
+
+//update existing recipe
+app.post("/updaterecipe", function(req, res) {
+	var id = req.body.recipeID;
+	console.log("Updating recipe " + id);
+	var recipeName = req.body.recipeName;
+	var categoryID = req.body.categoryID;
+	var recipeInstructions = req.body.recipeInstructions;
+	var ingredientIDs = req.body.ingredientIDs;
+	var options = {new: false};
+	var update = {recipeName, categoryID, recipeInstructions, ingredientIDs};
+	console.log(update);
+	Recipes.findOneAndUpdate({recipeID: id}, update, options, function(err) {
+		if (err)
+		{
+			console.log("Unable to update");
+			console.log(err);
+		}
+	});
+	res.send(update);
+});
 
 app.listen(3000);
 console.log("Server running on port 3000");

@@ -1,13 +1,207 @@
-.recipeBoxHeader
-{
-	/*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/recipeBoxHeader4.jpg?raw=true");*/
+.recipeBoxHeader {
+    /*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/recipeBoxHeader4.jpg?raw=true");*/
 
 }
 
-.recipeBoxMain
-{
-	color: ffffff;
-	background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");
-	background-repeat: no-repeat;
-	background-size: 100%;
+.recipeBoxMain {
+    color: firebrick;
+    /*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.dropdown {
+    color: #0f0f0f;
+}
+
+.nav.nav-tabs {
+    border: none;
+}
+
+.sidebar {
+    float: right;
+    vertical-align: top;
+}
+
+.sidebar-left {
+	float: left;
+	vertical-align:top;
+}
+
+.handwritten {
+	color: 000000;
+	font-family: cursive;
+}
+
+.btn-tab {
+    color: firebrick;
+    background-color: #f0f0f0;
+    font-family: cursive;
+    border: solid #ff0000;
+    border-right-color: #0000ff;
+    border-left-color: #0000ff;
+    display: flex;
+    align-items: center;
+}
+
+#jumbotron {
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    max-width: 500%;
+    max-height: 2000px;
+    background-color: #f0f0f0;
+    border: 1px solid #0f0f0f;
+    display: flex;
+    align-items: center;
+}
+
+#recipeBoxTabs{
+	margin-left: 171px;
+}
+/* Navigation Customization */
+.navbar {
+	background-color: #444;
+	border-radius: 0px;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+#recipeBoxButtons{
+	border-color: black;
+	border-bottom: none;
+}
+
+#recipeBox{
+	vertical-align: center;
+	float: right;
+}
+
+.navbar-brand {
+    font-size: 3em;
+    color: #fff;
+}
+
+.navbar-brand > a,
+.navbar-brand > a:hover,
+.navbar-brand > a:active {
+    text-decoration: none;
+}
+
+.navbar-credentials {
+    font-size: 2em;
+}
+
+#myRecipeBoxButton{
+	color: FFFFFF;
+}
+
+#signin{
+	color:FFFFFF;
+}
+
+#signup{
+	color:FFFFFF;
+}
+
+/* Global */
+.page_title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#main-container {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.well {
+    text-align: center;
+    margin: 20px;
+    background-color: #0f0f0f;
+    box-shadow: 5px 5px 5px #777;
+}
+
+footer {
+    margin: 50px;
+}
+
+/* Boards */
+.board_title {
+    font-size: 1.5em;
+}
+
+.board_status {
+    font-size: 1.3em;
+}
+
+.board_actions {
+    padding: 10px;
+}
+
+/* Notecard */
+.notecard > .well {
+    text-align: center;
+    margin: 10px;
+    background-color: #F8F8F8;
+    min-height: 480px;
+}
+
+.notecard_title {
+    font-size: 1.4em;
+    padding: 5px;
+    color: #0f0f0f;
+}
+
+.notecard_title > a,
+.notecard_title > a:hover,
+.notecard_title > a:active {
+    color: #000000;
+}
+
+.notecard_column {
+    text-align: left;
+    color: #000000;
+    /*border-bottom: 1px solid #999;*/
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.notecard_button {
+    position: absolute;
+    margin-left: -50px;
+    left: 50%;
+    width: 100px;
+    bottom: 0px;
+}
+
+.new_card_button {
+    padding: 20px;
+}
+
+/* Form */
+.form {
+    position: relative;
+    margin: 0 auto;
+}
+
+.form > .well {
+    background-color: #FCD96C;
+}
+
+.form-group, .form-submit {
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.form-group {
+    text-align: left;
 }

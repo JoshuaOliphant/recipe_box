@@ -1,43 +1,44 @@
 <!DOCTYPE>
-<html ng-app="myApp">
+<html>
 
 <head>
+    <base href="/"></base>
     <!-- Latest compiled and minified CSS -->
-    <link type="text/css" rel="stylesheet" href="recipe.css"/>   
+    <link type="text/css" rel="stylesheet" href="recipe.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <title>My Recipe Box</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Recipe Box</title>
 </head>
 
-<body class="recipeBoxMain">
+<body ng-app="recipeApp" class="recipeBoxMain">
+<!-- Navigation -->
+<nav id="homeheader" class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a id="myRecipeBoxButton" class="navbar-brand" href="/">My Recipe Box</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a id="signup" href="/users/sign_up">Sign Up</a></li>
+            <li><a id="signin" href="/users/sign_in">Sign In</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <div class="container" ng_controller="AppCtrl">
-        <h1 class="recipeBoxHeader">My Recipe Box</h1>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Categories</th>
-                    <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="category in categorylist">
-                    <td>{{category.categoryName}}</td>
-					<td><button class="btn btn-primary" ng-click="getrecipes()">View Recipes</button></td>
-                </tr>
-            </tbody>
-        </table>
-
+    <div class="container">
+        <!--<h1 class="recipeBoxHeader">My Recipe Box</h1>-->
+        <div ng-view></div>
     </div>
     <!--having at bottom makes page load faster-->
-    <!--<script src="script.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.js"></script>
     <script src="controllers/controller.js"></script>
-	<script src="controllers/controller1.js"></script>
+
 </body>
 
 </html>
