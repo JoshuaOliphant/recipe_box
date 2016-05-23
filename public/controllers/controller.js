@@ -20,13 +20,9 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
         $scope.getrecipes = function(id){
 			$rootScope.category = id;
 			console.log($rootScope.category);
-            window.location = "./#/recipes";
         }
 		
 		//redirects to the create recipe view
-         $scope.createnew = function() {
-            window.location = "./#/create";
-        };
 }]);
 
 //controller for viewing recipes in a category
@@ -45,13 +41,10 @@ recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
         $scope.getdetails = function(id) {
 			$rootScope.recipeID = id;
 			console.log($rootScope.recipeID);
-            window.location = "./#/recipeDetails";
         }
 		
 		//redirects to the create recipe view
-        $scope.createnew = function() {
-            window.location = "./#/create";
-        };
+       
 }]);
 
 //controller for viewing a notecard
@@ -99,11 +92,6 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
             window.location = "./#/edit";
         };
 		
-		//returns to the previous recipe list view
-		$scope.returnToList = function() 
-		{
-			window.location = "./#recipes";
-		}
 }]);
 
 //controller for creating a notecard 
@@ -254,7 +242,6 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 			$http.post("/updaterecipe", $scope.recipe).success(function(response){
 				console.log(response);
 				$rootScope.recipeID = $scope.recipe.recipeID;
-				window.location = "/#/recipeDetails";
 			});
 		};
 }]);

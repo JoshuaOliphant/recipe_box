@@ -1,12 +1,12 @@
 <div class="container" ng-controller="recipesCtrl" ng-init="loadRecipes()">
 	<h2>{{category.categoryName}}</h2>
 	<div class="sidebar">
-		<button id="newNoteCardButton" class="btn btn-default" ng-click="createnew()">Create New Notecard</button>
+		<a href="/#/create" id="newNoteCardButton" class="btn btn-default">Create New Notecard</a>
 	</div>
 		<table class="table">
 			<tbody>
 			<tr ng-repeat="recipe in recipelist">
-				<td><button class="btn btn-default btn-lg" ng-click="getdetails(recipe.recipeID)">{{recipe.recipeName}}</button></td>
+				<td><a href="/#/recipeDetails" class="btn btn-default btn-lg" ng-click="getdetails(recipe.recipeID)">{{recipe.recipeName}}</a></td>
 			</tr>
 			</tbody>
 		</table>

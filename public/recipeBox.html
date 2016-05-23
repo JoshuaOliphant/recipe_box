@@ -1,13 +1,13 @@
 <div class="container" ng-controller="recipeBoxCtrl" ng-init="loadBox()">
 
     <div class="sidebar">
-        <button id="newNoteCardButton" class="btn btn-default" ng-click="createnew()">Create New Notecard</button>
+        <a href="/#/create" id="newNoteCardButton" class="btn btn-default">Create New Notecard</a>
     </div>
 
     <div id="recipeBoxTabs" class="nav nav-tabs">
-        <button id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">
+        <a href="/#/recipes" id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">
             {{category.categoryName}}
-        </button>
+        </a>
     </div>
 
     <div class="jumbotron container-fluid" id="jumbotron"></div>
