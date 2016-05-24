@@ -1,4 +1,5 @@
-db = db.getSiblingDB('MY_RECIPE_BOX')
+// db = db.getSiblingDB('MY_RECIPE_BOX')
+db = db.getSiblingDB('myrecipebox')
 
 db.createCollection('ingredients')
 ingredientsCollection = db.getCollection('ingredients')
