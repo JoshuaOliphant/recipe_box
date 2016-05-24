@@ -196,10 +196,10 @@ app.post("/updaterecipe", function(req, res) {
 	res.send(update);
 });
 
-// app.listen(3000);
 var port;
 if(process.env.port)
     port = process.env.port;
 else
     port = 3000;
+app.listen(3000);
 console.log("Server running on port 3000");
