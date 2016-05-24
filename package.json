@@ -20,8 +20,11 @@
     "ngstorage": "^0.3.10",
     "ng-storage": "^0.3.2"
   },
-  "devDependencies": {},
-  "scripts":  {
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "phantomjs": "^2.1.7"
+  },
+  "scripts": {
     "test": "mocha",
     "start": "node server.js"
   },
