@@ -1,0 +1,38 @@
+{
+  "name": "recipe_box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "angular-touch": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongojs": "^2.3.0",
+    "ng-cookies": "^1.0.2",
+    "ngstorage": "^0.3.10",
+    "ng-storage": "^0.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaOliphant/recipe_box.git"
+  },
+  "author": "Justin Trimachi, Bailey Strom, Joshua Oliphant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaOliphant/recipe_box/issues"
+  },
+  "homepage": "https://github.com/JoshuaOliphant/recipe_box#readme"
+}
