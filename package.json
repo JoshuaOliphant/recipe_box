@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "jasmine": "^2.4.1",
+    "mongoose": "^4.4.19",
     "phantomjs": "^2.1.7"
   },
   "scripts": {
