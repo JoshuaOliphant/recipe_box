@@ -21,7 +21,7 @@
     "ng-storage": "^0.3.2"
   },
   "devDependencies": {},
-  "scripts": {
+  "scripts":  {
     "test": "mocha",
     "start": "node server.js"
   },
