@@ -44,6 +44,7 @@ mongoose.connection.on('open', function () {
         {
             ingredientID: Number,
             quantity: Number,
+			units: String,
             ingredient: String,
             caloriecount: Number
         },
@@ -95,14 +96,6 @@ app.get("/categories", function (req, res) {
     retrieveCategories(res, {});
 });
 
-//retrieve all recipes
-//for testing 
-/*
- app.get("/recipes", function(req, res) {
- console.log("Query for all recipes");
- retrieveRecipesInCategory(res, {});
- });*/
-
 //retrieve a given ingredient 
 app.get("/ingredientlist/:ingredientID", function (req, res) {
     var id = req.params.ingredientID;
@@ -135,6 +128,7 @@ app.post("/ingredientlist", function (req, res) {
             console.log('Ingredient creation failed');
         }
     });
+	console.log(jsonObj);
     res.send(jsonObj);
 });
 
@@ -144,12 +138,13 @@ app.post("/createrecipe", function (req, res) {
     var jsonObj = req.body;
     jsonObj.recipeID = recipeIDGenerator;
     recipeIDGenerator++;
-	console.log(jsonObj);
     Recipes.create(jsonObj, function (err) {
         if (err) {
             console.log('Recipe initialization failed');
+			console.log(err);
         }
     });
+
     res.send(jsonObj.recipeID.toString());
     console.log('Created: ' + jsonObj.recipeID);
 });
@@ -158,13 +153,54 @@ app.post("/createrecipe", function (req, res) {
 app.delete("/ingredientlist/:ingredientid", function(req, res) {
 	var id = req.params.ingredientid;
 	console.log("Removing ingredient: " + id);
-	Ingredients.remove({ingredientId: id}, function(err) {
+	Ingredients.remove({ingredientID: id}, function(err) {
 		if (err) 
 		{
 			console.log("Unable to remove ingredient");
 		}
 	});
+	res.send(id);
 });
 
-app.listen(3000);
+//remove recipe from DB                  
+app.delete("/recipe/:recipeID", function(req, res) {
+	var id = req.params.recipeID;
+	console.log("Removing recipe: " + id);
+	Recipes.remove({recipeID: id}, function(err) {
+		if (err) 
+		{
+			console.log("Unable to remove recipe");
+		}
+	});
+	res.send(id);
+});
+
+//update existing recipe
+app.post("/updaterecipe", function(req, res) {
+	var id = req.body.recipeID;
+	console.log("Updating recipe " + id);
+	var recipeName = req.body.recipeName;
+	var categoryID = req.body.categoryID;
+	var recipeInstructions = req.body.recipeInstructions;
+	var ingredientIDs = req.body.ingredientIDs;
+	var options = {new: false};
+	var update = {recipeName, categoryID, recipeInstructions, ingredientIDs};
+	console.log(update);
+	Recipes.findOneAndUpdate({recipeID: id}, update, options, function(err) {
+		if (err)
+		{
+			console.log("Unable to update");
+			console.log(err);
+		}
+	});
+	res.send(update);
+});
+
+var port;
+if(process.env.port)
+    port = process.env.port;
+else
+    port = 3000;
+app.listen(port);
+
 console.log("Server running on port 3000");
