@@ -1,14 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "sample-testing-project",
-  "version": "0.0.1",
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "grunt": "latest",
-    "grunt-mocha": "^1.0.2",
-    "mocha": "^2.5.1"
-  }
-=======
   "name": "recipe_box",
   "version": "1.0.0",
   "description": "",
@@ -49,5 +39,4 @@
     "url": "https://github.com/JoshuaOliphant/recipe_box/issues"
   },
   "homepage": "https://github.com/JoshuaOliphant/recipe_box#readme"
->>>>>>> docker
 }
