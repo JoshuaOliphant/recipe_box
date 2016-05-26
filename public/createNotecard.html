@@ -1,0 +1,66 @@
+
+<div class="container" ng_controller="createNotecardCtrl" ng-init="loadCreate()">
+        <h1 class="recipeBoxHeader">My Recipe Box</h1>
+        <h2 class="createNotecard">Create Notecard</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <input class="form-control" ng-model="recipe.recipeName" placeholder="Enter Name">
+                    </th>
+                    <th>
+                        <input class="form-control" ng-model="recipe.recipeInstructions" placeholder="Enter Instructions">
+                    </th>
+                    <th class="dropdown">
+                         <select ng-model="recipe.categoryID" ng-options="category.categoryID as category.categoryName for category in categories track by category.categoryID">Select Category</select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+					<th>Units</th>
+                    <th>Ingredient</th>
+                    <th>Calorie Count</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="ingredientlist handwritten" ng-repeat="ingredient in ingredients">
+                    <td>{{ingredient.quantity}}</td>
+					<td>{{ingredient.units}}</td>
+                    <td>{{ingredient.ingredient}}</td>
+                    <td>{{ingredient.caloriecount}}</td>
+                    <td>
+                        <button class="btn btn-default" ng-click="remove(ingredient.ingredientID)">Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="newingredient.quantity">
+                    </td>
+					<td>
+                        <input class="form-control" ng-model="newingredient.units">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="newingredient.ingredient">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="newingredient.caloriecount">
+                    </td>
+                    <td>
+                        <button class="btn btn-default" ng-click="addingredient()">Add ingredient
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/#/recipeDetails" class="btn btn-default" ng-click="createrecipe()">Create Recipe</a>
+                    </td>
+					<td>
+                        <a href="/#" class="btn btn-default">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
