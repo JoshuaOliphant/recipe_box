@@ -1,0 +1,30 @@
+{
+  "name": "recipe_box",
+  "version": "1.0.0",
+  "description": "An app to store recipes",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "*",
+    "chai": "*",
+    "express": "*",
+    "mongoose": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaOliphant/recipe_box.git"
+  },
+  "keywords": [
+    "recipe"
+  ],
+  "author": "Joshua Oliphant, Justin Trimachi, Bailey Strom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoshuaOliphant/recipe_box/issues"
+  },
+  "homepage": "https://github.com/JoshuaOliphant/recipe_box#readme"
+}
