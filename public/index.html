@@ -14,6 +14,26 @@
 </head>
 
 <body ng-app="recipeApp" class="recipeBoxMain">
+<div id="fb-root"></div>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '258167231203399',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <!-- Navigation -->
 <nav id="homeheader" class="navbar navbar-inverse">
     <div class="navbar-header">
@@ -21,8 +41,9 @@
     </div>
     <div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a id="signup" href="/users/sign_up">Sign Up</a></li>
-            <li><a id="signin" href="/users/sign_in">Sign In</a></li>
+            <!--<li><a id="signup" href="/users/sign_up">Sign Up</a></li>
+            <li><a id="signin" href="/users/sign_in">Sign In</a></li>-->
+            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
         </ul>
     </div>
 </nav>
