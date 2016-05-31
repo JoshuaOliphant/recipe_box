@@ -3,6 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+
+
 var ingredientIDGenerator = 100;
 var recipeIDGenerator = 100;
 
@@ -201,6 +203,18 @@ if(process.env.port)
     port = process.env.port;
 else
     port = 3000;
-app.listen(port);
+
+var server = app.listen(port, function () {
+    var host = server.address().address;
+
+    console.log('App listening at http://%s:%s', host, port);
+});
+module.exports = server;
+// var port;
+// if(process.env.port)
+//     port = process.env.port;
+// else
+//     port = 3000;
+// app.listen(port);
 
 console.log("Server running on port 3000");
