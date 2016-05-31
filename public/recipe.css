@@ -6,10 +6,16 @@
 .recipeBoxMain {
     color: firebrick;
     /*background-image: url("https://github.com/JoshuaOliphant/recipe_box/blob/master/images/RecipeBoxHeader3.jpg?raw=true");*/
+    background-color: #FCE6C9;
     background-repeat: no-repeat;
     background-size: 100%;
 }
-
+#homeheader
+{
+    display: block;
+    border: none;
+    background-image: url("https://raw.githubusercontent.com/JoshuaOliphant/recipe_box/testing/public/cuttingBoard.jpg");
+}
 .dropdown {
     color: #0f0f0f;
 }
@@ -54,6 +60,20 @@
     border: 1px solid #0f0f0f;
     display: flex;
     align-items: center;
+    
+}
+
+.jumbotron-inner
+{
+    color: #FFFFFF;
+    padding-bottom: 350;
+}
+.jumbotron
+{
+    background-size: cover;
+    font-size: 34;
+    font-family: cursive;
+    background-image: url("https://raw.githubusercontent.com/JoshuaOliphant/recipe_box/testing/images/recipeBox5.jpg");
 }
 
 #recipeBoxTabs{
