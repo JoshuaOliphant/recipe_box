@@ -7,7 +7,8 @@
     "body-parser": "*",
     "chai": "*",
     "express": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "request": "^2.72.0"
   },
   "devDependencies": {},
   "scripts": {
