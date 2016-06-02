@@ -21,6 +21,17 @@ mongoose.connect(mongoDBConnection.uri);
 //define and model schemas 
 mongoose.connection.on('open', function () {
     var Schema = mongoose.Schema;
+	
+	//first attempt at a user schema 
+	var UserSchema = new Schema(
+		{
+			userID: Number,
+			email: {type: String, required: true, unique: true},
+			hashed_pwd: String
+		}
+	);
+	Users = mongoose.model('Users', UserSchema);
+	
     var CategorySchema = new Schema(
         {
             categoryName: String,
@@ -36,7 +47,8 @@ mongoose.connection.on('open', function () {
             recipeName: String,
             categoryID: Number,
             recipeInstructions: String,
-            ingredientIDs: [{ingredientID: Number}]
+            ingredientIDs: [{ingredientID: Number}],
+			userID: Number 
         },
         {collection: 'recipes'}
     );
