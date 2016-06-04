@@ -26,7 +26,8 @@ mongoose.connection.on('open', function () {
 	var UserSchema = new Schema(
 		{
 			userID: Number,
-			email: {type: String, required: true, unique: true},
+			email: String,
+			userName: String,
 			hashed_pwd: String
 		}
 	);
