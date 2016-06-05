@@ -14,11 +14,18 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
                 $scope.categorylist = response;
                 console.log(response);
             });
+			
+			$http.get('/users').success(function(response){
+                console.log("I got the data I requested");
+                $scope.users = response;
+                console.log(response);
+            });
         };
         
 		//stores the category ID in rootScope and redirects recipe list view
         $scope.getrecipes = function(id){
 			$rootScope.category = id;
+			$rootScope.user = $scope.userID;
 			console.log($rootScope.category);
         }
 		
@@ -30,11 +37,13 @@ recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
     function($scope, $rootScope, $http){
 		//ng-init, loads recipes 
         $scope.loadRecipes = function() {
-            $http.get('/categories/' + $rootScope.category.categoryID).success(function(response){
+            $http.get('/categories/' + $rootScope.category.categoryID + '/' + $rootScope.user).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
                 console.log(response);
+				console.log("User id: " + $rootScope.user);
             });
+			
         };
         
 		//stores the recipe id in rootScope and redirects to the recipe details view
