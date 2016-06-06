@@ -129,7 +129,8 @@ mongoose.connection.on('open', function () {
 	var UserSchema = new Schema(
 		{
 			userID: Number,
-			email: {type: String, required: true, unique: true},
+			email: String,
+			userName: String,
 			hashed_pwd: String
 		}
 	);
@@ -179,6 +180,20 @@ function retrieveCategories(res, query) {
     });
 }
 
+function retrieveCategoryData(res, query) {
+    var query = Categories.findOne(query);
+    query.exec(function (err, categoryData) {
+        res.json(categoryData);
+    });
+}
+
+function retrieveUsers(res, query) {
+    var query = Users.find(query);
+    query.exec(function (err, userArray) {
+        res.json(userArray);
+    });
+}
+
 function retrieveRecipesInCategory(res, query) {
     var query = Recipes.find(query);
     query.exec(function (err, recipeArray) {
@@ -213,6 +228,12 @@ app.get("/categories", function (req, res) {
     retrieveCategories(res, {});
 });
 
+app.get("/categoryName/:categoryID", function (req, res) {
+	var id = req.params.categoryID;
+    console.log("Query for category id: " + id);
+    retrieveCategoryData(res, {categoryID: id});
+});
+
 //retrieve a given ingredient 
 app.get("/ingredientlist/:ingredientID", function (req, res) {
     var id = req.params.ingredientID;
@@ -220,11 +241,19 @@ app.get("/ingredientlist/:ingredientID", function (req, res) {
     retrieveIngredientData(res, {ingredientID: id});
 });
 
+//retrieve user list for demonstration
+app.get("/users", function (req, res) 
+{
+	console.log("Query for all users");
+	retrieveUsers(res, {});
+});
+
 //retrieve all recipes in a given category 
-app.get("/categories/:categoryID", function (req, res) {
-    var id = req.params.categoryID;
-    console.log("Query for category id: " + id);
-    retrieveRecipesInCategory(res, {categoryID: id});
+app.get("/categories/:categoryID/:userID", function (req, res) {
+    var catID = req.params.categoryID;
+	var uID = req.params.userID;
+    console.log("Query for category id: " + catID + " and for user id: " + uID);
+    retrieveRecipesInCategory(res, {categoryID: catID, userID: uID});
 });
 
 //retrieve all data for a given recipe

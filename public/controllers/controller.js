@@ -5,17 +5,23 @@ var recipeApp = angular.module('recipeApp', [
 
 
 //controller for viewing a recipe box
-recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
-    function($scope, $rootScope, $http){
-		//ng-init, loads categories
+recipeApp.controller('recipeBoxCtrl', ['$scope', '$route', '$http',
+    function($scope, $route, $http){
+		//ng-init, loads categories and users for dropdown
         $scope.loadBox = function() {
             $http.get('/categories').success(function(response){
                 console.log("I got the data I requested");
                 $scope.categorylist = response;
                 console.log(response);
             });
+			
+			$http.get('/users').success(function(response){
+                console.log("I got the data I requested");
+                $scope.users = response;
+                console.log(response);
+            });
         };
-        
+
 		//stores the category ID in rootScope and redirects recipe list view
         $scope.getrecipes = function(id){
 			$rootScope.category = id;
@@ -35,39 +41,39 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
         }
 		
 		//redirects to the create recipe view
+
 }]);
 
 //controller for viewing recipes in a category
-recipeApp.controller('recipesCtrl', ['$scope', '$rootScope', '$http',
-    function($scope, $rootScope, $http){
+recipeApp.controller('recipesCtrl', ['$scope', '$route', '$http',
+    function($scope, $route, $http){
 		//ng-init, loads recipes 
         $scope.loadRecipes = function() {
-            $http.get('/categories/' + $rootScope.category.categoryID).success(function(response){
+			$scope.categoryName = $route.current.params.categoryName;
+			$scope.categoryID = $route.current.params.categoryID;
+			$scope.userID = $route.current.params.userID;
+            $http.get('/categories/' + $scope.categoryID + '/' + $scope.userID).success(function(response){
                 console.log("I got the data I requested");
                 $scope.recipelist = response;
                 console.log(response);
-            });
+				console.log("User id for category list: " + $scope.userID);
+            }); 
+			
         };
-        
-		//stores the recipe id in rootScope and redirects to the recipe details view
-        $scope.getdetails = function(id) {
-			$rootScope.recipeID = id;
-			console.log($rootScope.recipeID);
-        }
-		
-		//redirects to the create recipe view
-       
 }]);
 
 //controller for viewing a notecard
-recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
-    function($scope, $rootScope, $http){
+recipeApp.controller('recipeDetailCtrl', ['$scope', '$route', '$http',
+    function($scope, $route, $http){
         
         var ingredientIDs;
 		//ng-init, loads recipe details, including ingredients 
         $scope.loadNotecard = function() {
-			$scope.categoryName = $rootScope.category.categoryName;
-            $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
+			$scope.categoryName = $route.current.params.categoryName;
+			$scope.categoryID = $route.current.params.categoryID;
+			$scope.recipeID = $route.current.params.recipeID;
+			$scope.userID = $route.current.params.userID;
+            $http.get("/recipeData/" + $scope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
 				console.log(ingredientIDs);
@@ -93,23 +99,15 @@ recipeApp.controller('recipeDetailCtrl', ['$scope', '$rootScope', '$http',
             console.log(id);
             $http.delete('/recipe/' + id).success(function(response){
 				console.log("Deleted recipe " + response);
-				window.location = "./#/recipes";
             });
-			
-        };
-
-		//stores recipeID in the root scope and redirects to the edit page
-        $scope.edit = function(id) {
-			$rootScope.recipeID = id;
-            window.location = "./#/edit";
         };
 		
 }]);
 
 //controller for creating a notecard 
-recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
-    function($scope, $rootScope, $http){
-		
+recipeApp.controller('createNotecardCtrl', ['$scope', '$route', '$http',
+    function($scope, $route, $http){
+		$scope.userID = $route.current.params.userID;
 		var ingredientIDs = [];
 		//ng-init, loads categories into dropdown menu 
 		$scope.loadCreate = function() {
@@ -119,19 +117,28 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
                 $scope.categories = response;
             });
 			$scope.ingredients=[];
+			console.log($scope.userID);
         };
 		
 		//Creates a recipe and adds the ingredient ids
 		$scope.createrecipe = function() {
+			$http.get("/categoryName/" + $scope.recipe.categoryID).success(function(response){
+				$scope.categoryName = response.categoryName;
+				console.log($scope.categoryName);
+			});
 			console.log(ingredientIDs);
 			$scope.recipe.ingredientIDs = ingredientIDs;
+			$scope.recipe.userID = $scope.userID;
 			console.log($scope.recipe);
 			$http.post("/createrecipe", $scope.recipe).success(function(response) {
 				console.log("Recipe initialized");
 				console.log(response);
-				$rootScope.recipeID = response;
-				console.log("Sending recipe id " + $rootScope.recipeID);
-				window.location = "/#/recipeDetails";
+				$scope.recipeID = response;
+				console.log("Category name " + $scope.categoryName);
+				console.log("Category id " + $scope.recipe.categoryID);
+				console.log("Recipe id " + $scope.recipeID);
+				console.log("User id " + $scope.userID);
+				
 			});
 		};
 
@@ -170,19 +177,17 @@ recipeApp.controller('createNotecardCtrl', ['$scope', '$rootScope', '$http',
 			}
         };
 		
-		//returns to homepage
-		$scope.returnToHome = function() {
-			window.location = "/#";
-		}
 }]);
 
 //controler for editing recipes 
-recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
-    function($scope, $rootScope, $http){
+recipeApp.controller('editRecipeCtrl', ['$scope', '$route', '$http',
+    function($scope, $route, $http){
+		$scope.recipeID = $route.current.params.recipeID;
+		$scope.userID = $route.current.params.userID;
         var ingredientIDs;
 		//ng-init, loads all recipe data similar to the recipe details view 
         $scope.loadEdit = function() {
-            $http.get("/recipeData/" + $rootScope.recipeID).success(function(response) {
+            $http.get("/recipeData/" + $scope.recipeID).success(function(response) {
                 console.log("I got the data I requested");
                 $scope.recipe = response;
                 ingredientIDs = response.ingredientIDs;
@@ -253,8 +258,16 @@ recipeApp.controller('editRecipeCtrl', ['$scope', '$rootScope', '$http',
 			console.log($scope.recipe);
 			$http.post("/updaterecipe", $scope.recipe).success(function(response){
 				console.log(response);
-				$rootScope.recipeID = $scope.recipe.recipeID;
+				$scope.recipeID = $scope.recipe.recipeID;
 			});
+			$http.get("/categoryName/" + $scope.recipe.categoryID).success(function(response){
+				$scope.categoryName = response.categoryName;
+				console.log("Initial category name: " + $scope.categoryName);
+			});
+			console.log("Category name " + $scope.categoryName);
+			console.log("Category id " + $scope.recipe.categoryID);
+			console.log("Recipe id " + $scope.recipeID);
+			console.log("User id " + $scope.userID);
 		};
 }]);
 
@@ -265,19 +278,19 @@ recipeApp.config(function($routeProvider){
         templateUrl: 'recipeBox.html',
         controller: 'recipeBoxCtrl'
     })
-    .when('/recipes',{
+    .when('/recipes/:categoryName/:categoryID/:userID',{
         templateUrl: '/recipes.html',
         controller: 'recipesCtrl'
     })
-    .when('/recipeDetails',{
+    .when('/recipeDetails/:categoryName/:categoryID/:recipeID/:userID',{
         templateUrl: '/viewRecipeDetails.html',
         controller: 'recipeDetailCtrl'
     })
-    .when('/create',{
+    .when('/create/:userID',{
         templateUrl: '/createNotecard.html',
         controller: 'createNotecardCtrl'
     })
-	.when('/edit',{
+	.when('/edit/:recipeID/:userID',{
 		templateUrl: '/editRecipeDetails.html',
 		controller: 'editRecipeCtrl'
 	})
