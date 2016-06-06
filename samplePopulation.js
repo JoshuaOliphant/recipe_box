@@ -1,6 +1,9 @@
 // db = db.getSiblingDB('MY_RECIPE_BOX')
 db = db.getSiblingDB('myrecipebox')
 
+db.createCollection('accounts')
+Accounts = db.getCollection("accounts")
+
 db.createCollection('ingredients')
 ingredientsCollection = db.getCollection('ingredients')
 ingredientsCollection.remove({})

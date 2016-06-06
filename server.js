@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-
+var passport = require('passport')
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var ingredientIDGenerator = 100;
 var recipeIDGenerator = 100;
@@ -12,6 +13,108 @@ var recipeIDGenerator = 100;
 var Recipes;
 var Categories;
 var Ingredients;
+
+
+// app.set('port', process.env.PORT || 8080); //3000);
+
+var FACEBOOK_APP_ID = '258167231203399';
+var FACEBOOK_APP_SECRET = '6c8c9d00d4480e6704a39b3d3e0829a0';
+
+passport.serializeUser(function(user, done){
+    done(null, user);
+});
+
+passport.deserializeUser(function(id, done){
+    Accounts.findById(id, function(err, user){
+        done(err, user);
+    });
+});
+
+passport.use(new FacebookStrategy({
+
+        clientID: FACEBOOK_APP_ID,
+        clientSecret: FACEBOOK_APP_SECRET,
+        callbackURL: "http://localhost:8080/auth/facebook/callback",
+        profileFields: ['email', 'name']
+    },
+    function(accessToken, refreshToken, profile, done) {
+        process.nextTick(function(){
+            Accounts.findOne({email: profile.emails[0].value}, function(err, user){
+                if(err)
+                    return done(err);
+                if(user)
+                {
+                    console.log("found user is: "+ user);
+
+                    return done(null, user);
+
+                }
+                else {
+                    var newUser = new Accounts();
+                    //newUser.facebookid = profile.id;
+
+                    newUser.facebooktoken = accessToken;
+                        newUser.firstName = profile.name.givenName;
+                    console.log("newUser.firstName "+ newUser.firstName);
+                    newUser.lastName  = profile.name.familyName;
+                    //newUser.dob = profile.birthday;
+                    console.log("test1 here pls first.. 1 ..");
+                    newUser.email = profile.emails[0].value;
+                    //newUser.facebook.photo = 'https://graph.facebook.com/v2.3/' + profile.id + '/picture?type=large';
+
+                    newUser.save(function(err){
+                        if(err){
+                            throw err;
+                        }
+                        console.log("newuser is: "+ newUser);
+                        return done(null, newUser);
+                    })
+                    console.log("profile is: "+ profile);
+                }
+            });
+        });
+    }
+));
+
+app.get('/auth/facebook', passport.authenticate("facebook", {scope: ['email']}),
+    function(req,res){
+
+    });
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/client/views/login.html' }),
+    function(req, res){
+        console.log("auth newuser is: "+ req.user.email);
+        console.log("req.session.passport.user: "+ req.session.passport.user._id);
+
+        console.log("is auth: ? "+ req.isAuthenticated());
+        /*if(req.isAuthenticated()){
+         var isloogedin = true;
+         }*/
+        res.redirect('http://localhost:8080/#/mySets');
+
+        //res.json(newUser.email);
+        //res.json(newUser);
+    });
+
+app.get('/fbsessionurl', function(req, res){
+    console.log("Inside server side fb session call url !!!");
+
+    Accounts.find({_id: req.session.passport.user._id}, function(err, found){
+        if(err)
+            res.send(err);
+        else
+            res.json(found);
+    });
+});
+
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+
+});
+
+
+
 
 //connect to DB
 var mongoDBConnection = require('./db.recipe_box.config');
@@ -210,23 +313,23 @@ app.post("/updaterecipe", function(req, res) {
 	res.send(update);
 });
 
-var port;
-if(process.env.port)
-    port = process.env.port;
-else
-    port = 3000;
-
-var server = app.listen(port, function () {
-    var host = server.address().address;
-
-    console.log('App listening at http://%s:%s', host, port);
-});
-module.exports = server;
 // var port;
 // if(process.env.port)
 //     port = process.env.port;
 // else
 //     port = 3000;
-// app.listen(port);
+//
+// var server = app.listen(port, function () {
+//     var host = server.address().address;
+//
+//     console.log('App listening at http://%s:%s', host, port);
+// });
+// module.exports = server;
+// var port;
+if(process.env.port)
+    port = process.env.port;
+else
+    port = 8080;
+app.listen(port);
 
 console.log("Server running on port 3000");

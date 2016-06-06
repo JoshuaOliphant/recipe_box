@@ -59,6 +59,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.js"></script>
     <script src="controllers/controller.js"></script>
 
+
+<p class="lead" ng-init="getFBsessionDetails()">
+    <b>Facebook Login Details</b> <br>
+    User ID: {{fbdetails._id}} <br>
+    First Name: {{fbdetails.firstName}} <br>
+    Last Name: {{fbdetails.lastName}} <br>
+    Email: {{fbdetails.email}} <br>
+</p>
+
 </body>
 
 </html>

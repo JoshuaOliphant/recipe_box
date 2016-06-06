@@ -8,6 +8,8 @@
     "chai": "*",
     "express": "*",
     "mongoose": "*",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "request": "^2.72.0"
   },
   "devDependencies": {},

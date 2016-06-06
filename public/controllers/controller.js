@@ -21,6 +21,18 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$rootScope', '$http',
 			$rootScope.category = id;
 			console.log($rootScope.category);
         }
+
+        $scope.getFBsessionDetails = function() {
+
+            var fbsessionurl = "/fbsessionurl";
+            console.log("fbsessionurl is: "+fbsessionurl);
+
+            $http.get(fbsessionurl).success(function(data){
+                $scope.fbdetails = data[0];
+                //var fbdet = JSON.parse($scope.fbdetails);
+                console.log("$scope.fbdetails: "+ $scope.fbdetails.email);
+            });
+        }
 		
 		//redirects to the create recipe view
 }]);

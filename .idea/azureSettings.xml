@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AzureSettings">
+    <option name="storageAccount" value="rO0ABXVyAExbTGNvbS5taWNyb3NvZnRvcGVudGVjaG5vbG9naWVzLmF6dXJlY29tbW9ucy5zdG9yYWdlcmVnaXN0cnkuU3RvcmFnZUFjY291bnQ7lcwAzqc4SBYCAAB4cAAAAAA=" />
     <option name="appInsights" value="rO0ABXVyAEtbTGNvbS5taWNyb3NvZnQuYXBwbGljYXRpb25pbnNpZ2h0cy5wcmVmZXJlbmNlLkFwcGxpY2F0aW9uSW5zaWdodHNSZXNvdXJjZTvCzxEP0C2HbAIAAHhwAAAAAA==" />
     <option name="webApps" value="rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAB3CAAAABAAAAAAeA==" />
     <option name="properties">
