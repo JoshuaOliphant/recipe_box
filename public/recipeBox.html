@@ -1,13 +1,13 @@
 <div class="container" ng-controller="recipeBoxCtrl" ng-init="loadBox()">
 
     <div class="sidebar">
-        <a href="/#/create" id="newNoteCardButton" class="btn btn-default">Create New Notecard</a>
+        <a href="/#/create/{{userID}}" id="newNoteCardButton" class="btn btn-default">Create New Notecard</a>
     </div>
 	<div class="dropdown">
         <select ng-model="userID" ng-options="user.userID as user.userName for user in users track by user.userID">Select User</select>
     </div>
     <div id="recipeBoxTabs" class="nav nav-tabs">
-        <a href="/#/recipes" id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist" ng-click="getrecipes(category)">
+        <a href="/#/recipes/{{category.categoryName}}/{{category.categoryID}}/{{userID}}" id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist">
             {{category.categoryName}}
         </a>
     </div>

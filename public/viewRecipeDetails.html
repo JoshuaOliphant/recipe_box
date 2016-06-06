@@ -1,6 +1,6 @@
 <div class="container-fluid" ng-controller="recipeDetailCtrl" ng-init="loadNotecard()">
 	<div class="sidebar-left">
-		<a href="/#/recipes" id="returnToList" class="btn btn-default">Return To {{category.categoryName}}</a>
+		<a href="/#/recipes/{{categoryName}}/{{categoryID}}/{{userID}}" id="returnToList" class="btn btn-default">Return To {{categoryName}}</a>
 	</div>
     <div class="row">
         <div class="col-md-12">
@@ -45,10 +45,10 @@
 					<p class="notecard_column handwritten">{{recipe.recipeInstructions}}</p>
                 </li>
                 <li>
-                    <a href="/#/edit" class="btn btn-default" ng-click="edit(recipe.recipeID)">Edit Recipe</a>
+                    <a href="/#/edit/{{recipe.recipeID}}/{{userID}}" class="btn btn-default">Edit Recipe</a>
                 </li>
                 <li>
-                    <a href="/#/recipes" class="btn btn-default" ng-click="removeRecipe(recipe.recipeID)">Delete Recipe</a>
+                    <a href="/#/recipes/{{categoryName}}/{{categoryID}}/{{userID}}" class="btn btn-default" ng-click="removeRecipe(recipe.recipeID)">Delete Recipe</a>
                 </li>
 
                 </ul>

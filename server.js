@@ -77,6 +77,13 @@ function retrieveCategories(res, query) {
     });
 }
 
+function retrieveCategoryData(res, query) {
+    var query = Categories.findOne(query);
+    query.exec(function (err, categoryData) {
+        res.json(categoryData);
+    });
+}
+
 function retrieveUsers(res, query) {
     var query = Users.find(query);
     query.exec(function (err, userArray) {
@@ -116,6 +123,12 @@ app.use(bodyParser.json());
 app.get("/categories", function (req, res) {
     console.log("Query for all categories");
     retrieveCategories(res, {});
+});
+
+app.get("/categoryName/:categoryID", function (req, res) {
+	var id = req.params.categoryID;
+    console.log("Query for category id: " + id);
+    retrieveCategoryData(res, {categoryID: id});
 });
 
 //retrieve a given ingredient 
