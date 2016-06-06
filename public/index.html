@@ -41,10 +41,9 @@
     </div>
     <div>
         <ul class="nav navbar-nav navbar-right">
-            <!--<li><a id="signup" href="/users/sign_up">Sign Up</a></li>
-            <li><a id="signin" href="/users/sign_in">Sign In</a></li>-->
-            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-        </ul>
+            <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div> -->
+			<a class="fb-login-button" href="/auth/facebook">Login with Facebook</a>
+	   </ul>
     </div>
 </nav>
     <div class="container">
@@ -58,14 +57,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="controllers/controller.js"></script>
 
-
-<p class="lead" ng-init="getFBsessionDetails()">
-    <b>Facebook Login Details</b> <br>
-    User ID: {{fbdetails._id}} <br>
-    First Name: {{fbdetails.firstName}} <br>
-    Last Name: {{fbdetails.lastName}} <br>
-    Email: {{fbdetails.email}} <br>
-</p>
 
 </body>
 

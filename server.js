@@ -9,67 +9,38 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var ingredientIDGenerator = 100;
 var recipeIDGenerator = 100;
 
-//mongoose schemas defined 
-var Recipes;
-var Categories;
-var Ingredients;
-
-
-// app.set('port', process.env.PORT || 8080); //3000);
-
 var FACEBOOK_APP_ID = '258167231203399';
 var FACEBOOK_APP_SECRET = '6c8c9d00d4480e6704a39b3d3e0829a0';
-
-passport.serializeUser(function(user, done){
-    done(null, user);
-});
-
-passport.deserializeUser(function(id, done){
-    Accounts.findById(id, function(err, user){
-        done(err, user);
-    });
-});
+var FACEBOOK_CALLBACK_URL = "http://localhost:8080/auth/facebook/callback";
+// app.set('port', process.env.PORT || 8080); //3000)a
 
 passport.use(new FacebookStrategy({
 
         clientID: FACEBOOK_APP_ID,
         clientSecret: FACEBOOK_APP_SECRET,
-        callbackURL: "http://localhost:8080/auth/facebook/callback",
-        profileFields: ['email', 'name']
+        callbackURL: FACEBOOK_CALLBACK_URL,
     },
     function(accessToken, refreshToken, profile, done) {
         process.nextTick(function(){
-            Accounts.findOne({email: profile.emails[0].value}, function(err, user){
+            FacebookUser.findOne({'fbID': profile.id}, function(err, user){
                 if(err)
                     return done(err);
                 if(user)
                 {
-                    console.log("found user is: "+ user);
-
                     return done(null, user);
-
                 }
                 else {
-                    var newUser = new Accounts();
-                    //newUser.facebookid = profile.id;
-
-                    newUser.facebooktoken = accessToken;
-                        newUser.firstName = profile.name.givenName;
-                    console.log("newUser.firstName "+ newUser.firstName);
-                    newUser.lastName  = profile.name.familyName;
-                    //newUser.dob = profile.birthday;
-                    console.log("test1 here pls first.. 1 ..");
-                    newUser.email = profile.emails[0].value;
-                    //newUser.facebook.photo = 'https://graph.facebook.com/v2.3/' + profile.id + '/picture?type=large';
-
-                    newUser.save(function(err){
-                        if(err){
-                            throw err;
-                        }
-                        console.log("newuser is: "+ newUser);
-                        return done(null, newUser);
-                    })
-                    console.log("profile is: "+ profile);
+                    FacebookUser.create({fbID: profile.id, token: accessToken, 
+						name: profile.name.givenName + ' ' + profile.name.familyName,
+						email: profile.email[0].value}, function(err, user){
+							if (err)
+							{
+								console.log("Cannot create facebook user");
+							}
+							else{
+								return done(null, user);
+							}
+						});
                 }
             });
         });
@@ -81,22 +52,17 @@ app.get('/auth/facebook', passport.authenticate("facebook", {scope: ['email']}),
 
     });
 
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/client/views/login.html' }),
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/#', failureRedirect: '/#' }),
     function(req, res){
-        console.log("auth newuser is: "+ req.user.email);
-        console.log("req.session.passport.user: "+ req.session.passport.user._id);
 
         console.log("is auth: ? "+ req.isAuthenticated());
         /*if(req.isAuthenticated()){
          var isloogedin = true;
          }*/
         res.redirect('http://localhost:8080/#/mySets');
-
-        //res.json(newUser.email);
-        //res.json(newUser);
     });
 
-app.get('/fbsessionurl', function(req, res){
+/* app.get('/fbsessionurl', function(req, res){
     console.log("Inside server side fb session call url !!!");
 
     Accounts.find({_id: req.session.passport.user._id}, function(err, found){
@@ -111,10 +77,16 @@ app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 
-});
+}); */
 
 
 
+//mongoose schemas defined 
+var Recipes;
+var Categories;
+var Ingredients;
+var Users;
+var FacebookUsers;
 
 //connect to DB
 var mongoDBConnection = require('./db.recipe_box.config');
@@ -135,6 +107,16 @@ mongoose.connection.on('open', function () {
 		}
 	);
 	Users = mongoose.model('Users', UserSchema);
+	
+	var FacebookSchema = new Schema(
+		{
+			fbID: String,
+			token: String,
+			email: String,
+			name: String
+		}
+	);
+	FacebookUsers = mongoose.model('FacebookUsers', FacebookSchema);
 	
     var CategorySchema = new Schema(
         {

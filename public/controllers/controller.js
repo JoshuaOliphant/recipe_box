@@ -28,20 +28,6 @@ recipeApp.controller('recipeBoxCtrl', ['$scope', '$route', '$http',
 			console.log($rootScope.category);
         }
 
-        $scope.getFBsessionDetails = function() {
-
-            var fbsessionurl = "/fbsessionurl";
-            console.log("fbsessionurl is: "+fbsessionurl);
-
-            $http.get(fbsessionurl).success(function(data){
-                $scope.fbdetails = data[0];
-                //var fbdet = JSON.parse($scope.fbdetails);
-                console.log("$scope.fbdetails: "+ $scope.fbdetails.email);
-            });
-        }
-		
-		//redirects to the create recipe view
-
 }]);
 
 //controller for viewing recipes in a category

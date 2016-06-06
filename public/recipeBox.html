@@ -5,7 +5,10 @@
     </div>
 	<div class="dropdown">
         <select ng-model="userID" ng-options="user.userID as user.userName for user in users track by user.userID">Select User</select>
-    </div>
+	</br>Facebook Login 
+    </br>Name: {{user.name}}
+    </br>Email: {{user.email}}
+   </div>
     <div id="recipeBoxTabs" class="nav nav-tabs">
         <a href="/#/recipes/{{category.categoryName}}/{{category.categoryID}}/{{userID}}" id="recipeBoxButtons" class="btn btn-lg btn-tab" ng-repeat="category in categorylist">
             {{category.categoryName}}
